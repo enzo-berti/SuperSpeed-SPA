@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cpx78tmv62lxu" path="res://levels/main_menu/BackgroundMenu.png" id="2_8y85c"]
 [ext_resource type="Texture2D" uid="uid://qfpd4nnc6vqc" path="res://levels/main_menu/start button.png" id="2_axrye"]
 [ext_resource type="Texture2D" uid="uid://b2ngj7egmejki" path="res://levels/main_menu/quit.png" id="3_8y85c"]
+[ext_resource type="Texture2D" uid="uid://bh5uk2nnnjygy" path="res://levels/main_menu/rocky racoons logo.png" id="5_t2nvs"]
 
 [node name="MenuPrincipal" type="Control" unique_id=725306042]
 layout_mode = 3
@@ -54,6 +55,15 @@ layout_mode = 2
 mouse_default_cursor_shape = 2
 icon = ExtResource("3_8y85c")
 flat = true
+
+[node name="Logo" type="TextureRect" parent="." unique_id=1846252050]
+layout_mode = 1
+offset_left = 9.0
+offset_top = 11.0
+offset_right = 173.01953
+offset_bottom = 162.0
+texture = ExtResource("5_t2nvs")
+expand_mode = 1
 
 [connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
