@@ -11,13 +11,13 @@ position = Vector2(960, 540)
 texture = ExtResource("1_hjsbj")
 
 [node name="ClientSpawner" type="Node2D" parent="." unique_id=8809230 groups=["Clients"]]
-position = Vector2(960, -1000)
+position = Vector2(960, -1800)
 script = ExtResource("2_cwqvt")
 
 [node name="FirstPos" type="Node2D" parent="ClientSpawner" unique_id=1136680520]
 unique_name_in_owner = true
-position = Vector2(0, 1500)
+position = Vector2(0, 2200)
 
 [node name="LeavingPos" type="Node2D" parent="ClientSpawner" unique_id=157540625]
 unique_name_in_owner = true
-position = Vector2(0, 3000)
+position = Vector2(0, 3200)

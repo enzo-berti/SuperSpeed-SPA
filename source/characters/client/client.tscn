@@ -4,12 +4,11 @@
 [ext_resource type="Texture2D" uid="uid://cwrrnqws24ilb" path="res://characters/racoon/raton.png" id="2_s57k7"]
 
 [node name="Client" type="CharacterBody2D" unique_id=1249865823]
+motion_mode = 1
+slide_on_ceiling = false
 script = ExtResource("1_1wbty")
-speed = 200.0
+speed = 100.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=761792710]
-position = Vector2(45, 542)
+position = Vector2(44, 597)
 texture = ExtResource("2_s57k7")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=166073640]
-position = Vector2(0, -540)
