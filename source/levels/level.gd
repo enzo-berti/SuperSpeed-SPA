@@ -1,6 +1,7 @@
 extends Node2D
 
 var is_there_client : bool = false
+@onready var spawn_pos : Vector2 = $SpawnPoint.position
 
 
 ###### BUILT-IN FUNCTIONS ######
@@ -22,5 +23,6 @@ func spawn_client() -> void:
     var client = preload("res://characters/client/client.tscn")
     var instance = client.instantiate()
     add_child(instance)
+    instance.position = spawn_pos
     is_there_client = true
     pass

@@ -1,23 +1,21 @@
 [gd_scene format=3 uid="uid://b180gverqsa44"]
 
 [ext_resource type="Texture2D" uid="uid://bc0g26n77sv00" path="res://levels/fond.png" id="1_hjsbj"]
-[ext_resource type="Script" uid="uid://buo7oj8kularv" path="res://characters/client/client_spawner.gd" id="2_cwqvt"]
+[ext_resource type="Script" uid="uid://buo7oj8kularv" path="res://levels/level.gd" id="2_cwqvt"]
 
 [node name="Level" type="Node2D" unique_id=300681085]
+script = ExtResource("2_cwqvt")
 
 [node name="Background" type="Sprite2D" parent="." unique_id=922658167]
 z_index = -1
 position = Vector2(960, 540)
 texture = ExtResource("1_hjsbj")
 
-[node name="ClientSpawner" type="Node2D" parent="." unique_id=8809230 groups=["Clients"]]
+[node name="SpawnPoint" type="Node2D" parent="." unique_id=8809230]
 position = Vector2(960, -1800)
-script = ExtResource("2_cwqvt")
 
-[node name="FirstPos" type="Node2D" parent="ClientSpawner" unique_id=1136680520]
-unique_name_in_owner = true
-position = Vector2(0, 2200)
+[node name="GamePoint" type="Node2D" parent="." unique_id=1136680520]
+position = Vector2(960, 400)
 
-[node name="LeavingPos" type="Node2D" parent="ClientSpawner" unique_id=157540625]
-unique_name_in_owner = true
-position = Vector2(0, 3200)
+[node name="DestroyPoint" type="Node2D" parent="." unique_id=157540625]
+position = Vector2(960, 1400)

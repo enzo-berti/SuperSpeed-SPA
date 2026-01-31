@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://bjar0nsv8motn"]
+
+[ext_resource type="Script" uid="uid://c62l6piri76xm" path="res://mini_games/cucumber/cucumber.gd" id="1_5yc3b"]
+[ext_resource type="Texture2D" uid="uid://lwo4x5glwx8b" path="res://mini_games/cucumber/concombre.png" id="1_tkkmq"]
+
+[sub_resource type="Curve2D" id="Curve2D_8fqau"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, -200, 0, 0, 0, 0, 0, 200)
+}
+point_count = 2
+
+[node name="Cucumber" type="Node2D" unique_id=479024315 node_paths=PackedStringArray("path")]
+script = ExtResource("1_5yc3b")
+path = NodePath("Path2D/PathFollow2D")
+
+[node name="Path2D" type="Path2D" parent="." unique_id=2031570401]
+curve = SubResource("Curve2D_8fqau")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D" unique_id=161715659]
+position = Vector2(0, -200)
+rotation = 1.5707964
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Path2D/PathFollow2D" unique_id=16198515]
+
+[node name="Sprite2D" type="Sprite2D" parent="Path2D/PathFollow2D/StaticBody2D" unique_id=909540587]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_tkkmq")

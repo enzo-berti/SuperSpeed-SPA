@@ -1,35 +1,42 @@
 extends CharacterBody2D
 
-@onready var first_pos : Vector2 = get_node("../FirstPos").position
-@onready var leaving_pos : Vector2 = get_node("../LeavingPos").position
+@onready var spawn_pos : Vector2 = get_node("../SpawnPoint").position
+@onready var game_pos : Vector2 = get_node("../GamePoint").position
+@onready var destroy_pos : Vector2 = get_node("../DestroyPoint").position
 var destination : Vector2
 
 @export var speed : float = 10
-
-var is_leaving : bool = false
-
+var x : float = 0
 
 ###### BUILT-IN FUNCTIONS ######
 
 func _ready() -> void:
-	destination = first_pos
+	destination = game_pos
 
 func _physics_process(delta: float) -> void:
-	#Move the client
-	velocity = position.direction_to(destination) * (speed *10)
+	print(position)
+	x += delta / (10 / speed)
 	
-	#Avoid weird move when reaching destination
-	if position.distance_to(destination) > 10:
-		move_and_slide()
-	#Check if client is out of the screen to delete it
-	elif position.distance_to(destination) < 10 && is_leaving:
+	if x > 1:
+		x = 1
+	
+	if destination == game_pos:
+		position = spawn_pos + ease.OutBounce(x) * (destination - spawn_pos)
+	elif destination == destroy_pos:
+		position = game_pos + ease.InSine(x) * (destination - game_pos)
+	
+	
+	if position.distance_to(destroy_pos) < 10:
 		queue_free()
+	
+	
+	#if Input.is_action_just_pressed("ui_accept"):
+		#destroy()
 
 
 ###### CUSTOM FUNCTIONS ######
 
 #Makes client leave the screen then be deleted
-func exit() -> void:
-	is_leaving = true
-	destination = leaving_pos
-	pass
+func destroy() -> void:
+	destination = destroy_pos
+	x = 0
