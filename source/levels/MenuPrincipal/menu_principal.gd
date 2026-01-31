@@ -7,7 +7,7 @@ extends Control
 @onready var QuitButton: Button = $VBoxContainer/QuitButton
 @onready var level = preload("res://levels/level.tscn")
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	btn_hovered(StartButton)
 	btn_hovered(QuitButton)
 
