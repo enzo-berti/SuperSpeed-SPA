@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://b180gverqsa44"]
+
+[ext_resource type="Texture2D" uid="uid://bc0g26n77sv00" path="res://Assets/fond.png" id="1_tumq0"]
+[ext_resource type="Script" uid="uid://buo7oj8kularv" path="res://Scripts/client_spawner.gd" id="2_k5f4k"]
+
+[node name="Level" type="Node2D" unique_id=300681085]
+
+[node name="Background" type="Sprite2D" parent="." unique_id=922658167]
+z_index = -1
+position = Vector2(960, 540)
+texture = ExtResource("1_tumq0")
+
+[node name="ClientSpawner" type="Node2D" parent="." unique_id=8809230 groups=["Clients"]]
+position = Vector2(960, -1000)
+script = ExtResource("2_k5f4k")
+
+[node name="FirstPos" type="Node2D" parent="ClientSpawner" unique_id=1136680520]
+unique_name_in_owner = true
+position = Vector2(0, 1500)
+
+[node name="LeavingPos" type="Node2D" parent="ClientSpawner" unique_id=157540625]
+unique_name_in_owner = true
+position = Vector2(0, 3000)

@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://bqhqafb6hohi8"]
+
+[ext_resource type="Texture2D" uid="uid://cwrrnqws24ilb" path="res://Assets/Characters/raton.png" id="1_de1uw"]
+[ext_resource type="Script" uid="uid://cutxhyqvroiw" path="res://Scripts/client.gd" id="1_o4a6k"]
+
+[node name="Client" type="CharacterBody2D" unique_id=1249865823]
+script = ExtResource("1_o4a6k")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=761792710]
+texture = ExtResource("1_de1uw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=166073640]
+position = Vector2(0, -540)
