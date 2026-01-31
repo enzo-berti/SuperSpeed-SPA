@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dm2b42bvp86iy"
-path="res://.godot/imported/barre vide.png-dbe5575b214b0f32b044971dce70adbb.ctex"
+path="res://.godot/imported/barre vide.png-e09eae0a42cfe428c835e3250f73e99c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://levels/main_scene/UI/patience_meter/barre vide.png"
-dest_files=["res://.godot/imported/barre vide.png-dbe5575b214b0f32b044971dce70adbb.ctex"]
+source_file="res://characters/client/patience_meter/barre vide.png"
+dest_files=["res://.godot/imported/barre vide.png-e09eae0a42cfe428c835e3250f73e99c.ctex"]
 
 [params]
 
