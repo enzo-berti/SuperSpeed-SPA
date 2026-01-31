@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://drcepl1658dpn"]
+
+[ext_resource type="Script" uid="uid://c1b42wxvx0emo" path="res://levels/MenuPrincipal/menu_principal.gd" id="1_8y85c"]
+[ext_resource type="Texture2D" uid="uid://cpx78tmv62lxu" path="res://levels/MenuPrincipal/BackgroundMenu.png" id="2_8y85c"]
+[ext_resource type="Texture2D" uid="uid://qfpd4nnc6vqc" path="res://levels/MenuPrincipal/start button.png" id="2_axrye"]
+[ext_resource type="Texture2D" uid="uid://b2ngj7egmejki" path="res://levels/MenuPrincipal/quit.png" id="3_8y85c"]
+
+[node name="MenuPrincipal" type="Control" unique_id=725306042]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8y85c")
+tween_intensity = 1.2
+tween_duration = 0.3
+
+[node name="background" type="TextureRect" parent="." unique_id=463167330]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_8y85c")
+metadata/_edit_group_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=2065034261]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -355.0
+offset_top = 399.0
+offset_right = 355.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 24
+metadata/_edit_group_ = true
+
+[node name="StartButton" type="Button" parent="VBoxContainer" unique_id=104200530]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+icon = ExtResource("2_axrye")
+flat = true
+
+[node name="QuitButton" type="Button" parent="VBoxContainer" unique_id=861584615]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+icon = ExtResource("3_8y85c")
+flat = true
+
+[connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
