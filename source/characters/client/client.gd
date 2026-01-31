@@ -14,7 +14,6 @@ func _ready() -> void:
 	destination = game_pos
 
 func _physics_process(delta: float) -> void:
-	print(position)
 	x += delta / (10 / speed)
 	
 	if x > 1:
@@ -28,10 +27,6 @@ func _physics_process(delta: float) -> void:
 	
 	if position.distance_to(destroy_pos) < 10:
 		queue_free()
-	
-	
-	#if Input.is_action_just_pressed("ui_accept"):
-		#destroy()
 
 
 ###### CUSTOM FUNCTIONS ######

@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cutxhyqvroiw" path="res://characters/client/client.gd" id="1_1wbty"]
 [ext_resource type="Texture2D" uid="uid://cwrrnqws24ilb" path="res://characters/racoon/raton.png" id="2_s57k7"]
+[ext_resource type="PackedScene" uid="uid://dmbth1got02m5" path="res://mini_games/cucumber/eye.tscn" id="3_t73wa"]
 
 [node name="Client" type="CharacterBody2D" unique_id=1249865823]
 motion_mode = 1
@@ -11,3 +12,6 @@ script = ExtResource("1_1wbty")
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=761792710]
 position = Vector2(44, 597)
 texture = ExtResource("2_s57k7")
+
+[node name="Eye" parent="." unique_id=146470608 instance=ExtResource("3_t73wa")]
+position = Vector2(-120, -33)

@@ -9,9 +9,14 @@ _data = {
 }
 point_count = 2
 
-[node name="Cucumber" type="Node2D" unique_id=479024315 node_paths=PackedStringArray("path")]
+[sub_resource type="CircleShape2D" id="CircleShape2D_5yc3b"]
+radius = 85.0
+
+[node name="Cucumber" type="Node2D" unique_id=479024315 node_paths=PackedStringArray("path_follow", "area", "collision_shape")]
 script = ExtResource("1_5yc3b")
-path = NodePath("Path2D/PathFollow2D")
+path_follow = NodePath("Path2D/PathFollow2D")
+area = NodePath("Path2D/PathFollow2D/Area2D")
+collision_shape = NodePath("Path2D/PathFollow2D/Area2D/CollisionShape2D")
 
 [node name="Path2D" type="Path2D" parent="." unique_id=2031570401]
 curve = SubResource("Curve2D_8fqau")
@@ -20,8 +25,11 @@ curve = SubResource("Curve2D_8fqau")
 position = Vector2(0, -200)
 rotation = 1.5707964
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Path2D/PathFollow2D" unique_id=16198515]
+[node name="Area2D" type="Area2D" parent="Path2D/PathFollow2D" unique_id=1681569729]
 
-[node name="Sprite2D" type="Sprite2D" parent="Path2D/PathFollow2D/StaticBody2D" unique_id=909540587]
+[node name="Sprite2D" type="Sprite2D" parent="Path2D/PathFollow2D/Area2D" unique_id=909540587]
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("1_tkkmq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Path2D/PathFollow2D/Area2D" unique_id=1582102131]
+shape = SubResource("CircleShape2D_5yc3b")

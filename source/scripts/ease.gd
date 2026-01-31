@@ -9,6 +9,10 @@ func OutSine(x: float):
 	return sin((x * PI) / 2)
 
 
+func InOutSine(x: float):
+	return -(cos(PI * x) - 1) / 2;
+
+
 func OutBounce(x: float):
 	const n1 = 7.5625
 	const d1 = 2.75
