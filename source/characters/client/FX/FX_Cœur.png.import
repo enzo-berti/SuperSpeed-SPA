@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://debcpbn14ulue"
-path="res://.godot/imported/FX_Cœur.png-ba7e3853245e76531225f771f8f423c3.ctex"
+path="res://.godot/imported/FX_Cœur.png-d865cda69b1e457cf0e20ea9661358b1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://characters/client/FX/FX_Cœur.png"
-dest_files=["res://.godot/imported/FX_Cœur.png-ba7e3853245e76531225f771f8f423c3.ctex"]
+source_file="res://characters/client/fx/FX_Cœur.png"
+dest_files=["res://.godot/imported/FX_Cœur.png-d865cda69b1e457cf0e20ea9661358b1.ctex"]
 
 [params]
 
