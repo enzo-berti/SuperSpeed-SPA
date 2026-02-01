@@ -1,11 +1,13 @@
 [gd_scene format=3 uid="uid://bqhqafb6hohi8"]
 
 [ext_resource type="Script" uid="uid://cutxhyqvroiw" path="res://characters/client/client.gd" id="1_1wbty"]
+[ext_resource type="Texture2D" uid="uid://d8afrsquc5ch" path="res://characters/duck/duck_mask.png" id="2_hy40g"]
 
 [node name="Client" type="CharacterBody2D" unique_id=1249865823]
 motion_mode = 1
 slide_on_ceiling = false
 script = ExtResource("1_1wbty")
+mask_texture = ExtResource("2_hy40g")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=761792710]
 position = Vector2(44, 597)

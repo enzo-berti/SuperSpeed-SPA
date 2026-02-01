@@ -4,11 +4,26 @@ extends Sprite2D
 @export var brush_size : int 
 var img : Image
 
-func _ready() -> void:
-	img = Image.create_empty(256, 256, false, Image.FORMAT_RGBA8)
+func defineTextureMask(textureMask : Texture2D) -> void:
+	img = Image.create_empty(textureMask.get_size().x, textureMask.get_size().y, false, Image.FORMAT_RGBA8)
 	img.fill(Color(0, 0, 0, 0)) # je sais pas si j'en ai besoin, mais je le fais
 	texture = ImageTexture.create_from_image(img)
-	#material.set("shader_parameter/mask_texture", CompressedTexture2D) 
+	material.set("shader_parameter/mask_texture", textureMask) 
+
+func calcul_mask_pourcentage() -> float:
+	var alpha_target = 0
+	var texture_size := texture.get_size()
+	var image := texture.get_image()
+	var score = 0
+	for y in range(0, texture_size.y):
+		for x in range(0, texture_size.x):
+			if alpha_target != image.get_pixel(x, y).a:
+				score += 1
+				
+	return score
+
+func _ready() -> void:
+	pass
 
 func _input(event: InputEvent) -> void:
 	_drawInput(event)
@@ -31,15 +46,3 @@ func _drawInput(event: InputEvent) -> void:
 
 			texture.update(img)
 			print(calcul_mask_pourcentage())
-
-func calcul_mask_pourcentage() -> float:
-	var alpha_target = 0
-	var texture_size := texture.get_size()
-	var image := texture.get_image()
-	var score = 0
-	for y in range(0, texture_size.y):
-		for x in range(0, texture_size.x):
-			if alpha_target != image.get_pixel(x, y).a:
-				score += 1
-				
-	return score

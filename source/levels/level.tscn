@@ -2,7 +2,6 @@
 
 [ext_resource type="Texture2D" uid="uid://bc0g26n77sv00" path="res://levels/fond.png" id="1_hjsbj"]
 [ext_resource type="Script" uid="uid://buo7oj8kularv" path="res://levels/level.gd" id="2_cwqvt"]
-[ext_resource type="PackedScene" uid="uid://bpeq83vrwjnde" path="res://mini_games/mask/mask.tscn" id="3_cwqvt"]
 
 [node name="Level" type="Node2D" unique_id=300681085]
 script = ExtResource("2_cwqvt")
@@ -20,6 +19,3 @@ position = Vector2(960, 400)
 
 [node name="DestroyPoint" type="Node2D" parent="." unique_id=157540625]
 position = Vector2(960, 1400)
-
-[node name="Mask" parent="." unique_id=1945729470 instance=ExtResource("3_cwqvt")]
-position = Vector2(918.925, 678)

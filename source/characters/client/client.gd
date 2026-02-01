@@ -7,6 +7,8 @@ extends CharacterBody2D
 @onready var destroy_pos : Vector2 = get_node("../DestroyPoint").position
 var destination : Vector2
 
+var mask_prefab : Resource
+
 @export var speed : float = 10
 var x : float = 0
 
@@ -14,6 +16,8 @@ var x : float = 0
 
 func _ready() -> void:
 	destination = game_pos
+	
+	mask_prefab = preload("res://mini_games/mask/mask.tscn")
 
 func _physics_process(delta: float) -> void:
 	x += delta / (10 / speed)
@@ -39,6 +43,6 @@ func destroy() -> void:
 	x = 0
 	
 func start_mask() -> void:
-	var client = preload("res://mini_games/mask/mask.tscn")
-	var instance = client.instantiate()
+	var instance = mask_prefab.instantiate()
+	instance.get_node("PaintArea").defineTextureMask(mask_texture)
 	add_child(instance)
