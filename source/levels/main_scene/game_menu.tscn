@@ -19,6 +19,7 @@ grow_vertical = 2
 script = ExtResource("1_2f5pf")
 timer = NodePath("PatienceMeter/Timer")
 star_timer = NodePath("HeartContainer/StarTimer")
+patience_time = 60.0
 patience_meter = NodePath("PatienceMeter")
 score_label = NodePath("ScoreTexture/ScoreLabel")
 

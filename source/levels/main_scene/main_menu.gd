@@ -24,7 +24,7 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
-	patience_meter.value = timer.time_left / (patience_time - (5 * game_manager.win_clients)) * 100
+	patience_meter.value = timer.time_left / clampf((patience_time - (5 * game_manager.win_clients)), 20, patience_time) * 100
 	
 	if game_manager.health <= 0:
 		get_tree().change_scene_to_packed(gameover)
