@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dm2b42bvp86iy" path="res://characters/client/patience_meter/patience_meter_under.png" id="1_ohisk"]
 [ext_resource type="Texture2D" uid="uid://6yosvwgfmi2b" path="res://characters/client/patience_meter/patience_meter_progress.png" id="2_2f5pf"]
-[ext_resource type="Texture2D" uid="uid://debcpbn14ulue" path="res://characters/client/FX/FX_Cœur.png" id="3_4dwkg"]
+[ext_resource type="Texture2D" uid="uid://br7umexks43v3" path="res://levels/main_scene/UI/Étoile_Win.png" id="3_ohisk"]
 
 [node name="MainMenu" type="Control" unique_id=617451129]
 layout_mode = 3
@@ -35,17 +35,17 @@ offset_bottom = 153.0
 
 [node name="Heart1" type="TextureRect" parent="HeartContainer" unique_id=1546438324]
 layout_mode = 2
-texture = ExtResource("3_4dwkg")
+texture = ExtResource("3_ohisk")
 expand_mode = 3
 
 [node name="Heart2" type="TextureRect" parent="HeartContainer" unique_id=109575661]
 layout_mode = 2
-texture = ExtResource("3_4dwkg")
+texture = ExtResource("3_ohisk")
 expand_mode = 3
 
 [node name="Heart3" type="TextureRect" parent="HeartContainer" unique_id=618699761]
 layout_mode = 2
-texture = ExtResource("3_4dwkg")
+texture = ExtResource("3_ohisk")
 expand_mode = 3
 
 [node name="ScoreTexture" type="TextureRect" parent="." unique_id=1458267983]

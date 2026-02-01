@@ -1,7 +1,9 @@
 [gd_scene format=3 uid="uid://dmbth1got02m5"]
 
-[ext_resource type="PackedScene" uid="uid://bjar0nsv8motn" path="res://mini_games/cucumber/cucumber.tscn" id="2_w3p8k"]
+[ext_resource type="Texture2D" uid="uid://bla5jjpa7oa5y" path="res://icon.svg" id="1_rfbts"]
 
-[node name="Eye" type="Node2D" unique_id=1328093528 groups=["eyes_pos"]]
+[node name="Eye" type="Node2D" unique_id=1328093528 groups=["eyes"]]
 
-[node name="Cucumber" parent="." unique_id=479024315 instance=ExtResource("2_w3p8k")]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=236117950]
+scale = Vector2(0.085, 0.085)
+texture = ExtResource("1_rfbts")

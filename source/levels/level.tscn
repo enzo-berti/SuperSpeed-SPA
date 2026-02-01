@@ -2,14 +2,32 @@
 
 [ext_resource type="Texture2D" uid="uid://bc0g26n77sv00" path="res://levels/fond.png" id="1_hjsbj"]
 [ext_resource type="Script" uid="uid://buo7oj8kularv" path="res://levels/level.gd" id="2_cwqvt"]
+[ext_resource type="PackedScene" uid="uid://dhot8eixpw5or" path="res://mini_games/massage/massage_menu.tscn" id="3_5mrsh"]
+[ext_resource type="PackedScene" uid="uid://cnqc8qbojnx3j" path="res://mini_games/mask/mask_menu.tscn" id="3_cwqvt"]
 
 [node name="Level" type="Node2D" unique_id=300681085]
 script = ExtResource("2_cwqvt")
+
+[node name="MaskMenu" parent="." unique_id=387545059 instance=ExtResource("3_cwqvt")]
+visible = false
+z_index = 1
+custom_minimum_size = Vector2(1920, 1080)
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="MassageMenu" parent="." unique_id=7439312 instance=ExtResource("3_5mrsh")]
+visible = false
 
 [node name="Background" type="Sprite2D" parent="." unique_id=922658167]
 z_index = -1
 position = Vector2(960, 540)
 texture = ExtResource("1_hjsbj")
+flip_h = true
 
 [node name="SpawnPoint" type="Node2D" parent="." unique_id=8809230]
 position = Vector2(960, -1800)
