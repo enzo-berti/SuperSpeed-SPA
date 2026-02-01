@@ -10,14 +10,17 @@
 [ext_resource type="PackedScene" uid="uid://cilyync3tqtan" path="res://levels/main_scene/game_menu.tscn" id="5_safpt"]
 [ext_resource type="Texture2D" uid="uid://du7k10njvih25" path="res://mini_games/mask/lotions/rouge fermé.PNG" id="6_ta7ci"]
 [ext_resource type="Texture2D" uid="uid://4hi5im64rxru" path="res://mini_games/mask/lotions/violet fermé.PNG" id="7_lh335"]
+[ext_resource type="AudioStream" uid="uid://c1cvdcmvskhm1" path="res://mini_games/Main_Theme_Techno_120BPM.ogg" id="8_rtcij"]
 [ext_resource type="Texture2D" uid="uid://dcls3bh0p68uw" path="res://mini_games/mask/lotions/rose fermée.PNG" id="8_u6cys"]
 [ext_resource type="AudioStream" uid="uid://dewnpj677wctp" path="res://mini_games/Main_theme_Chill_80BPM.ogg" id="12_368ro"]
 [ext_resource type="AudioStream" uid="uid://cmy75ds3bux8y" path="res://mini_games/Main_theme_Chill_100BPM.ogg" id="13_3ca7f"]
 
 [sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_kogck"]
+fade_time = 0.15
 stream_count = 3
 stream_0 = ExtResource("12_368ro")
 stream_1 = ExtResource("13_3ca7f")
+stream_2 = ExtResource("8_rtcij")
 
 [node name="Level" type="Node2D" unique_id=300681085 node_paths=PackedStringArray("mask_menu_node", "massage_menu_node")]
 script = ExtResource("2_cwqvt")
