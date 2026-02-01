@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c62l6piri76xm" path="res://mini_games/cucumber/cucumber.gd" id="1_5yc3b"]
 [ext_resource type="Texture2D" uid="uid://lwo4x5glwx8b" path="res://mini_games/cucumber/concombre.png" id="1_tkkmq"]
+[ext_resource type="AudioStream" uid="uid://cuqoka6un5vri" path="res://mini_games/cucumber/SFX/SFX-Concombre.ogg" id="3_gyq2i"]
 
 [sub_resource type="Curve2D" id="Curve2D_8fqau"]
 _data = {
@@ -46,3 +47,6 @@ offset_top = 5.0
 offset_right = 147.0
 offset_bottom = 28.0
 text = "Test"
+
+[node name="sfx_cucumber" type="AudioStreamPlayer2D" parent="." unique_id=401384641]
+stream = ExtResource("3_gyq2i")

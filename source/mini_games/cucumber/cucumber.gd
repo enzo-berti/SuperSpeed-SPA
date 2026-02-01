@@ -5,6 +5,7 @@ extends Node2D
 @onready var cucumber_pos : Vector2 = $PathFollow2D.position
 @onready var path_follow : PathFollow2D = $PathFollow2D
 @onready var sprite : Sprite2D = $"../Sprite2D"
+@onready var sfx_cucumber: AudioStreamPlayer2D = $"../sfx_cucumber"
 
 @onready var debug_score_distance_limit : CollisionShape2D = $PathFollow2D/DebugScoreDistanceLimit
 @onready var debug_score_distance_deadzone : CollisionShape2D = $PathFollow2D/DebugScoreDistanceDeadzone
@@ -73,6 +74,7 @@ func _slide(delta: float) -> void:
 func _score() -> void:
 	var score : int = int(score_max * (1 - clamp(cucumber_pos.distance_to(eye_pos) - score_distance_dead_zone, 0.0, score_distance_limit) / score_distance_limit))
 	game_manager.score += score
+	sfx_cucumber.play()
 	
 	if score == 0:
 		cucumber_stopped.emit(true)
