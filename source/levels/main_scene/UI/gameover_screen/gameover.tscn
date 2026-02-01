@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://0sacfpla3pe1" path="res://levels/main_scene/UI/gameover_screen/menu.png" id="2_burhp"]
 [ext_resource type="Texture2D" uid="uid://bc0g26n77sv00" path="res://levels/fond.png" id="2_ryd6m"]
 [ext_resource type="AudioStream" uid="uid://c2wdv8qbdcb86" path="res://mini_games/sfx/SFX-Input_Var04.ogg" id="5_ryd6m"]
+[ext_resource type="AudioStream" uid="uid://dymx0ls6vbufj" path="res://levels/main_scene/UI/gameover_screen/Game_Over.ogg" id="7_0r04e"]
 
 [node name="Gameover" type="Control" unique_id=1191411812]
 layout_mode = 3
@@ -67,6 +68,10 @@ frame_progress = 1.0
 position = Vector2(1, 0)
 stream = ExtResource("5_ryd6m")
 volume_db = 10.0
+
+[node name="sfx_gameover" type="AudioStreamPlayer2D" parent="." unique_id=1624706912]
+stream = ExtResource("7_0r04e")
+autoplay = true
 
 [connection signal="pressed" from="VBoxContainer/button_retry" to="." method="_on_button_retry_pressed"]
 [connection signal="pressed" from="VBoxContainer/button_mainmenu" to="." method="_on_button_mainmenu_pressed"]
