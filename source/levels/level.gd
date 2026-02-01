@@ -15,6 +15,11 @@ var actual_client : Node
 @export var massage_menu_node : Node
 
 @onready var main_menu : Control = $MainMenu
+@onready var music_player : AudioStreamPlayer2D = $AudioStreamPlayer2D
+@onready var music_1 = preload("res://mini_games/Main_theme_Chill_80BPM.ogg")
+@onready var music_2 = preload("res://mini_games/Main_theme_Chill_100BPM.ogg")
+@onready var music_3 = preload("res://mini_games/Main_Theme_Techno_120BPM.ogg")
+@onready var music_4 = preload("res://mini_games/Main_Theme_Techno_140BPM.ogg")
 
 var color_names : Array[String] = ["blue", "green", "yellow", "red", "violet", "pink"] 
 
@@ -27,8 +32,27 @@ preload("res://characters/flower/flower_client.tscn"),
 preload("res://characters/troll/troll_client.tscn"), 
 preload("res://characters/wrestler/wrestler_client.tscn"),
 preload("res://characters/racoon/racoon_client.tscn")]
+	music_player.stream = music_1
+	music_player.play()
+
+
 
 func _process(delta: float) -> void:
+	print(music_player.stream)
+	if game_manager.win_clients >= 1 && music_player.stream != music_2:
+		music_player.stream = null
+		music_player.stream = music_4
+		music_player.play()
+	if game_manager.win_clients >= 2 && music_player.stream != music_3:
+		music_player.stream = null
+		music_player.stream = music_3
+		music_player.play()
+	if game_manager.win_clients >= 3 && music_player.stream != music_4:
+		music_player.stream = null
+		music_player.stream = music_4
+		music_player.play()
+	
+	
 	if !is_there_client:
 		spawn_client()
 		state_machine = states.START

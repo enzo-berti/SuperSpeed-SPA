@@ -47,11 +47,11 @@ func _paint_tex(pos: Vector2i) -> void:
 
 func _drawInput(event: InputEvent) -> void:
 	if paint_color.a == 0:
+		sfx_mask.stream_paused = true
 		return
 	
 	if event is not InputEventMouseMotion:
-		if !sfx_mask.playing:
-			sfx_mask.stream_paused = false
+		sfx_mask.stream_paused = true
 		return
 
 	if event.button_mask != MOUSE_BUTTON_LEFT:
@@ -64,6 +64,8 @@ func _drawInput(event: InputEvent) -> void:
 		
 		if !get_rect().has_point(lpos - offset):
 			return
+		
+		sfx_mask.stream_paused = false
 		
 		var num := ceili(event.relative.length())
 		var target_pos = impos - (event.relative)

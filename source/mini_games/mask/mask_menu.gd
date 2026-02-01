@@ -14,13 +14,13 @@ func _on_green_pressed() -> void:
 	get_node("../Client/Mask/PaintArea").change_mask_color(Color.DARK_OLIVE_GREEN)
 
 func _on_yellow_pressed() -> void:
-	get_node("../Client/Mask/PaintArea").change_mask_color(Color.YELLOW)
+	get_node("../Client/Mask/PaintArea").change_mask_color(Color("#FFD700"))
 
 func _on_red_pressed() -> void:
 	get_node("../Client/Mask/PaintArea").change_mask_color(Color.INDIAN_RED)
 
 func _on_violet_pressed() -> void:
-	get_node("../Client/Mask/PaintArea").change_mask_color(Color.BLUE_VIOLET)
+	get_node("../Client/Mask/PaintArea").change_mask_color(Color.DARK_VIOLET)
 
 func _on_pink_pressed() -> void:
 	get_node("../Client/Mask/PaintArea").change_mask_color(Color.PINK)
@@ -38,13 +38,13 @@ func set_mask_needed(color: String) -> void:
 		get_node("../Client/Mask/PaintArea").set_mask_needed(Color.DARK_OLIVE_GREEN)
 	elif color == "yellow":
 		get_node("TextBubble/MaskNeeded").texture = mask_yellow_texture
-		get_node("../Client/Mask/PaintArea").set_mask_needed(Color.YELLOW)
+		get_node("../Client/Mask/PaintArea").set_mask_needed(Color("#FFD700"))
 	elif color == "red":
 		get_node("TextBubble/MaskNeeded").texture = mask_red_texture
 		get_node("../Client/Mask/PaintArea").set_mask_needed(Color.INDIAN_RED)
 	elif color == "violet":
 		get_node("TextBubble/MaskNeeded").texture = mask_violet_texture
-		get_node("../Client/Mask/PaintArea").set_mask_needed(Color.BLUE_VIOLET)
+		get_node("../Client/Mask/PaintArea").set_mask_needed(Color.DARK_VIOLET)
 	elif color == "pink":
 		get_node("TextBubble/MaskNeeded").texture = mask_pink_texture
 		get_node("../Client/Mask/PaintArea").set_mask_needed(Color.PINK)
