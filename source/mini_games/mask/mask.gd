@@ -44,6 +44,9 @@ func _paint_tex(pos: Vector2i) -> void:
 	img.fill_rect(Rect2i(pos, Vector2i(1, 1)).grow(brush_size), paint_color)
 
 func _drawInput(event: InputEvent) -> void:
+	if paint_color.a == 0:
+		return
+	
 	if event is not InputEventMouseMotion:
 		if !sfx_mask.playing:
 			sfx_mask.stream_paused = false
