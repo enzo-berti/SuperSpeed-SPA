@@ -12,12 +12,6 @@ func _ready() -> void:
 	_spawn_cucumber()
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	label.text = str(game_manager.score)
-	pass
-
-
 ###### CUSTOM FUNCTIONS ######
 
 func _spawn_cucumber() -> void:

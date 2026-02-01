@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://d1kdq1xcweycr"]
+
+[ext_resource type="Script" uid="uid://bdyu524nbm41y" path="res://levels/debug_level.gd" id="1_kyyvy"]
+[ext_resource type="PackedScene" uid="uid://cnqc8qbojnx3j" path="res://mini_games/mask/mask_menu.tscn" id="2_g5ckd"]
+[ext_resource type="PackedScene" uid="uid://dhot8eixpw5or" path="res://mini_games/massage/massage_menu.tscn" id="3_kwkfn"]
+[ext_resource type="Texture2D" uid="uid://bc0g26n77sv00" path="res://levels/fond.png" id="4_f3rnd"]
+
+[node name="Level" type="Node2D" unique_id=300681085]
+script = ExtResource("1_kyyvy")
+
+[node name="MaskMenu" parent="." unique_id=387545059 instance=ExtResource("2_g5ckd")]
+visible = false
+z_index = 1
+custom_minimum_size = Vector2(1920, 1080)
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="MassageMenu" parent="." unique_id=7439312 instance=ExtResource("3_kwkfn")]
+visible = false
+
+[node name="Background" type="Sprite2D" parent="." unique_id=922658167]
+z_index = -1
+position = Vector2(960, 540)
+texture = ExtResource("4_f3rnd")
+flip_h = true
+
+[node name="SpawnPoint" type="Node2D" parent="." unique_id=8809230]
+position = Vector2(960, -1800)
+
+[node name="GamePoint" type="Node2D" parent="." unique_id=1136680520]
+position = Vector2(960, 400)
+
+[node name="DestroyPoint" type="Node2D" parent="." unique_id=157540625]
+position = Vector2(960, 1400)

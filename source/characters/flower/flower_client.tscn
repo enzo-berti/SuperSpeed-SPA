@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://dbo0pscce31q6"]
+
+[ext_resource type="PackedScene" uid="uid://bqhqafb6hohi8" path="res://characters/client/client.tscn" id="1_70n4d"]
+[ext_resource type="Texture2D" uid="uid://b28tqejdig64m" path="res://characters/flower/fleur_.png" id="2_8hag5"]
+[ext_resource type="Texture2D" uid="uid://5lb7xdoa0tl" path="res://characters/flower/fleur colere.png" id="2_u7j2t"]
+[ext_resource type="PackedScene" uid="uid://dmbth1got02m5" path="res://mini_games/cucumber/eye.tscn" id="3_a07to"]
+[ext_resource type="Texture2D" uid="uid://c3w6261qvlnn2" path="res://characters/flower/fleur happy.png" id="3_sccwg"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_130sd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_u7j2t")
+}],
+"loop": true,
+"name": &"angry",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_sccwg")
+}],
+"loop": true,
+"name": &"happy",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_8hag5")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[node name="Client" unique_id=1249865823 instance=ExtResource("1_70n4d")]
+
+[node name="AnimatedSprite2D" parent="." index="0" unique_id=847792521]
+sprite_frames = SubResource("SpriteFrames_130sd")
+animation = &"idle"
+
+[node name="Eye" parent="." index="1" unique_id=1328093528 instance=ExtResource("3_a07to")]
+position = Vector2(-68, -32)
+
+[node name="Eye2" parent="." index="2" unique_id=1946067789 instance=ExtResource("3_a07to")]
+position = Vector2(80, -29)

@@ -1,9 +1,3 @@
 [gd_scene format=3 uid="uid://dmbth1got02m5"]
 
-[ext_resource type="Texture2D" uid="uid://bla5jjpa7oa5y" path="res://icon.svg" id="1_rfbts"]
-
 [node name="Eye" type="Node2D" unique_id=1328093528 groups=["eyes"]]
-
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=236117950]
-scale = Vector2(0.085, 0.085)
-texture = ExtResource("1_rfbts")

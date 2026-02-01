@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://cctal0vvttmxc"]
+
+[ext_resource type="PackedScene" uid="uid://bqhqafb6hohi8" path="res://characters/client/client.tscn" id="1_c2dqf"]
+[ext_resource type="Texture2D" uid="uid://u8ohonfdn67n" path="res://characters/troll/troll-colere.png" id="2_nxibn"]
+[ext_resource type="PackedScene" uid="uid://dmbth1got02m5" path="res://mini_games/cucumber/eye.tscn" id="3_2e254"]
+[ext_resource type="Texture2D" uid="uid://ycjstcew0q65" path="res://characters/troll/troll-content.png" id="3_dbb20"]
+[ext_resource type="Texture2D" uid="uid://c8h2sglns4t6b" path="res://characters/troll/troll.png" id="4_gtf3o"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lo8sx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_nxibn")
+}],
+"loop": true,
+"name": &"angry",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_dbb20")
+}],
+"loop": true,
+"name": &"happy",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_gtf3o")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[node name="Client" unique_id=1249865823 instance=ExtResource("1_c2dqf")]
+
+[node name="AnimatedSprite2D" parent="." index="0" unique_id=847792521]
+sprite_frames = SubResource("SpriteFrames_lo8sx")
+animation = &"idle"
+
+[node name="Eye" parent="." index="1" unique_id=1328093528 instance=ExtResource("3_2e254")]
+position = Vector2(-108, -43)
+
+[node name="Eye2" parent="." index="2" unique_id=56331803 instance=ExtResource("3_2e254")]
+position = Vector2(109, -42)

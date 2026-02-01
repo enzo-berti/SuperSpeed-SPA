@@ -2,8 +2,45 @@
 
 [ext_resource type="PackedScene" uid="uid://bqhqafb6hohi8" path="res://characters/client/client.tscn" id="1_etat5"]
 [ext_resource type="Texture2D" uid="uid://cwrrnqws24ilb" path="res://characters/racoon/raton.png" id="2_ha2ib"]
+[ext_resource type="Texture2D" uid="uid://b6pkfqud0270o" path="res://characters/racoon/raton-colere.png" id="2_oer1g"]
+[ext_resource type="PackedScene" uid="uid://dmbth1got02m5" path="res://mini_games/cucumber/eye.tscn" id="3_cqudq"]
+[ext_resource type="Texture2D" uid="uid://bu27s53auvtc0" path="res://characters/racoon/raton-content.png" id="3_khrbo"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ha2ib"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_oer1g")
+}],
+"loop": true,
+"name": &"angry",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_khrbo")
+}],
+"loop": true,
+"name": &"happy",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ha2ib")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
 
 [node name="Client" unique_id=1249865823 instance=ExtResource("1_etat5")]
 
-[node name="Sprite2D" parent="." index="0" unique_id=761792710]
-texture = ExtResource("2_ha2ib")
+[node name="AnimatedSprite2D" parent="." index="0" unique_id=847792521]
+sprite_frames = SubResource("SpriteFrames_ha2ib")
+animation = &"idle"
+
+[node name="Eye" parent="." index="1" unique_id=1328093528 instance=ExtResource("3_cqudq")]
+position = Vector2(-115, -28)
+
+[node name="Eye2" parent="." index="2" unique_id=1273197048 instance=ExtResource("3_cqudq")]
+position = Vector2(111, -27)

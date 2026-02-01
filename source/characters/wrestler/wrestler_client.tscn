@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://8bykminh816k"]
+
+[ext_resource type="PackedScene" uid="uid://bqhqafb6hohi8" path="res://characters/client/client.tscn" id="1_qn6um"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qn6um"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"angry",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"happy",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[node name="Client" unique_id=1249865823 instance=ExtResource("1_qn6um")]
+
+[node name="AnimatedSprite2D" parent="." index="0" unique_id=847792521]
+sprite_frames = SubResource("SpriteFrames_qn6um")
+animation = &"happy"
