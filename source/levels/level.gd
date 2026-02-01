@@ -1,5 +1,8 @@
 extends Node2D
 
+enum states { START, MASK, CUCUMBER, FINISH }
+var state_machine : states
+
 var is_there_client : bool = false
 @onready var spawn_pos : Vector2 = $SpawnPoint.position
 
@@ -8,6 +11,8 @@ var is_there_client : bool = false
 
 func _ready() -> void:
 	spawn_client()
+	
+	state_machine = states.START
 	pass
 
 func _process(delta: float) -> void:

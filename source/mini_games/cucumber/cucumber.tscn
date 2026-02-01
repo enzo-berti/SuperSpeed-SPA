@@ -40,6 +40,7 @@ scale = Vector2(0.1, 0.1)
 texture = ExtResource("1_tkkmq")
 
 [node name="DebugState" type="Label" parent="." unique_id=1581380073]
+visible = false
 offset_left = 107.0
 offset_top = 5.0
 offset_right = 147.0

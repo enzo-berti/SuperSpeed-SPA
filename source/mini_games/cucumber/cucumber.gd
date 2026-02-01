@@ -11,7 +11,7 @@ extends Node2D
 @onready var debug_state : Label = $"../DebugState"
 
 #State machine
-var states : Array[String] = ["move", "stopped", "scored"]
+var states : Array[String] = ["move","clicked", "stopped"]
 var state_machine : String = states[0]
 
 #Cucumber movement
@@ -22,7 +22,6 @@ var direction_reversed : bool = false
 @onready var score_distance_limit : float = debug_score_distance_limit.shape.radius
 @onready var score_distance_dead_zone : float = debug_score_distance_deadzone.shape.radius
 @export var score_max : int = 25
-var score : int
 
 signal cucumber_stopped(target_misses : bool)
 
@@ -39,12 +38,15 @@ func _process(delta: float) -> void:
 	match state_machine:
 		"move":
 			_slide(delta)
-			if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+			if Input.is_action_just_pressed("MOUSE_BUTTON_LEFT"):
 				state_machine = states[1]
+				_score()
+		"clicked":
+			
+			if Input.is_action_just_released("MOUSE_BUTTON_LEFT"):
+				state_machine = states[2]
+				
 		"stopped":
-			_score()
-			state_machine = states[2]
-		"scored":
 			queue_free()
 		
 	debug_state.text = state_machine
@@ -69,8 +71,8 @@ func _slide(delta: float) -> void:
 	sprite.position = cucumber_pos
 
 func _score() -> void:
-	score = int(score_max * (1 - clamp(cucumber_pos.distance_to(eye_pos) - score_distance_dead_zone, 0.0, score_distance_limit) / score_distance_limit))
-	print(score)
+	var score : int = int(score_max * (1 - clamp(cucumber_pos.distance_to(eye_pos) - score_distance_dead_zone, 0.0, score_distance_limit) / score_distance_limit))
+	game_manager.score += score
 	
 	if score == 0:
 		cucumber_stopped.emit(true)
