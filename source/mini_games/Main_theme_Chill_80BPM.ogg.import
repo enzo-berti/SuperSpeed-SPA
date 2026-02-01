@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/Main_theme_Chill_80BPM.ogg-1105c740c2be345af2
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0.0
 bpm=0.0
 beat_count=0

@@ -72,6 +72,7 @@ func angry_client(time_malus : int) -> void:
 ###### SIGNAL FUNCTIONS ######
 
 func _on_timer_timeout() -> void:
+	game_manager.win_strike -= 1
 	#is_client_angry = true
 	#star_timer.start()
 	game_manager.health -= 1
