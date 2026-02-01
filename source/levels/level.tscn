@@ -6,8 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://cnqc8qbojnx3j" path="res://mini_games/mask/mask_menu.tscn" id="3_cwqvt"]
 [ext_resource type="PackedScene" uid="uid://cilyync3tqtan" path="res://levels/main_scene/game_menu.tscn" id="5_safpt"]
 
-[node name="Level" type="Node2D" unique_id=300681085]
+[node name="Level" type="Node2D" unique_id=300681085 node_paths=PackedStringArray("mask_menu_node", "massage_menu_node")]
 script = ExtResource("2_cwqvt")
+mask_menu_node = NodePath("MaskMenu")
+massage_menu_node = NodePath("MassageMenu")
 
 [node name="MaskMenu" parent="." unique_id=387545059 instance=ExtResource("3_cwqvt")]
 visible = false
@@ -25,6 +27,7 @@ grow_vertical = 1
 visible = false
 
 [node name="MainMenu" parent="." unique_id=617451129 instance=ExtResource("5_safpt")]
+visible = false
 
 [node name="Background" type="Sprite2D" parent="." unique_id=922658167]
 z_index = -1

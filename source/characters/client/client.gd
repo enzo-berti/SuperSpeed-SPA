@@ -8,11 +8,12 @@ extends CharacterBody2D
 var destination : Vector2
 
 var mask_prefab : Resource
+var cucumber_prefab : Resource
 
 @export var speed : float = 10
 var x : float = 0
 
-var in_animation : bool = false
+var in_animation : bool = true
 
 
 ###### BUILT-IN FUNCTIONS ######
@@ -21,16 +22,14 @@ func _ready() -> void:
 	destination = game_pos
 	
 	mask_prefab = preload("res://mini_games/mask/mask.tscn")
+	cucumber_prefab = preload("res://mini_games/cucumber/cucumber_game.tscn")
 
 func is_in_animation() -> bool:
 	return in_animation
 
 func _physics_process(delta: float) -> void:
-	
 	# timer for start animation
-	x += delta / (10 / speed)
-	if x > 1:
-		x = 1
+	x += clamp(delta / (10 / speed), 0, 1)
 	
 	if destination == game_pos:
 		position = spawn_pos + ease.OutBounce(x) * (destination - spawn_pos)
@@ -40,8 +39,12 @@ func _physics_process(delta: float) -> void:
 		in_animation = true
 	else:
 		in_animation = false
-	
-	if position.distance_to(destroy_pos) < 10:
+		
+	if x >= 1:
+		destination = Vector2.ZERO
+		x = 0
+		
+	if position.distance_to(destroy_pos) <= 10:
 		queue_free()
 
 
@@ -55,6 +58,10 @@ func destroy() -> void:
 func start_mask() -> void:
 	var instance = mask_prefab.instantiate()
 	instance.get_node("PaintArea").defineTextureMask(mask_texture)
+	add_child(instance)
+	
+func start_cucumber() -> void:
+	var instance = cucumber_prefab.instantiate()
 	add_child(instance)
 
 func idle() -> void:

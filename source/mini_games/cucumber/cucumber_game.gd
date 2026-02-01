@@ -5,6 +5,8 @@ var eye_turn : int = 0
 
 @onready var label : Label = $Label
 
+var finish : bool = false
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -31,3 +33,8 @@ func _on_cucumber_stopped(target_missed) -> void:
 	elif not target_missed && eyes.size() - 1 != eye_turn:
 		eye_turn += 1
 		_spawn_cucumber()
+	else:
+		finish = true
+		
+func is_finished() -> bool:
+	return finish

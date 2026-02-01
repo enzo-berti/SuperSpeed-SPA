@@ -15,7 +15,7 @@ func defineTextureMask(textureMask : Texture2D) -> void:
 
 func change_mask_color(new_color : Color) -> void:
 	paint_color = new_color
-	
+
 func set_mask_needed(new_color_needed : Color) -> void:
 	paint_needed = new_color_needed
 
@@ -41,21 +41,24 @@ func _paint_tex(pos: Vector2i) -> void:
 	img.fill_rect(Rect2i(pos, Vector2i(1, 1)).grow(brush_size), paint_color)
 
 func _drawInput(event: InputEvent) -> void:
-	if event is InputEventMouseMotion:
-		if event.button_mask == MOUSE_BUTTON_LEFT:
-			var lpos = to_local(event.position)
-			var impos = lpos - offset + get_rect().size/2.0
+	if event is not InputEventMouseMotion:
+		return
+		
+	if event.button_mask != MOUSE_BUTTON_LEFT:
+		return
+		
+	if event.relative.length_squared() > 0:
+		var lpos = to_local(event.position)
+		var impos = lpos - offset + get_rect().size/2.0
+		
+		var num := ceili(event.relative.length())
+		var target_pos = impos - (event.relative)
+		
+		for i in num:
+			impos = impos.move_toward(target_pos, 1.0)
+			_paint_tex(impos)
+		
+	texture.update(img)
 
-			if event.relative.length_squared() > 0:
-				var num := ceili(event.relative.length())
-				var target_pos = impos - (event.relative)
-				for i in num:
-					impos = impos.move_toward(target_pos, 1.0)
-					_paint_tex(impos)
-
-			texture.update(img)
-			_check_win()
-
-func _check_win():
-	if calcul_mask_pourcentage() >= pourcentage_needed:
-		print("win!")
+func check_win() -> bool:
+	return calcul_mask_pourcentage() >= pourcentage_needed
