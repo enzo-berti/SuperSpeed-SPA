@@ -22,8 +22,10 @@ var color_names : Array[String] = ["blue", "green", "yellow", "red", "violet", "
 
 func _ready() -> void:
 	clients_resources = [preload("res://characters/cupcake/cupcake_client.tscn"), 
-preload("res://characters/duck/duck_client.tscn"), preload("res://characters/flower/flower_client.tscn"), 
-preload("res://characters/troll/troll_client.tscn"), preload("res://characters/wrestler/wrestler_client.tscn",
+preload("res://characters/duck/duck_client.tscn"), 
+preload("res://characters/flower/flower_client.tscn"), 
+preload("res://characters/troll/troll_client.tscn"), 
+preload("res://characters/wrestler/wrestler_client.tscn"),
 preload("res://characters/racoon/racoon_client.tscn")]
 
 func _process(delta: float) -> void:
