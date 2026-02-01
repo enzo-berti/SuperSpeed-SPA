@@ -13,3 +13,4 @@ material = SubResource("ShaderMaterial_l04ud")
 script = ExtResource("3_4waao")
 paint_color = Color(0.47983783, 0.26110652, 0.10199871, 1)
 brush_size = 10
+pourcentage_needed = 0.6

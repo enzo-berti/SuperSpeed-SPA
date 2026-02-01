@@ -1,8 +1,11 @@
 extends Sprite2D
 
+var paint_needed : Color
 @export var paint_color : Color
 @export var brush_size : int 
 var img : Image
+
+@export var pourcentage_needed : float
 
 func defineTextureMask(textureMask : Texture2D) -> void:
 	img = Image.create_empty(textureMask.get_size().x, textureMask.get_size().y, false, Image.FORMAT_RGBA8)
@@ -10,14 +13,20 @@ func defineTextureMask(textureMask : Texture2D) -> void:
 	texture = ImageTexture.create_from_image(img)
 	material.set("shader_parameter/mask_texture", textureMask) 
 
+func change_mask_color(new_color : Color) -> void:
+	paint_color = new_color
+	
+func set_mask_needed(new_color_needed : Color) -> void:
+	paint_needed = new_color_needed
+
 func calcul_mask_pourcentage() -> float:
-	var alpha_target = 0
+	var color_target = paint_needed
 	var texture_size := texture.get_size()
 	var image := texture.get_image()
 	var score = 0
 	for y in range(0, texture_size.y):
 		for x in range(0, texture_size.x):
-			if alpha_target != image.get_pixel(x, y).a:
+			if color_target == image.get_pixel(x, y):
 				score += 1
 				
 	return score / (texture.get_size().x * texture.get_size().y)
@@ -45,4 +54,9 @@ func _drawInput(event: InputEvent) -> void:
 					_paint_tex(impos)
 
 			texture.update(img)
-			print(calcul_mask_pourcentage())
+			_check_win()
+
+func _check_win():
+	print(calcul_mask_pourcentage())
+	if calcul_mask_pourcentage() >= pourcentage_needed:
+		print("win!")

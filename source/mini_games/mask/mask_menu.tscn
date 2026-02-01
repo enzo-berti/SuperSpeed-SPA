@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cnqc8qbojnx3j"]
 
 [ext_resource type="Texture2D" uid="uid://b4e57io36tcsu" path="res://mini_games/mask/lotions/creme bleue.png" id="1_bngha"]
+[ext_resource type="Script" uid="uid://cjqjrjfg7ut7j" path="res://mini_games/mask/mask_menu.gd" id="1_h5p0s"]
 [ext_resource type="Texture2D" uid="uid://03jb3es3b4hk" path="res://mini_games/mask/lotions/creme rouge.png" id="2_c4k8x"]
 [ext_resource type="Texture2D" uid="uid://voo0f7e5pvrg" path="res://mini_games/mask/lotions/creme verte.png" id="3_nhca8"]
 [ext_resource type="Texture2D" uid="uid://beqb7g1sps3af" path="res://mini_games/mask/lotions/cremejaune.png" id="4_yh4v4"]
@@ -15,6 +16,13 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_h5p0s")
+mask_blue_texture = ExtResource("1_bngha")
+mask_green_texture = ExtResource("3_nhca8")
+mask_yellow_texture = ExtResource("4_yh4v4")
+mask_red_texture = ExtResource("2_c4k8x")
+mask_violet_texture = ExtResource("6_tqdel")
+mask_pink_texture = ExtResource("5_yh4v4")
 
 [node name="MaskContainer" type="GridContainer" parent="." unique_id=916576450]
 layout_mode = 1
@@ -33,9 +41,9 @@ theme_override_constants/h_separation = 30
 theme_override_constants/v_separation = 15
 columns = 2
 
-[node name="Yellow" type="TextureButton" parent="MaskContainer" unique_id=1255782804]
+[node name="Blue" type="TextureButton" parent="MaskContainer" unique_id=883821798]
 layout_mode = 2
-texture_normal = ExtResource("4_yh4v4")
+texture_normal = ExtResource("1_bngha")
 stretch_mode = 5
 
 [node name="Green" type="TextureButton" parent="MaskContainer" unique_id=952121536]
@@ -43,15 +51,17 @@ layout_mode = 2
 texture_normal = ExtResource("3_nhca8")
 stretch_mode = 5
 
-[node name="Blue" type="TextureButton" parent="MaskContainer" unique_id=883821798]
+[node name="Yellow" type="TextureButton" parent="MaskContainer" unique_id=1255782804]
 layout_mode = 2
-texture_normal = ExtResource("1_bngha")
+texture_normal = ExtResource("4_yh4v4")
 stretch_mode = 5
+flip_h = true
 
 [node name="Red" type="TextureButton" parent="MaskContainer" unique_id=1936310964]
 layout_mode = 2
 texture_normal = ExtResource("2_c4k8x")
 stretch_mode = 5
+flip_h = true
 
 [node name="Violet" type="TextureButton" parent="MaskContainer" unique_id=191518963]
 layout_mode = 2
@@ -79,6 +89,17 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
+offset_left = -101.5
+offset_top = -103.0
+offset_right = 92.5
+offset_bottom = 100.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("3_nhca8")
+texture = ExtResource("5_yh4v4")
+
+[connection signal="pressed" from="MaskContainer/Blue" to="." method="_on_blue_pressed"]
+[connection signal="pressed" from="MaskContainer/Green" to="." method="_on_green_pressed"]
+[connection signal="pressed" from="MaskContainer/Yellow" to="." method="_on_yellow_pressed"]
+[connection signal="pressed" from="MaskContainer/Red" to="." method="_on_red_pressed"]
+[connection signal="pressed" from="MaskContainer/Violet" to="." method="_on_violet_pressed"]
+[connection signal="pressed" from="MaskContainer/Pink" to="." method="_on_pink_pressed"]
