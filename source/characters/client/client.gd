@@ -14,6 +14,7 @@ var x : float = 0
 
 var in_animation : bool = false
 
+
 ###### BUILT-IN FUNCTIONS ######
 
 func _ready() -> void:

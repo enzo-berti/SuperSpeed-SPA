@@ -1,16 +1,26 @@
 [gd_scene format=3 uid="uid://cilyync3tqtan"]
 
+[ext_resource type="Script" uid="uid://da14mfujne8rg" path="res://levels/main_scene/main_menu.gd" id="1_2f5pf"]
 [ext_resource type="Texture2D" uid="uid://dm2b42bvp86iy" path="res://characters/client/patience_meter/patience_meter_under.png" id="1_ohisk"]
 [ext_resource type="Texture2D" uid="uid://6yosvwgfmi2b" path="res://characters/client/patience_meter/patience_meter_progress.png" id="2_2f5pf"]
 [ext_resource type="Texture2D" uid="uid://br7umexks43v3" path="res://levels/main_scene/UI/Étoile_Win.png" id="3_ohisk"]
+[ext_resource type="Texture2D" uid="uid://cw15x5tkpamj2" path="res://levels/main_scene/UI/Étoile_Looser.png" id="4_4dwkg"]
 
-[node name="MainMenu" type="Control" unique_id=617451129]
+[sub_resource type="LabelSettings" id="LabelSettings_4dwkg"]
+font_size = 36
+
+[node name="MainMenu" type="Control" unique_id=617451129 node_paths=PackedStringArray("timer", "star_timer", "patience_meter", "score_label")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_2f5pf")
+timer = NodePath("PatienceMeter/Timer")
+star_timer = NodePath("HeartContainer/StarTimer")
+patience_meter = NodePath("PatienceMeter")
+score_label = NodePath("ScoreTexture/ScoreLabel")
 
 [node name="PatienceMeter" type="TextureProgressBar" parent="." unique_id=636006876]
 layout_mode = 1
@@ -28,25 +38,43 @@ texture_under = ExtResource("1_ohisk")
 texture_progress = ExtResource("2_2f5pf")
 texture_progress_offset = Vector2(13, 11)
 
+[node name="Timer" type="Timer" parent="PatienceMeter" unique_id=2123349285]
+one_shot = true
+
 [node name="HeartContainer" type="HBoxContainer" parent="." unique_id=1018261148]
 layout_mode = 1
-offset_right = 467.0
-offset_bottom = 153.0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 6172.0
+offset_bottom = 2068.0
+scale = Vector2(0.05, 0.05)
 
-[node name="Heart1" type="TextureRect" parent="HeartContainer" unique_id=1546438324]
+[node name="Star1" type="TextureProgressBar" parent="HeartContainer" unique_id=675158201]
 layout_mode = 2
-texture = ExtResource("3_ohisk")
-expand_mode = 3
+max_value = 1.0
+value = 1.0
+fill_mode = 3
+texture_under = ExtResource("4_4dwkg")
+texture_progress = ExtResource("3_ohisk")
 
-[node name="Heart2" type="TextureRect" parent="HeartContainer" unique_id=109575661]
+[node name="Star2" type="TextureProgressBar" parent="HeartContainer" unique_id=1214712571]
 layout_mode = 2
-texture = ExtResource("3_ohisk")
-expand_mode = 3
+max_value = 1.0
+value = 1.0
+fill_mode = 3
+texture_under = ExtResource("4_4dwkg")
+texture_progress = ExtResource("3_ohisk")
 
-[node name="Heart3" type="TextureRect" parent="HeartContainer" unique_id=618699761]
+[node name="Star3" type="TextureProgressBar" parent="HeartContainer" unique_id=1962989456]
 layout_mode = 2
-texture = ExtResource("3_ohisk")
-expand_mode = 3
+max_value = 1.0
+value = 1.0
+fill_mode = 3
+texture_under = ExtResource("4_4dwkg")
+texture_progress = ExtResource("3_ohisk")
+
+[node name="StarTimer" type="Timer" parent="HeartContainer" unique_id=1662880649]
+one_shot = true
 
 [node name="ScoreTexture" type="TextureRect" parent="." unique_id=1458267983]
 layout_mode = 1
@@ -73,5 +101,8 @@ offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
 text = "SCORE : 1000"
+label_settings = SubResource("LabelSettings_4dwkg")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[connection signal="timeout" from="PatienceMeter/Timer" to="." method="_on_timer_timeout"]
