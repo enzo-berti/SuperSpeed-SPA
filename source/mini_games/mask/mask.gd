@@ -7,6 +7,9 @@ var img : Image
 
 @export var pourcentage_needed : float
 
+@onready var sfx_mask: AudioStreamPlayer2D = $"../sfx_mask"
+
+
 func defineTextureMask(textureMask : Texture2D) -> void:
 	img = Image.create_empty(textureMask.get_size().x, textureMask.get_size().y, false, Image.FORMAT_RGBA8)
 	img.fill(Color(0, 0, 0, 0)) # je sais pas si j'en ai besoin, mais je le fais
@@ -42,9 +45,12 @@ func _paint_tex(pos: Vector2i) -> void:
 
 func _drawInput(event: InputEvent) -> void:
 	if event is not InputEventMouseMotion:
+		if !sfx_mask.playing:
+			sfx_mask.stream_paused = false
 		return
-		
+
 	if event.button_mask != MOUSE_BUTTON_LEFT:
+		sfx_mask.stream_paused = true
 		return
 		
 	if event.relative.length_squared() > 0:
