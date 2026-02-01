@@ -27,7 +27,16 @@ grow_vertical = 1
 visible = false
 
 [node name="MainMenu" parent="." unique_id=617451129 instance=ExtResource("5_safpt")]
-visible = false
+z_index = 2
+custom_minimum_size = Vector2(1920, 1080)
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+grow_horizontal = 1
+grow_vertical = 1
+mouse_filter = 2
 
 [node name="Background" type="Sprite2D" parent="." unique_id=922658167]
 z_index = -1
