@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b4e57io36tcsu"
-path="res://.godot/imported/creme bleue.png-9d6799842bca771180d0afcd32cdf810.ctex"
+uid="uid://bj1ysgddyuf53"
+path="res://.godot/imported/violet.PNG-58ed1beec72798242d9ce078301c4bd1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://mini_games/mask/lotions/creme bleue.png"
-dest_files=["res://.godot/imported/creme bleue.png-9d6799842bca771180d0afcd32cdf810.ctex"]
+source_file="res://mini_games/mask/lotions/violet.PNG"
+dest_files=["res://.godot/imported/violet.PNG-58ed1beec72798242d9ce078301c4bd1.ctex"]
 
 [params]
 

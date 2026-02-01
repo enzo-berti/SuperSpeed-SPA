@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://03jb3es3b4hk"
-path="res://.godot/imported/creme rouge.png-0d159041518ea0129d9d3e79a0ae2bef.ctex"
+uid="uid://b1iobuoothudq"
+path="res://.godot/imported/vert fermé.PNG-3848d066a3fdae5c6842e651dd4357cf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://mini_games/mask/lotions/creme rouge.png"
-dest_files=["res://.godot/imported/creme rouge.png-0d159041518ea0129d9d3e79a0ae2bef.ctex"]
+source_file="res://mini_games/mask/lotions/vert fermé.PNG"
+dest_files=["res://.godot/imported/vert fermé.PNG-3848d066a3fdae5c6842e651dd4357cf.ctex"]
 
 [params]
 
