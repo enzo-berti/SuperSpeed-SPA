@@ -5,8 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://qfpd4nnc6vqc" path="res://levels/main_menu/start button.png" id="2_axrye"]
 [ext_resource type="Texture2D" uid="uid://b2ngj7egmejki" path="res://levels/main_menu/quit.png" id="3_8y85c"]
 [ext_resource type="Texture2D" uid="uid://bh5uk2nnnjygy" path="res://levels/main_menu/rocky racoons logo.png" id="5_t2nvs"]
+[ext_resource type="AudioStream" uid="uid://4d0mp5wrgi8m" path="res://levels/main_menu/MENU THEME.mp3" id="6_2xk3b"]
 [ext_resource type="AudioStream" uid="uid://c2wdv8qbdcb86" path="res://mini_games/sfx/SFX-Input_Var04.ogg" id="6_oql43"]
-[ext_resource type="AudioStream" uid="uid://c1cvdcmvskhm1" path="res://mini_games/Main_Theme_Techno_120BPM.ogg" id="7_xb2bc"]
 [ext_resource type="Texture2D" uid="uid://bkvluyrdgkel3" path="res://levels/main_menu/Logo_Superspeed_SPA.png" id="8_2xk3b"]
 
 [node name="MenuPrincipal" type="Control" unique_id=725306042]
@@ -70,7 +70,7 @@ texture = ExtResource("5_t2nvs")
 expand_mode = 1
 
 [node name="audio_main_menu" type="AudioStreamPlayer2D" parent="." unique_id=2050804421]
-stream = ExtResource("7_xb2bc")
+stream = ExtResource("6_2xk3b")
 autoplay = true
 
 [node name="sfx_button" type="AudioStreamPlayer2D" parent="." unique_id=682097371]
