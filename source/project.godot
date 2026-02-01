@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="GlobalGameJam2026"
-run/main_scene="uid://b180gverqsa44"
+run/main_scene="uid://drcepl1658dpn"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
