@@ -19,6 +19,7 @@ func _ready() -> void:
 	
 	mask_prefab = preload("res://mini_games/mask/mask.tscn")
 
+
 func _physics_process(delta: float) -> void:
 	x += delta / (10 / speed)
 	
@@ -46,3 +47,13 @@ func start_mask() -> void:
 	var instance = mask_prefab.instantiate()
 	instance.get_node("PaintArea").defineTextureMask(mask_texture)
 	add_child(instance)
+
+
+func idle() -> void:
+	$AnimatedSprite2D.play("idle")
+
+func angry() -> void:
+	$AnimatedSprite2D.play("angry")
+
+func happy() -> void:
+	$AnimatedSprite2D.play("happy")

@@ -2,9 +2,9 @@
 
 [ext_resource type="PackedScene" uid="uid://bqhqafb6hohi8" path="res://characters/client/client.tscn" id="1_sg4vv"]
 [ext_resource type="Texture2D" uid="uid://b1h3603ci0u4s" path="res://characters/duck/canard-colere.png" id="2_nxwl7"]
-[ext_resource type="Texture2D" uid="uid://dxc0e5wt6qlxc" path="res://characters/duck/duck_sprite.png" id="3_jesnu"]
 [ext_resource type="PackedScene" uid="uid://dmbth1got02m5" path="res://mini_games/cucumber/eye.tscn" id="3_nxwl7"]
 [ext_resource type="Texture2D" uid="uid://cb2okh042xl05" path="res://characters/duck/canard-content.png" id="3_ymxcs"]
+[ext_resource type="Texture2D" uid="uid://do3ejmgdokl1i" path="res://characters/duck/canard.png" id="4_ymxcs"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_sg4vv"]
 animations = [{
@@ -26,7 +26,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_jesnu")
+"texture": ExtResource("4_ymxcs")
 }],
 "loop": true,
 "name": &"idle",

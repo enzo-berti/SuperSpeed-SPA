@@ -38,6 +38,7 @@ animations = [{
 [node name="AnimatedSprite2D" parent="." index="0" unique_id=847792521]
 sprite_frames = SubResource("SpriteFrames_lo8sx")
 animation = &"idle"
+autoplay = "idle"
 
 [node name="Eye" parent="." index="1" unique_id=1328093528 instance=ExtResource("3_2e254")]
 position = Vector2(-108, -43)
