@@ -17,6 +17,7 @@ var state_machine : String = states[0]
 
 #Cucumber movement
 var x : float = 0
+@export var speed : float = 1.0
 var direction_reversed : bool = false
 
 #Score variables
@@ -57,9 +58,9 @@ func _process(delta: float) -> void:
 
 func _slide(delta: float) -> void:
 	if not direction_reversed:
-		x += delta
+		x += delta * speed
 	elif direction_reversed:
-		x -= delta
+		x -= delta * speed
 	
 	if x > 1:
 		x = 1
