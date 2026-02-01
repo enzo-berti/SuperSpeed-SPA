@@ -14,6 +14,8 @@ extends Control
 var is_client_angry : bool = false
 var x : float
 
+signal patience_timeout
+
 
 ###### BUILT-IN FUNCTIONS ######
 
@@ -44,17 +46,10 @@ func _process(delta: float) -> void:
 
 ###### CUSTOM FUNCTIONS ######
 
-
-
-
 func start_patience() -> void:
 	timer.wait_time = patience_time
 	patience_meter.visible = true
 	timer.start()
-
-func stop_patience() -> void:
-	patience_meter.visible = false
-	timer.stop()
 
 func angry_client(time_malus : int) -> void:
 	var remaining_time : float = timer.time_left
@@ -77,4 +72,6 @@ func _on_timer_timeout() -> void:
 	#star_timer.start()
 	game_manager.health -= 1
 	stars_array[game_manager.health].value = 0.0
-	stop_patience()
+	patience_meter.visible = false
+	timer.stop()
+	patience_timeout.emit()
