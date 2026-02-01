@@ -44,7 +44,7 @@ animation = &"idle"
 autoplay = "idle"
 
 [node name="Eye" parent="." index="1" unique_id=1328093528 instance=ExtResource("3_cqudq")]
-position = Vector2(-115, -28)
+position = Vector2(-120, -60)
 
 [node name="Eye2" parent="." index="2" unique_id=1273197048 instance=ExtResource("3_cqudq")]
-position = Vector2(111, -27)
+position = Vector2(88, -66)

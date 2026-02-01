@@ -50,7 +50,7 @@ animation = &"idle"
 autoplay = "idle"
 
 [node name="Eye" parent="." index="1" unique_id=1328093528 instance=ExtResource("3_nxwl7")]
-position = Vector2(-125, -101)
+position = Vector2(-131, -56)
 
 [node name="Eye2" parent="." index="2" unique_id=260123150 instance=ExtResource("3_nxwl7")]
-position = Vector2(125, -100)
+position = Vector2(117, -57)

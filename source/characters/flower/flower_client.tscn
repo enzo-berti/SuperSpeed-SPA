@@ -5,7 +5,6 @@
 [ext_resource type="Texture2D" uid="uid://5lb7xdoa0tl" path="res://characters/flower/fleur colere.png" id="2_u7j2t"]
 [ext_resource type="PackedScene" uid="uid://dmbth1got02m5" path="res://mini_games/cucumber/eye.tscn" id="3_a07to"]
 [ext_resource type="Texture2D" uid="uid://c3w6261qvlnn2" path="res://characters/flower/fleur happy.png" id="3_sccwg"]
-[ext_resource type="PackedScene" uid="uid://bpeq83vrwjnde" path="res://mini_games/mask/mask.tscn" id="6_sccwg"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_130sd"]
 animations = [{
@@ -43,9 +42,7 @@ animation = &"idle"
 autoplay = "idle"
 
 [node name="Eye" parent="." index="1" unique_id=1328093528 instance=ExtResource("3_a07to")]
-position = Vector2(-68, -32)
+position = Vector2(-75, -24)
 
 [node name="Eye2" parent="." index="2" unique_id=1946067789 instance=ExtResource("3_a07to")]
-position = Vector2(80, -29)
-
-[node name="Mask" parent="." index="4" unique_id=1945729470 instance=ExtResource("6_sccwg")]
+position = Vector2(71, -24)
