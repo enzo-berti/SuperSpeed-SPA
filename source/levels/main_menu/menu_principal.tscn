@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bh5uk2nnnjygy" path="res://levels/main_menu/rocky racoons logo.png" id="5_t2nvs"]
 [ext_resource type="AudioStream" uid="uid://c2wdv8qbdcb86" path="res://mini_games/sfx/SFX-Input_Var04.ogg" id="6_oql43"]
 [ext_resource type="AudioStream" uid="uid://c1cvdcmvskhm1" path="res://mini_games/Main_Theme_Techno_120BPM.ogg" id="7_xb2bc"]
+[ext_resource type="Texture2D" uid="uid://c8mr6racj5oqx" path="res://levels/main_menu/Titre_SuperSpeedSpa.png" id="8_2xk3b"]
 
 [node name="MenuPrincipal" type="Control" unique_id=725306042]
 layout_mode = 3
@@ -37,12 +38,12 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -355.0
-offset_top = -156.0
+offset_top = -211.0
 offset_right = 355.0
-offset_bottom = 252.0
+offset_bottom = 203.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 24
+theme_override_constants/separation = 30
 metadata/_edit_group_ = true
 
 [node name="StartButton" type="Button" parent="VBoxContainer" unique_id=104200530]
@@ -76,6 +77,23 @@ stream = ExtResource("6_oql43")
 volume_db = 10.0
 
 [node name="Timer" type="Timer" parent="." unique_id=575787160]
+
+[node name="gametitle" type="TextureRect" parent="." unique_id=817959799]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -492.6648
+offset_top = -495.0
+offset_right = 492.6648
+offset_bottom = -312.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_2xk3b")
+expand_mode = 1
+metadata/_edit_group_ = true
 
 [connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
