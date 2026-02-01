@@ -25,6 +25,10 @@ func _on_violet_pressed() -> void:
 func _on_pink_pressed() -> void:
 	get_node("../Client/Mask/PaintArea").change_mask_color(Color.PINK)
 
+func reset_buttons() -> void:
+	
+	pass
+
 func set_mask_needed(color: String) -> void:
 	if color == "blue":
 		get_node("TextBubble/MaskNeeded").texture = mask_blue_texture

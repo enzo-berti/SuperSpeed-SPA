@@ -42,6 +42,8 @@ func _input(event: InputEvent) -> void:
 
 func _paint_tex(pos: Vector2i) -> void:
 	img.fill_rect(Rect2i(pos, Vector2i(1, 1)).grow(brush_size), paint_color)
+	if paint_needed != paint_color:
+		$"../..".angry()
 
 func _drawInput(event: InputEvent) -> void:
 	if paint_color.a == 0:
@@ -59,6 +61,9 @@ func _drawInput(event: InputEvent) -> void:
 	if event.relative.length_squared() > 0:
 		var lpos = to_local(event.position)
 		var impos = lpos - offset + get_rect().size/2.0
+		
+		if !get_rect().has_point(lpos - offset):
+			return
 		
 		var num := ceili(event.relative.length())
 		var target_pos = impos - (event.relative)

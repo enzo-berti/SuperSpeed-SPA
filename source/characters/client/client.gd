@@ -1,4 +1,4 @@
-extends CharacterBody2D
+extends Node2D
 
 @export var mask_texture : Texture2D
 
@@ -15,6 +15,7 @@ var x : float = 0
 
 var in_animation : bool = true
 @onready var timer: Timer = $Timer
+var is_angry : bool = false
 
 
 ###### BUILT-IN FUNCTIONS ######
@@ -70,12 +71,15 @@ func idle() -> void:
 
 func angry() -> void:
 	$AnimatedSprite2D.play("angry")
+	if not is_angry:
+		$"../MainMenu".angry_client(2.0)
 	timer.start()
-	
+	is_angry = true
 
 func happy() -> void:
 	$AnimatedSprite2D.play("happy")
 
 
 func _on_timer_timeout() -> void:
+	is_angry = false
 	idle()
