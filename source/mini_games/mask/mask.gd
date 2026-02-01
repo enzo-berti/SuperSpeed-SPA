@@ -41,7 +41,7 @@ func _input(event: InputEvent) -> void:
 	_drawInput(event)
 
 func _paint_tex(pos: Vector2i) -> void:
-	img.fill_rect(Rect2i(pos, Vector2i(1, 1)).grow(brush_size), paint_color)
+	img.fill_rect(Rect2i(pos, Vector2i(1, 1)).grow(brush_size*1.5), paint_color)
 	if paint_needed != paint_color:
 		$"../..".angry()
 

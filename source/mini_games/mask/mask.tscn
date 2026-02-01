@@ -16,7 +16,7 @@ material = SubResource("ShaderMaterial_l04ud")
 script = ExtResource("3_4waao")
 paint_color = Color(0, 0, 0, 0)
 brush_size = 10
-pourcentage_needed = 0.6
+pourcentage_needed = 0.85
 
 [node name="sfx_mask" type="AudioStreamPlayer2D" parent="." unique_id=134941850]
 stream = ExtResource("3_l04ud")

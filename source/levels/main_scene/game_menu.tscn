@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://6yosvwgfmi2b" path="res://characters/client/patience_meter/patience_meter_progress.png" id="2_2f5pf"]
 [ext_resource type="Texture2D" uid="uid://br7umexks43v3" path="res://levels/main_scene/UI/Étoile_Win.png" id="3_ohisk"]
 [ext_resource type="Texture2D" uid="uid://cw15x5tkpamj2" path="res://levels/main_scene/UI/Étoile_Looser.png" id="4_4dwkg"]
+[ext_resource type="Texture2D" uid="uid://8osl8r413uxb" path="res://levels/main_scene/UI/UI_Money.png" id="6_xp4lc"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_4dwkg"]
 font_size = 36
@@ -95,15 +96,20 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -50.5
-offset_top = -11.5
-offset_right = 50.5
-offset_bottom = 11.5
+offset_left = -94.66504
+offset_top = -45.000004
+offset_right = 6.334961
+offset_bottom = 4.999996
 grow_horizontal = 2
 grow_vertical = 2
-text = "SCORE : 1000"
+text = "1000 "
 label_settings = SubResource("LabelSettings_4dwkg")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="UiMoney" type="Sprite2D" parent="." unique_id=1128858143]
+position = Vector2(1856, 61)
+scale = Vector2(0.044921875, 0.044921875)
+texture = ExtResource("6_xp4lc")
 
 [connection signal="timeout" from="PatienceMeter/Timer" to="." method="_on_timer_timeout"]
