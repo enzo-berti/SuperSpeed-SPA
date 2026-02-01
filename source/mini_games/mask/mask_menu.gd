@@ -8,7 +8,6 @@ extends Control
 @export var mask_pink_texture : Texture2D
 
 func _on_blue_pressed() -> void:
-	set_mask_needed("green")
 	get_node("../Client/Mask/PaintArea").change_mask_color(Color.LIGHT_SKY_BLUE)
 
 func _on_green_pressed() -> void:

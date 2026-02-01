@@ -14,6 +14,8 @@ var actual_client : Node
 @export var mask_menu_node : Node
 @export var massage_menu_node : Node
 
+var color_names : Array[String] = ["blue", "green", "yellow", "red", "violet", "pink"] 
+
 ###### BUILT-IN FUNCTIONS ######
 
 func _ready() -> void:
@@ -29,9 +31,7 @@ func _process(delta: float) -> void:
 	match state_machine:
 		states.START:
 			if !actual_client.is_in_animation():
-				state_machine = states.MASK
-				actual_client.start_mask()
-				mask_menu_node.visible = true
+				_start_mask_mini_game()
 		states.MASK:
 			if not actual_client.get_node("Mask/PaintArea").check_win():
 				return
@@ -48,7 +48,6 @@ func _process(delta: float) -> void:
 		states.FINISH:
 			if actual_client == null:
 				is_there_client = false
-				
 
 ###### CUSTOM FUNCTIONS ######
 #Spawn new client
@@ -58,8 +57,9 @@ func spawn_client() -> void:
 	add_child(actual_client)
 	actual_client.position = spawn_pos
 	is_there_client = true
-	pass
 
-func spawn_mask_mini_game() -> void:
-	
-	pass
+func _start_mask_mini_game() -> void:
+	state_machine = states.MASK
+	actual_client.start_mask()
+	mask_menu_node.set_mask_needed(color_names[rng.randi_range(0, color_names.size() - 1)])
+	mask_menu_node.visible = true
