@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cxk8ta827oaiv"]
 
 [ext_resource type="PackedScene" uid="uid://bqhqafb6hohi8" path="res://characters/client/client.tscn" id="1_r5dhg"]
+[ext_resource type="Texture2D" uid="uid://b0bc3xfo3eq7e" path="res://characters/cupcake/cupcake-masque.png" id="2_d7hnk"]
 [ext_resource type="Texture2D" uid="uid://dvwho286nvt88" path="res://characters/cupcake/cupcake.png" id="2_e7df2"]
 [ext_resource type="Texture2D" uid="uid://dppqc8c0snjco" path="res://characters/cupcake/cupcake colere.png" id="2_ryhau"]
 [ext_resource type="Texture2D" uid="uid://burb00b0vivr3" path="res://characters/cupcake/cupcake contente.png" id="3_i1kfk"]
@@ -34,6 +35,7 @@ animations = [{
 }]
 
 [node name="Client" unique_id=1249865823 instance=ExtResource("1_r5dhg")]
+mask_texture = ExtResource("2_d7hnk")
 
 [node name="AnimatedSprite2D" parent="." index="0" unique_id=847792521]
 sprite_frames = SubResource("SpriteFrames_ow8hh")

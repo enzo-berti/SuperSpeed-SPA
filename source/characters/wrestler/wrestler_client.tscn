@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bqhqafb6hohi8" path="res://characters/client/client.tscn" id="1_qn6um"]
 [ext_resource type="Texture2D" uid="uid://cshvbghd0w0th" path="res://characters/wrestler/catcher colere.png" id="2_kdvnq"]
+[ext_resource type="Texture2D" uid="uid://b8eohfn8l85df" path="res://characters/wrestler/masque catcher.png" id="2_vwr17"]
 [ext_resource type="Texture2D" uid="uid://0jteqde1viww" path="res://characters/wrestler/catcher content.png" id="3_qmtip"]
 [ext_resource type="Texture2D" uid="uid://cjwrnocbcgn45" path="res://characters/wrestler/catcher.png" id="4_vwr17"]
 [ext_resource type="PackedScene" uid="uid://dmbth1got02m5" path="res://mini_games/cucumber/eye.tscn" id="5_qmtip"]
@@ -34,6 +35,7 @@ animations = [{
 }]
 
 [node name="Client" unique_id=1249865823 instance=ExtResource("1_qn6um")]
+mask_texture = ExtResource("2_vwr17")
 
 [node name="AnimatedSprite2D" parent="." index="0" unique_id=847792521]
 sprite_frames = SubResource("SpriteFrames_qn6um")

@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bqhqafb6hohi8" path="res://characters/client/client.tscn" id="1_70n4d"]
 [ext_resource type="Texture2D" uid="uid://b28tqejdig64m" path="res://characters/flower/fleur_.png" id="2_8hag5"]
+[ext_resource type="Texture2D" uid="uid://bf3th86ms425j" path="res://characters/flower/fleur masque.png" id="2_sccwg"]
 [ext_resource type="Texture2D" uid="uid://5lb7xdoa0tl" path="res://characters/flower/fleur colere.png" id="2_u7j2t"]
 [ext_resource type="PackedScene" uid="uid://dmbth1got02m5" path="res://mini_games/cucumber/eye.tscn" id="3_a07to"]
 [ext_resource type="Texture2D" uid="uid://c3w6261qvlnn2" path="res://characters/flower/fleur happy.png" id="3_sccwg"]
@@ -34,6 +35,7 @@ animations = [{
 }]
 
 [node name="Client" unique_id=1249865823 instance=ExtResource("1_70n4d")]
+mask_texture = ExtResource("2_sccwg")
 
 [node name="AnimatedSprite2D" parent="." index="0" unique_id=847792521]
 sprite_frames = SubResource("SpriteFrames_130sd")

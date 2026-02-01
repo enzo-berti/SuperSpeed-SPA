@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dqn3khjuqij28"]
 
 [ext_resource type="PackedScene" uid="uid://bqhqafb6hohi8" path="res://characters/client/client.tscn" id="1_sg4vv"]
+[ext_resource type="Texture2D" uid="uid://d8afrsquc5ch" path="res://characters/duck/duck_mask.png" id="2_7or7q"]
 [ext_resource type="Texture2D" uid="uid://b1h3603ci0u4s" path="res://characters/duck/canard-colere.png" id="2_nxwl7"]
 [ext_resource type="PackedScene" uid="uid://dmbth1got02m5" path="res://mini_games/cucumber/eye.tscn" id="3_nxwl7"]
 [ext_resource type="Texture2D" uid="uid://cb2okh042xl05" path="res://characters/duck/canard-content.png" id="3_ymxcs"]
@@ -34,9 +35,11 @@ animations = [{
 }]
 
 [node name="Client" unique_id=1249865823 instance=ExtResource("1_sg4vv")]
+mask_texture = ExtResource("2_7or7q")
 
 [node name="AnimatedSprite2D" parent="." index="0" unique_id=847792521]
 sprite_frames = SubResource("SpriteFrames_sg4vv")
+animation = &"angry"
 
 [node name="Eye" parent="." index="1" unique_id=1328093528 instance=ExtResource("3_nxwl7")]
 position = Vector2(-125, -101)
