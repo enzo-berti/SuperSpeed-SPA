@@ -20,7 +20,7 @@ func calcul_mask_pourcentage() -> float:
 			if alpha_target != image.get_pixel(x, y).a:
 				score += 1
 				
-	return score
+	return score / (texture.get_size().x * texture.get_size().y)
 
 func _ready() -> void:
 	pass
