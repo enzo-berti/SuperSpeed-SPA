@@ -10,3 +10,8 @@ script = ExtResource("1_1wbty")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=847792521]
 position = Vector2(44, 597)
 animation = &""
+
+[node name="Timer" type="Timer" parent="." unique_id=34356966]
+wait_time = 2.0
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

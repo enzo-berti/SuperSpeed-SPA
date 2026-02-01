@@ -31,7 +31,8 @@ func _on_cucumber_stopped(target_missed) -> void:
 	print(target_missed)
 	if target_missed:
 		_spawn_cucumber()
-		$"../../MainMenu".angry_client()
+		$"../../MainMenu".angry_client(missing_target_time_malus)
+		get_parent().angry()
 	elif not target_missed && eyes.size() - 1 != eye_turn:
 		eye_turn += 1
 		_spawn_cucumber()

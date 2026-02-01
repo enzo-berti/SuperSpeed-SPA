@@ -11,6 +11,10 @@ extends Control
 @onready var sprite_gameover: AnimatedSprite2D = $sprite_gameover
 
 
+func _ready() -> void:
+	game_manager.score = 0
+	game_manager.health = 3
+
 func _process(_delta: float) -> void:
 	btn_hovered(button_mainmenu)
 	btn_hovered(button_retry)

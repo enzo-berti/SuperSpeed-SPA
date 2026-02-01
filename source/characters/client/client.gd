@@ -14,6 +14,7 @@ var cucumber_prefab : Resource
 var x : float = 0
 
 var in_animation : bool = true
+@onready var timer: Timer = $Timer
 
 
 ###### BUILT-IN FUNCTIONS ######
@@ -69,6 +70,12 @@ func idle() -> void:
 
 func angry() -> void:
 	$AnimatedSprite2D.play("angry")
+	timer.start()
+	
 
 func happy() -> void:
 	$AnimatedSprite2D.play("happy")
+
+
+func _on_timer_timeout() -> void:
+	idle()
