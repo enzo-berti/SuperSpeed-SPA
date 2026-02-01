@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bh5uk2nnnjygy" path="res://levels/main_menu/rocky racoons logo.png" id="5_t2nvs"]
 [ext_resource type="AudioStream" uid="uid://4d0mp5wrgi8m" path="res://levels/main_menu/MENU THEME.mp3" id="6_2xk3b"]
 [ext_resource type="AudioStream" uid="uid://c2wdv8qbdcb86" path="res://mini_games/sfx/SFX-Input_Var04.ogg" id="6_oql43"]
-[ext_resource type="Texture2D" uid="uid://bkvluyrdgkel3" path="res://levels/main_menu/Logo_Superspeed_SPA.png" id="8_2xk3b"]
+[ext_resource type="Texture2D" uid="uid://2uh2bsphit4r" path="res://levels/main_menu/Logo_SuperSpeed_SPA_GRAND.png" id="8_2xk3b"]
 
 [node name="MenuPrincipal" type="Control" unique_id=725306042]
 layout_mode = 3
@@ -37,13 +37,13 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -261.0
-offset_top = -629.0
-offset_right = 449.0
-offset_bottom = -215.0
+offset_left = -248.99994
+offset_top = -585.0
+offset_right = 461.0
+offset_bottom = -171.0
 grow_horizontal = 2
 grow_vertical = 0
-scale = Vector2(0.75, 0.75)
+scale = Vector2(0.7, 0.7)
 theme_override_constants/separation = 30
 metadata/_edit_group_ = true
 
@@ -84,12 +84,13 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -400.88446
-offset_top = 48.0
-offset_right = 400.88452
-offset_bottom = 378.0
+offset_left = -441.87463
+offset_top = 59.0
+offset_right = 441.87463
+offset_bottom = 441.0
 grow_horizontal = 2
 texture = ExtResource("8_2xk3b")
+expand_mode = 1
 metadata/_edit_group_ = true
 
 [connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
