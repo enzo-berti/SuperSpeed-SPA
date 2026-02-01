@@ -15,23 +15,15 @@ radius = 85.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_gyq2i"]
 radius = 19.94
 
-[node name="Cucumber" type="Node2D" unique_id=479024315 node_paths=PackedStringArray("path_follow", "sprite", "debug_score_distance_limit", "debug_score_distance_deadzone")]
-script = ExtResource("1_5yc3b")
-path_follow = NodePath("Path2D/PathFollow2D")
-sprite = NodePath("Path2D/PathFollow2D/Sprite2D")
-debug_score_distance_limit = NodePath("Path2D/PathFollow2D/DebugScoreDistanceLimit")
-debug_score_distance_deadzone = NodePath("Path2D/PathFollow2D/DebugScoreDistanceDeadzone")
+[node name="Cucumber" type="Node2D" unique_id=479024315]
 
 [node name="Path2D" type="Path2D" parent="." unique_id=2031570401]
 curve = SubResource("Curve2D_8fqau")
+script = ExtResource("1_5yc3b")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D" unique_id=161715659]
 position = Vector2(0, -200)
 rotation = 1.5707964
-
-[node name="Sprite2D" type="Sprite2D" parent="Path2D/PathFollow2D" unique_id=909540587]
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("1_tkkmq")
 
 [node name="DebugScoreDistanceLimit" type="CollisionShape2D" parent="Path2D/PathFollow2D" unique_id=1941636446]
 shape = SubResource("CircleShape2D_5yc3b")
@@ -40,3 +32,16 @@ debug_color = Color(0, 1, 0, 0.41960785)
 [node name="DebugScoreDistanceDeadzone" type="CollisionShape2D" parent="Path2D/PathFollow2D" unique_id=638605612]
 shape = SubResource("CircleShape2D_gyq2i")
 debug_color = Color(0, 1, 0, 0.41960785)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=909540587]
+position = Vector2(0, -200)
+rotation = 1.5707964
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_tkkmq")
+
+[node name="DebugState" type="Label" parent="." unique_id=1581380073]
+offset_left = 107.0
+offset_top = 5.0
+offset_right = 147.0
+offset_bottom = 28.0
+text = "Test"
