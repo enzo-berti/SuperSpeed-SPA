@@ -57,6 +57,5 @@ func _drawInput(event: InputEvent) -> void:
 			_check_win()
 
 func _check_win():
-	print(calcul_mask_pourcentage())
 	if calcul_mask_pourcentage() >= pourcentage_needed:
 		print("win!")
