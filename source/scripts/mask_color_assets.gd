@@ -13,6 +13,7 @@ var yellow : Color = Color("#FFD700")
 var red : Color = Color.INDIAN_RED
 var violet : Color = Color.DARK_VIOLET
 var pink : Color = Color.PINK
+var none : Color = Color.TRANSPARENT
 
 enum mask_color
 {
@@ -21,7 +22,7 @@ enum mask_color
 	YELLOW,
 	RED,
 	VIOLET,
-	PINK
+	PINK,
 }
 
 func get_mask_color(color : mask_color) -> Color:
@@ -39,7 +40,7 @@ func get_mask_color(color : mask_color) -> Color:
 		mask_color.PINK:
 			return pink
 		_:
-			return Color.WHITE
+			return none
 
 func get_mask_texture(color : mask_color) -> Texture2D:
 	match color:

@@ -1,23 +1,21 @@
 extends Sprite2D
 
 var paint_needed : Color
+var paint_image : Image
 @export var paint_color : Color
 @export var brush_size : int 
-var img : Image
-
 @export var pourcentage_needed : float
 
 @onready var sfx_mask: AudioStreamPlayer2D = $"../SfxMask"
 
-
 func defineTextureMask(textureMask : Texture2D) -> void:
-	img = Image.create_empty(textureMask.get_size().x, textureMask.get_size().y, false, Image.FORMAT_RGBA8)
-	img.fill(Color(0, 0, 0, 0)) # je sais pas si j'en ai besoin, mais je le fais
-	texture = ImageTexture.create_from_image(img)
+	paint_image = Image.create_empty(textureMask.get_size().x, textureMask.get_size().y, false, Image.FORMAT_RGBA8)
+	paint_image.fill(Color(0, 0, 0, 0)) # je sais pas si j'en ai besoin, mais je le fais
+	texture = ImageTexture.create_from_image(paint_image)
 	material.set("shader_parameter/mask_texture", textureMask) 
 
-func change_mask_color(new_color : Color) -> void:
-	paint_color = new_color
+func change_mask_color(new_color : MaskColorAssets.mask_color) -> void:
+	paint_color = MaskColorAssets.get_mask_color(new_color)
 
 func set_mask_needed(new_color_needed : Color) -> void:
 	paint_needed = new_color_needed
@@ -27,6 +25,7 @@ func calcul_mask_pourcentage() -> float:
 	var texture_size := texture.get_size()
 	var image := texture.get_image()
 	var score = 0
+	
 	for y in range(0, texture_size.y):
 		for x in range(0, texture_size.x):
 			if color_target == image.get_pixel(x, y):
@@ -41,7 +40,7 @@ func _input(event: InputEvent) -> void:
 	_drawInput(event)
 
 func _paint_tex(pos: Vector2i) -> void:
-	img.fill_rect(Rect2i(pos, Vector2i(1, 1)).grow(brush_size*1.5), paint_color)
+	paint_image.fill_rect(Rect2i(pos, Vector2i(1, 1)).grow(brush_size*1.5), paint_color)
 	if paint_needed != paint_color:
 		$"../..".angry()
 
@@ -74,7 +73,7 @@ func _drawInput(event: InputEvent) -> void:
 			impos = impos.move_toward(target_pos, 1.0)
 			_paint_tex(impos)
 		
-	texture.update(img)
+	texture.update(paint_image)
 
 func check_win() -> bool:
 	return calcul_mask_pourcentage() >= pourcentage_needed
