@@ -38,8 +38,6 @@ preload("res://characters/racoon/racoon_client.tscn")]
 
 
 func _process(delta: float) -> void:
-	
-	
 	if !is_there_client:
 		spawn_client()
 		state_machine = states.START
@@ -49,15 +47,16 @@ func _process(delta: float) -> void:
 			if !actual_client.is_in_animation():
 				_start_mask_mini_game()
 		states.MASK:
-			if not actual_client.get_node("Mask/PaintArea").check_win():
+			if !actual_client.get_node("Mask/PaintArea").check_win():
 				return
 			
+			actual_client.get_node("Mask/PaintArea").can_paint = false
 			GameManager.score += 30
 			mask_menu_node.visible = false
 			state_machine = states.CUCUMBER
 			actual_client.start_cucumber()
 		states.CUCUMBER:
-			if not actual_client.get_node("CucumberGame").is_finished():
+			if !actual_client.get_node("CucumberGame").is_finished():
 				return
 			
 			state_machine = states.FINISH

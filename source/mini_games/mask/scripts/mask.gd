@@ -1,5 +1,6 @@
 extends Sprite2D
 
+var can_paint : bool = true
 var paint_needed : Color
 var paint_image : Image
 @export var paint_color : Color
@@ -33,8 +34,8 @@ func calcul_mask_pourcentage() -> float:
 				
 	return score / (texture.get_size().x * texture.get_size().y)
 
-func _ready() -> void:
-	pass
+func check_win() -> bool:
+	return calcul_mask_pourcentage() >= pourcentage_needed
 
 func _input(event: InputEvent) -> void:
 	_drawInput(event)
@@ -45,7 +46,7 @@ func _paint_tex(pos: Vector2i) -> void:
 		$"../..".angry()
 
 func _drawInput(event: InputEvent) -> void:
-	if paint_color.a == 0:
+	if !can_paint || paint_color.a == 0:
 		sfx_mask.stream_paused = true
 		return
 	
@@ -74,6 +75,3 @@ func _drawInput(event: InputEvent) -> void:
 			_paint_tex(impos)
 		
 	texture.update(paint_image)
-
-func check_win() -> bool:
-	return calcul_mask_pourcentage() >= pourcentage_needed
