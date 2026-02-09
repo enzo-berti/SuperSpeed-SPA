@@ -10,6 +10,7 @@ var paint_image : Image
 @onready var sfx_mask: AudioStreamPlayer2D = $"../SfxMask"
 
 func defineTextureMask(textureMask: Texture2D) -> void:
+	@warning_ignore("narrowing_conversion")
 	paint_image = Image.create_empty(textureMask.get_size().x, textureMask.get_size().y, false, Image.FORMAT_RGBA8)
 	paint_image.fill(Color(0, 0, 0, 0))
 	texture = ImageTexture.create_from_image(paint_image)

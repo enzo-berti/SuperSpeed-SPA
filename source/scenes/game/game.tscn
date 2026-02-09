@@ -2,12 +2,6 @@
 
 [ext_resource type="Script" uid="uid://buo7oj8kularv" path="res://scenes/game/game.gd" id="1_ughyh"]
 [ext_resource type="PackedScene" uid="uid://cnqc8qbojnx3j" path="res://mini_games/mask/ui_mask.tscn" id="2_5ycdb"]
-[ext_resource type="Texture2D" uid="uid://dc8y2nu0hs5i8" path="res://mini_games/mask/assets/images/blue_close.PNG" id="3_yyd14"]
-[ext_resource type="Texture2D" uid="uid://b1iobuoothudq" path="res://mini_games/mask/assets/images/green_close.PNG" id="4_6f163"]
-[ext_resource type="Texture2D" uid="uid://w6xgecd2830n" path="res://mini_games/mask/assets/images/yellow_close.PNG" id="5_p0d6h"]
-[ext_resource type="Texture2D" uid="uid://du7k10njvih25" path="res://mini_games/mask/assets/images/red_close.PNG" id="6_jkag2"]
-[ext_resource type="Texture2D" uid="uid://4hi5im64rxru" path="res://mini_games/mask/assets/images/violet_close.PNG" id="7_ol2u7"]
-[ext_resource type="Texture2D" uid="uid://dcls3bh0p68uw" path="res://mini_games/mask/assets/images/pink_closed.PNG" id="8_aumgp"]
 [ext_resource type="PackedScene" uid="uid://dhot8eixpw5or" path="res://mini_games/massage/ui_massage.tscn" id="9_0u5wd"]
 [ext_resource type="PackedScene" uid="uid://cilyync3tqtan" path="res://ui/ui_game/ui_game.tscn" id="10_fbo34"]
 [ext_resource type="Texture2D" uid="uid://bc0g26n77sv00" path="res://scenes/game/assets/bg_game.png" id="11_tkgql"]
@@ -28,12 +22,6 @@ offset_right = 1920.0
 offset_bottom = 1080.0
 grow_horizontal = 1
 grow_vertical = 1
-mask_blue_texture = ExtResource("3_yyd14")
-mask_green_texture = ExtResource("4_6f163")
-mask_yellow_texture = ExtResource("5_p0d6h")
-mask_red_texture = ExtResource("6_jkag2")
-mask_violet_texture = ExtResource("7_ol2u7")
-mask_pink_texture = ExtResource("8_aumgp")
 
 [node name="MassageMenu" parent="." unique_id=7439312 instance=ExtResource("9_0u5wd")]
 visible = false
