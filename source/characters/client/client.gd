@@ -72,7 +72,7 @@ func idle() -> void:
 func angry() -> void:
 	$AnimatedSprite2D.play("angry")
 	if not is_angry:
-		$"../MainMenu".angry_client(2.0)
+		$"../UIGame".angry_client(2.0)
 	timer.start()
 	is_angry = true
 

@@ -21,6 +21,7 @@ func reset_buttons() -> void:
 	red.set_pressed(false)
 	violet.set_pressed(false)
 	pink.set_pressed(false)
+	last_button_pressed = null
 
 func _on_mask_button_pressed(button_mask: TextureButton, color: MaskColorAssets.mask_color) -> void:
 	if (!button_mask):

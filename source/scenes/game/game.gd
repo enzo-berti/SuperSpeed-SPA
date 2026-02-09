@@ -3,7 +3,17 @@ extends Node2D
 enum states { START, MASK, CUCUMBER, FINISH }
 var state_machine : states
 
-var clients_resources : Array[Resource]
+const CLIENTS_RESOURCES : Array[Resource] = [preload("res://characters/cupcake/cupcake_client.tscn"), 
+	preload("res://characters/duck/duck_client.tscn"), 
+	preload("res://characters/flower/flower_client.tscn"), 
+	preload("res://characters/troll/troll_client.tscn"), 
+	preload("res://characters/wrestler/wrestler_client.tscn"),
+	preload("res://characters/racoon/racoon_client.tscn")]
+
+const MUSIC_1 = preload("res://mini_games/shared_assets/bgm/bgm_chill_80bpm.ogg")
+const MUSIC_2 = preload("res://mini_games/shared_assets/bgm/bgm_chill_100bpm.ogg")
+const MUSIC_3 = preload("res://mini_games/shared_assets/bgm/bgm_techno_120bpm.ogg")
+const MUSIC_4 = preload("res://mini_games/shared_assets/bgm/bgm_techno_140bpm.ogg")
 
 var is_there_client : bool = false
 @onready var spawn_pos : Vector2 = $SpawnPoint.position
@@ -14,26 +24,15 @@ var actual_client : Node
 @export var mask_menu_node : Node
 @export var massage_menu_node : Node
 
-@onready var main_menu : Control = $MainMenu
+@onready var main_menu : Control = $UIGame
 @onready var music_player : AudioStreamPlayer = $AudioStreamPlayer
-@onready var music_1 = preload("res://mini_games/shared_assets/bgm/bgm_chill_80bpm.ogg")
-@onready var music_2 = preload("res://mini_games/shared_assets/bgm/bgm_chill_100bpm.ogg")
-@onready var music_3 = preload("res://mini_games/shared_assets/bgm/bgm_techno_120bpm.ogg")
-@onready var music_4 = preload("res://mini_games/shared_assets/bgm/bgm_techno_140bpm.ogg")
 
 var color_names : Array[String] = ["blue", "green", "yellow", "red", "violet", "pink"] 
 
 ###### BUILT-IN FUNCTIONS ######
 
 func _ready() -> void:
-	clients_resources = [preload("res://characters/cupcake/cupcake_client.tscn"), 
-		preload("res://characters/duck/duck_client.tscn"), 
-		preload("res://characters/flower/flower_client.tscn"), 
-		preload("res://characters/troll/troll_client.tscn"), 
-		preload("res://characters/wrestler/wrestler_client.tscn"),
-		preload("res://characters/racoon/racoon_client.tscn")]
-	
-	music_player.stream = music_1
+	music_player.stream = MUSIC_1
 	music_player.play()
 
 func _process(_delta: float) -> void:
@@ -66,7 +65,7 @@ func _process(_delta: float) -> void:
 ###### CUSTOM FUNCTIONS ######
 #Spawn new client
 func spawn_client() -> void:
-	var client = clients_resources[rng.randi_range(0, clients_resources.size() - 1)]
+	var client = CLIENTS_RESOURCES[rng.randi_range(0, CLIENTS_RESOURCES.size() - 1)]
 	actual_client = client.instantiate()
 	add_child(actual_client)
 	actual_client.position = spawn_pos
@@ -103,19 +102,19 @@ func _on_client_win() -> void:
 	match GameManager.win_strike:
 		0:
 			music_player.stream = null
-			music_player.stream = music_1
+			music_player.stream = MUSIC_1
 			music_player.play()
 		1:
 			music_player.stream = null
-			music_player.stream = music_2
+			music_player.stream = MUSIC_2
 			music_player.play()
 		2:
 			music_player.stream = null
-			music_player.stream = music_3
+			music_player.stream = MUSIC_3
 			music_player.play()
 		3:
 			music_player.stream = null
-			music_player.stream = music_4
+			music_player.stream = MUSIC_4
 			music_player.play()
 
 func _on_main_menu_patience_timeout() -> void:

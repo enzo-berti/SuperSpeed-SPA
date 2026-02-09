@@ -8,10 +8,10 @@
 
 [node name="Level" type="Node2D" unique_id=300681085 node_paths=PackedStringArray("mask_menu_node", "massage_menu_node")]
 script = ExtResource("1_ughyh")
-mask_menu_node = NodePath("MaskMenu")
-massage_menu_node = NodePath("MassageMenu")
+mask_menu_node = NodePath("UIMask")
+massage_menu_node = NodePath("UIMassage")
 
-[node name="MaskMenu" parent="." unique_id=387545059 instance=ExtResource("2_5ycdb")]
+[node name="UIMask" parent="." unique_id=387545059 instance=ExtResource("2_5ycdb")]
 visible = false
 z_index = 1
 custom_minimum_size = Vector2(1920, 1080)
@@ -23,10 +23,10 @@ offset_bottom = 1080.0
 grow_horizontal = 1
 grow_vertical = 1
 
-[node name="MassageMenu" parent="." unique_id=7439312 instance=ExtResource("9_0u5wd")]
+[node name="UIMassage" parent="." unique_id=7439312 instance=ExtResource("9_0u5wd")]
 visible = false
 
-[node name="MainMenu" parent="." unique_id=617451129 instance=ExtResource("10_fbo34")]
+[node name="UIGame" parent="." unique_id=617451129 instance=ExtResource("10_fbo34")]
 z_index = 2
 custom_minimum_size = Vector2(1920, 1080)
 anchors_preset = 0
@@ -55,4 +55,4 @@ position = Vector2(960, 1400)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1624889524]
 
-[connection signal="patience_timeout" from="MainMenu" to="." method="_on_main_menu_patience_timeout"]
+[connection signal="patience_timeout" from="UIGame" to="." method="_on_main_menu_patience_timeout"]

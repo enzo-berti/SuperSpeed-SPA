@@ -4,7 +4,7 @@ var can_paint : bool = true
 var paint_needed : Color
 var paint_image : Image
 @export var paint_color : Color
-@export var brush_size : int 
+@export var brush_size : int
 @export var pourcentage_needed : float
 
 @onready var sfx_mask: AudioStreamPlayer2D = $"../SfxMask"
@@ -44,11 +44,10 @@ func _input(event: InputEvent) -> void:
 #	paint_image.fill_rect(Rect2i(pos, Vector2i(1, 1)).grow(brush_size), paint_color)
 #	if paint_needed != paint_color:
 #		$"../..".angry()
-		
+
 func filled_circle(image_screen: Image, pos: Vector2i, radius: int)->void:
-	var height: int = 10
 	for i in range(-radius, radius):
-		height = int(sqrt(radius * radius - i * i))
+		var height: int = int(sqrt(radius * radius - i * i))
 		for j in range(-height, height):
 			if (get_rect().has_point(Vector2(i + pos.x, j + pos.y) + get_rect().position)):
 				image_screen.set_pixel(i + pos.x, j + pos.y, paint_color)
