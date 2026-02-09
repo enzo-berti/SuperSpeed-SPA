@@ -8,7 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://c2wdv8qbdcb86" path="res://mini_games/shared_assets/sfx/sfx_input3.ogg" id="5_ryd6m"]
 [ext_resource type="AudioStream" uid="uid://dymx0ls6vbufj" path="res://ui/ui_game_over/assets/sounds/bgm_game_over.ogg" id="7_0r04e"]
 
-[node name="Gameover" type="Control" unique_id=1191411812]
+[node name="UIGameOver" type="Control" unique_id=1191411812]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

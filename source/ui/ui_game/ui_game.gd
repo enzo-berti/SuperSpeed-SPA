@@ -7,8 +7,6 @@ extends Control
 
 @export var score_label : Label
 
-@onready var gameover = preload("res://ui/ui_game_over/ui_game_over.tscn")
-
 @onready var stars_array : Array[TextureProgressBar] = [$HeartContainer/Star1, $HeartContainer/Star2, $HeartContainer/Star3]
 
 var is_client_angry : bool = false
@@ -27,7 +25,7 @@ func _process(delta: float) -> void:
 	patience_meter.value = timer.time_left / clampf((patience_time - (5 * GameManager.win_clients)), 20, patience_time) * 100
 	
 	if GameManager.health <= 0:
-		get_tree().change_scene_to_packed(gameover)
+		get_tree().change_scene_to_packed(load(GameManager.GAME_OVER_SCENE_UID))
 	
 	score_label.text = str(GameManager.score)
 	

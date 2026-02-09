@@ -5,7 +5,6 @@ extends Control
 
 @onready var StartButton: Button = $VBoxContainer/StartButton
 @onready var QuitButton: Button = $VBoxContainer/QuitButton
-@onready var level = preload("res://scenes/game/game.tscn")
 @onready var sfx_button: AudioStreamPlayer2D = $sfx_button
 
 func _ready() -> void:
@@ -30,7 +29,7 @@ func btn_hovered(button: Button):
 func _on_start_button_pressed() -> void:
 	sfx_button.play()
 	await get_tree().create_timer(0.2).timeout
-	get_tree().change_scene_to_packed(level)
+	get_tree().change_scene_to_packed(load(GameManager.GAME_SCENE_UID))
 	
 func _on_quit_button_pressed() -> void:
 	sfx_button.play()

@@ -1,8 +1,5 @@
 extends Control
 
-@onready var game_scene = preload("res://scenes/game/game.tscn")
-@onready var main_menu_scene = preload("res://scenes/title_screen/title_screen.tscn")
-
 @onready var button_mainmenu: Button = $VBoxContainer/button_mainmenu
 @onready var button_retry: Button = $VBoxContainer/button_retry
 @onready var sfx_button: AudioStreamPlayer2D = $sfx_button
@@ -34,10 +31,10 @@ func btn_hovered(button: Button):
 func _on_button_retry_pressed() -> void:
 	sfx_button.play()
 	await get_tree().create_timer(0.2).timeout
-	get_tree().change_scene_to_packed(game_scene)
+	get_tree().change_scene_to_packed(load(GameManager.GAME_SCENE_UID))
 
 
 func _on_button_mainmenu_pressed() -> void:
 	sfx_button.play()
 	await get_tree().create_timer(0.2).timeout
-	get_tree().change_scene_to_packed(main_menu_scene)
+	get_tree().change_scene_to_packed(load(GameManager.TITLE_SCREEN_SCENE_UID))
