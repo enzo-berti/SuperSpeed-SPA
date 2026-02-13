@@ -31,8 +31,8 @@ MaskColorAssets="*uid://j8ne6obyw12m"
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
-window/size/mode=2
-window/stretch/mode="canvas_items"
+window/size/mode=4
+window/stretch/mode="viewport"
 window/stretch/aspect="keep_width"
 
 [input]
@@ -49,8 +49,10 @@ MOUSE_BUTTON_LEFT={
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=2
 rendering_device/driver.windows="d3d12"
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
 textures/vram_compression/import_etc2_astc=true
+textures/default_filters/use_nearest_mipmap_filter=true
 environment/defaults/default_clear_color=Color(0.9843137, 0.89411765, 0.8352941, 1)
