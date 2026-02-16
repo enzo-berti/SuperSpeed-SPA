@@ -5,7 +5,7 @@ extends Control
 @export var patience_time : float = 20.0
 @export var patience_meter : TextureProgressBar
 
-@export var score_label : Label
+@export var score_label : LabelScore
 
 @onready var stars_array : Array[TextureProgressBar] = [$HeartContainer/Star1, $HeartContainer/Star2, $HeartContainer/Star3]
 
@@ -27,9 +27,7 @@ func _process(delta: float) -> void:
 	if GameManager.health <= 0:
 		get_tree().change_scene_to_packed(load(GameManager.GAME_OVER_SCENE_UID))
 	
-	score_label.text = str(GameManager.score)
-	
-	
+	score_label.text_desired = str(GameManager.score)
 	#if is_client_angry:
 		#x = clampf(star_timer.time_left, 0.0, 1.0)
 		#stars_array[GameManager.health].value = ease.OutBounce(x)

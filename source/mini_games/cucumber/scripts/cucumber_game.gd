@@ -3,8 +3,6 @@ extends Node2D
 var eye_turn : int = 0
 @onready var eyes : Array[Node2D]
 
-@onready var label : Label = $Label
-
 var finish : bool = false
 
 
