@@ -5,8 +5,8 @@ extends Control
 @onready var sfx_button: AudioStreamPlayer2D = $sfx_button
 @onready var sprite_gameover: AnimatedSprite2D = $sprite_gameover
 
-@onready var best_score_label: Label = $BestScoreTexture/ScoreLabel
-@onready var score_label: Label = $YourScoreTexture/ScoreLabel
+@onready var best_score_label: LabelScore = $BestScoreTexture/ScoreLabel
+@onready var score_label: LabelScore = $YourScoreTexture/ScoreLabel
 
 @export var tween_intensity: float
 @export var tween_duration: float
@@ -15,8 +15,8 @@ func _ready() -> void:
 	if (GameManager.score > GameManager.best_score):
 		GameManager.best_score = GameManager.score
 
-	score_label.text = str(GameManager.score)
-	best_score_label.text = str(GameManager.best_score)
+	score_label.text_desired = str(GameManager.score)
+	best_score_label.text_desired = str(GameManager.best_score)
 	GameManager.score = 0
 	GameManager.health = 3
 

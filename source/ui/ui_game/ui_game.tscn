@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cw15x5tkpamj2" path="res://ui/ui_game/assets/images/ui_star_empty.png" id="4_4dwkg"]
 [ext_resource type="FontFile" uid="uid://1m6b47vf0auv" path="res://ui/ui_game/assets/RubikSprayPaint-Regular.ttf" id="6_50wfc"]
 [ext_resource type="Texture2D" uid="uid://8osl8r413uxb" path="res://ui/ui_game/assets/images/ui_money.png" id="6_xp4lc"]
+[ext_resource type="Script" uid="uid://chpooktu32jwu" path="res://ui/ui_game/LabelScore.gd" id="7_v8kb1"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_50wfc"]
 load_path = "res://.godot/imported/ui_star_empty.png-4b273d5821cca923d6f07da0c02374f9.ctex"
@@ -115,6 +116,8 @@ text = "0"
 label_settings = SubResource("LabelSettings_4dwkg")
 horizontal_alignment = 2
 vertical_alignment = 1
+script = ExtResource("7_v8kb1")
+text_speed = 0.01
 
 [node name="UiMoney" type="Sprite2D" parent="." unique_id=1128858143]
 position = Vector2(1856, 61)

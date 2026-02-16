@@ -8,6 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://c2wdv8qbdcb86" path="res://mini_games/shared_assets/sfx/sfx_input3.ogg" id="5_ryd6m"]
 [ext_resource type="AudioStream" uid="uid://dymx0ls6vbufj" path="res://ui/ui_game_over/assets/sounds/bgm_game_over.ogg" id="7_0r04e"]
 [ext_resource type="FontFile" uid="uid://1m6b47vf0auv" path="res://ui/ui_game/assets/RubikSprayPaint-Regular.ttf" id="8_npf40"]
+[ext_resource type="Script" uid="uid://chpooktu32jwu" path="res://ui/ui_game/LabelScore.gd" id="9_5cctn"]
 [ext_resource type="Texture2D" uid="uid://8osl8r413uxb" path="res://ui/ui_game/assets/images/ui_money.png" id="9_m8y2u"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_5cctn"]
@@ -119,10 +120,12 @@ offset_top = -49.0
 offset_right = 392.0
 offset_bottom = 49.0
 grow_vertical = 2
-text = "1920"
+text = "0"
 label_settings = SubResource("LabelSettings_5cctn")
 horizontal_alignment = 2
 vertical_alignment = 1
+script = ExtResource("9_5cctn")
+text_speed = 0.009
 
 [node name="UiMoney" type="TextureRect" parent="BestScoreTexture" unique_id=243054029]
 layout_mode = 1
@@ -174,10 +177,12 @@ offset_top = -49.0
 offset_right = 392.0
 offset_bottom = 49.0
 grow_vertical = 2
-text = "1920"
+text = "0"
 label_settings = SubResource("LabelSettings_5cctn")
 horizontal_alignment = 2
 vertical_alignment = 1
+script = ExtResource("9_5cctn")
+text_speed = 0.008
 
 [node name="UiMoney" type="TextureRect" parent="YourScoreTexture" unique_id=1567832680]
 layout_mode = 1
