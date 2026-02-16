@@ -19,17 +19,17 @@ func _ready() -> void:
 	patience_meter.visible = false
 
 func _process(delta: float) -> void:
-	_process_patience()
+	_process_patience(delta)
 	_process_score()
 	_process_health()
 	
 	score_label.text_desired = str(GameManager.score)
 
-func _process_patience() -> void:
+func _process_patience(delta: float) -> void:
 	if (patience_timer.is_stopped()):
 		return
 	
-	patience_meter.value = patience_timer.time_left / patience_timer.wait_time
+	patience_meter.value = max(patience_meter.value - delta, patience_timer.time_left / GameManager.patience_time)
 
 func _process_score() -> void:
 	score_label.text_desired = str(GameManager.score)
@@ -54,17 +54,7 @@ func stop_patience() -> void:
 	patience_timer.stop()
 
 func angry_client(time_malus : float) -> void:
-	var remaining_time : float = patience_timer.time_left
-	
-	if remaining_time <= time_malus:
-		patience_timer.stop()
-		patience_timer.wait_time = 0.1
-		patience_timer.start()
-		return
-	
-	patience_timer.stop()
-	patience_timer.wait_time = remaining_time - time_malus
-	patience_timer.start()
+	patience_timer.start(patience_timer.time_left / 2.0)
 
 
 ###### SIGNAL FUNCTIONS ######
