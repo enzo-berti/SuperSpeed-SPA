@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cilyync3tqtan"]
 
-[ext_resource type="Script" uid="uid://da14mfujne8rg" path="res://ui/ui_game/ui_game.gd" id="1_2f5pf"]
+[ext_resource type="Script" uid="uid://da14mfujne8rg" path="res://scripts/operators/ui_game.gd" id="1_2f5pf"]
 [ext_resource type="Texture2D" uid="uid://dm2b42bvp86iy" path="res://ui/ui_game/assets/images/patience_meter/ui_patience_meter_under.png" id="1_ohisk"]
 [ext_resource type="Texture2D" uid="uid://6yosvwgfmi2b" path="res://ui/ui_game/assets/images/patience_meter/ui_patience_meter_progress.png" id="2_2f5pf"]
 [ext_resource type="Texture2D" uid="uid://br7umexks43v3" path="res://ui/ui_game/assets/images/ui_star.png" id="3_ohisk"]

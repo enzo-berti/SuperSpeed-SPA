@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://bqhqafb6hohi8"]
 
-[ext_resource type="Script" uid="uid://cutxhyqvroiw" path="res://characters/client/client.gd" id="1_1wbty"]
+[ext_resource type="Script" uid="uid://cutxhyqvroiw" path="res://scripts/operators/client.gd" id="1_1wbty"]
 [ext_resource type="SpriteFrames" uid="uid://erehnmkk2lmf" path="res://ui/ui_game_over/assets/game_over_animation.tres" id="2_hy40g"]
-[ext_resource type="PackedScene" uid="uid://bpeq83vrwjnde" path="res://mini_games/mask/mask.tscn" id="3_t73wa"]
+[ext_resource type="PackedScene" uid="uid://bpeq83vrwjnde" path="res://mini_games/mask/mask_game.tscn" id="3_t73wa"]
 [ext_resource type="Texture2D" uid="uid://bla5jjpa7oa5y" path="res://icon.svg" id="4_yrb5a"]
 [ext_resource type="PackedScene" uid="uid://b88j7okrd8rf7" path="res://mini_games/cucumber/cucumber_game.tscn" id="5_ra25s"]
 

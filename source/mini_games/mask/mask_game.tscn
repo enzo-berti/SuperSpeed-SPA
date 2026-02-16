@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://bpeq83vrwjnde"]
+
+[ext_resource type="Script" uid="uid://dy6l5b0wfyedg" path="res://scripts/operators/mask_game.gd" id="1_qxcbq"]
+[ext_resource type="Shader" uid="uid://db7il62vfsuqa" path="res://scripts/shaders/paint_area.gdshader" id="2_6i5ga"]
+[ext_resource type="Texture2D" uid="uid://d8afrsquc5ch" path="res://characters/duck/assets/images/mask_duck.png" id="3_ggtye"]
+[ext_resource type="Script" uid="uid://bnvhb2orwtida" path="res://scripts/components/paint_area.gd" id="4_7hfaf"]
+[ext_resource type="AudioStream" uid="uid://s4g7shu475br" path="res://mini_games/mask/assets/sounds/sfx_apply_mask.ogg" id="5_ptmsq"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_l04ud"]
+shader = ExtResource("2_6i5ga")
+shader_parameter/mask_texture = ExtResource("3_ggtye")
+
+[node name="MaskGame" type="Node2D" unique_id=1945729470 node_paths=PackedStringArray("paint_area")]
+script = ExtResource("1_qxcbq")
+pourcentage_needed = 0.75
+paint_area = NodePath("PaintArea")
+
+[node name="PaintArea" type="Sprite2D" parent="." unique_id=1704629239]
+material = SubResource("ShaderMaterial_l04ud")
+script = ExtResource("4_7hfaf")
+paint_color = Color(0, 0, 0, 0)
+brush_size = 15
+
+[node name="SfxMask" type="AudioStreamPlayer2D" parent="." unique_id=134941850]
+stream = ExtResource("5_ptmsq")
+autoplay = true
