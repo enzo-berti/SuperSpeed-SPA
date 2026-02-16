@@ -2,8 +2,6 @@ extends Control
 
 @export var patience_timer : Timer
 @export var star_timer: Timer
-@export var patience_time : float = 50.0
-@export var patience_time_min : float = 20.0
 @export var patience_meter : TextureProgressBar
 
 @export var score_label : LabelScore
@@ -21,24 +19,33 @@ func _ready() -> void:
 	patience_meter.visible = false
 
 func _process(delta: float) -> void:
+	_process_patience()
+	_process_score()
+	_process_health()
+	
+	score_label.text_desired = str(GameManager.score)
+
+func _process_patience() -> void:
+	if (patience_timer.is_stopped()):
+		return
+	
 	patience_meter.value = patience_timer.time_left / patience_timer.wait_time
+
+func _process_score() -> void:
+	score_label.text_desired = str(GameManager.score)
+
+func _process_health() -> void:
+	if !star_timer.is_stopped():
+		stars_array[GameManager.health].value = star_timer.time_left / star_timer.wait_time
 	
 	if GameManager.health <= 0:
 		get_tree().change_scene_to_packed(load(GameManager.GAME_OVER_SCENE_UID))
-	
-	score_label.text_desired = str(GameManager.score)
-	
-	if !star_timer.is_stopped():
-		print(star_timer.time_left)
-		stars_array[GameManager.health].value = star_timer.time_left / star_timer.wait_time
-
 
 ###### CUSTOM FUNCTIONS ######
 func start_patience() -> void:
-	var patience_time_desired: float = patience_time - (5 * GameManager.win_clients)
-	patience_time = max(patience_time_desired, patience_time_min)
+	GameManager.patience_time_update()
 	
-	patience_timer.wait_time = patience_time
+	patience_timer.wait_time = GameManager.patience_time
 	patience_meter.visible = true
 	patience_timer.start()
 
@@ -46,7 +53,7 @@ func stop_patience() -> void:
 	patience_meter.visible = false
 	patience_timer.stop()
 
-func angry_client(time_malus : int) -> void:
+func angry_client(time_malus : float) -> void:
 	var remaining_time : float = patience_timer.time_left
 	
 	if remaining_time <= time_malus:
