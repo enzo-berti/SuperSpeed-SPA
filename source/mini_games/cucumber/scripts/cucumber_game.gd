@@ -25,7 +25,6 @@ func _spawn_cucumber() -> void:
 ###### SIGNAL FUNCTIONS ######
 
 func _on_cucumber_stopped(target_missed) -> void:
-	print(target_missed)
 	if target_missed:
 		_spawn_cucumber()
 		get_parent().angry()

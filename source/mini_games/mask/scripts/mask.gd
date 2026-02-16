@@ -40,11 +40,6 @@ func check_win() -> bool:
 func _input(event: InputEvent) -> void:
 	_drawInput(event)
 
-#func _paint_tex(pos: Vector2i) -> void:
-#	paint_image.fill_rect(Rect2i(pos, Vector2i(1, 1)).grow(brush_size), paint_color)
-#	if paint_needed != paint_color:
-#		$"../..".angry()
-
 func filled_circle(image_screen: Image, pos: Vector2i, radius: int)->void:
 	for i in range(-radius, radius):
 		var height: int = int(sqrt(radius * radius - i * i))
