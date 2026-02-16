@@ -1,3 +1,4 @@
+class_name PaintArea
 extends Sprite2D
 
 var can_paint : bool = true
@@ -5,7 +6,6 @@ var paint_needed : Color
 var paint_image : Image
 @export var paint_color : Color
 @export var brush_size : int
-@export var pourcentage_needed : float
 
 @onready var sfx_mask: AudioStreamPlayer2D = $"../SfxMask"
 
@@ -33,9 +33,6 @@ func calcul_mask_pourcentage() -> float:
 				score += 1
 			
 	return score / (texture_size.x * texture_size.y)
-
-func check_win() -> bool:
-	return calcul_mask_pourcentage() >= pourcentage_needed
 
 func _input(event: InputEvent) -> void:
 	_drawInput(event)

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b180gverqsa44"]
 
-[ext_resource type="Script" uid="uid://buo7oj8kularv" path="res://scenes/game/game.gd" id="1_ughyh"]
+[ext_resource type="Script" uid="uid://buo7oj8kularv" path="res://scripts/operators/game.gd" id="1_ughyh"]
 [ext_resource type="PackedScene" uid="uid://cnqc8qbojnx3j" path="res://mini_games/mask/ui_mask.tscn" id="2_5ycdb"]
 [ext_resource type="PackedScene" uid="uid://dhot8eixpw5or" path="res://mini_games/massage/ui_massage.tscn" id="9_0u5wd"]
 [ext_resource type="PackedScene" uid="uid://cilyync3tqtan" path="res://ui/ui_game/ui_game.tscn" id="10_fbo34"]
