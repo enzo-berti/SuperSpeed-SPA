@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cw15x5tkpamj2" path="res://ui/ui_game/assets/images/ui_star_empty.png" id="4_4dwkg"]
 [ext_resource type="FontFile" uid="uid://1m6b47vf0auv" path="res://ui/ui_game/assets/RubikSprayPaint-Regular.ttf" id="6_50wfc"]
 [ext_resource type="Texture2D" uid="uid://8osl8r413uxb" path="res://ui/ui_game/assets/images/ui_money.png" id="6_xp4lc"]
-[ext_resource type="Script" uid="uid://chpooktu32jwu" path="res://ui/ui_game/LabelScore.gd" id="7_v8kb1"]
+[ext_resource type="Script" uid="uid://chpooktu32jwu" path="res://scripts/components/label_score.gd" id="7_v8kb1"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_4dwkg"]
 font = ExtResource("6_50wfc")
