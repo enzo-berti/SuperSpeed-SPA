@@ -6,6 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://5lb7xdoa0tl" path="res://characters/flower/assets/images/sprite_flower_angry.png" id="2_u7j2t"]
 [ext_resource type="PackedScene" uid="uid://dmbth1got02m5" path="res://mini_games/cucumber/eye.tscn" id="3_a07to"]
 [ext_resource type="Texture2D" uid="uid://c3w6261qvlnn2" path="res://characters/flower/assets/images/sprite_flower_happy.png" id="3_sccwg"]
+[ext_resource type="AudioStream" uid="uid://1p43rodnaxe3" path="res://characters/flower/assets/sounds/vx_flower_neutral.ogg" id="7_y5q7r"]
+[ext_resource type="AudioStream" uid="uid://jikj3h4278q8" path="res://characters/flower/assets/sounds/vx_flower_happy.ogg" id="8_g4fil"]
+[ext_resource type="AudioStream" uid="uid://bj4qg0r4vco6k" path="res://characters/flower/assets/sounds/vx_flower_angry.ogg" id="9_m0b72"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_130sd"]
 animations = [{
@@ -34,6 +37,21 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_sccwg"]
+random_pitch = 1.122462
+streams_count = 1
+stream_0/stream = ExtResource("7_y5q7r")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_y5q7r"]
+random_pitch = 1.122462
+streams_count = 1
+stream_0/stream = ExtResource("8_g4fil")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_4278a"]
+random_pitch = 1.122462
+streams_count = 1
+stream_0/stream = ExtResource("9_m0b72")
+
 [node name="Client" unique_id=1249865823 instance=ExtResource("1_70n4d")]
 
 [node name="AnimatedSprite2D" parent="." index="0" unique_id=847792521]
@@ -50,3 +68,12 @@ position = Vector2(71, -24)
 
 [node name="Mask" parent="." index="4" unique_id=1945729470]
 mask_texture = ExtResource("2_sccwg")
+
+[node name="SFXNeutral" parent="." index="7" unique_id=1921924930]
+stream = SubResource("AudioStreamRandomizer_sccwg")
+
+[node name="SFXHappy" parent="." index="8" unique_id=2109691644]
+stream = SubResource("AudioStreamRandomizer_y5q7r")
+
+[node name="SFXAngry" parent="." index="9" unique_id=92775139]
+stream = SubResource("AudioStreamRandomizer_4278a")

@@ -15,9 +15,14 @@ var in_animation: bool = true
 @onready var angry_timer: Timer = $AngryTimer
 var is_angry: bool = false
 
+@onready var sfx_new_client: AudioStreamPlayer2D = $SFXNewClient
+@onready var sfx_neutral: AudioStreamPlayer2D = $SFXNeutral
+@onready var sfx_happy: AudioStreamPlayer2D = $SFXHappy
+@onready var sfx_angry: AudioStreamPlayer2D = $SFXAngry
 
 func _ready() -> void:
 	destination = game_pos
+	sfx_new_client.play()
 
 func _physics_process(delta: float) -> void:
 	# timer for start animation
@@ -61,6 +66,7 @@ func start_cucumber() -> void:
 
 func idle() -> void:
 	$AnimatedSprite2D.play("idle")
+	sfx_neutral.play()
 
 func angry() -> void:
 	$AnimatedSprite2D.play("angry")
@@ -68,6 +74,8 @@ func angry() -> void:
 		$"../UIGame".angry_client(2.0)
 	angry_timer.start()
 	is_angry = true
+	sfx_angry.play()
 
 func happy() -> void:
 	$AnimatedSprite2D.play("happy")
+	sfx_happy.play()
