@@ -1,16 +1,23 @@
 [gd_scene format=3 uid="uid://cilyync3tqtan"]
 
-[ext_resource type="Script" uid="uid://da14mfujne8rg" path="res://ui/ui_game/ui_game.gd" id="1_2f5pf"]
+[ext_resource type="Script" uid="uid://da14mfujne8rg" path="res://scripts/operators/ui_game.gd" id="1_2f5pf"]
 [ext_resource type="Texture2D" uid="uid://dm2b42bvp86iy" path="res://ui/ui_game/assets/images/patience_meter/ui_patience_meter_under.png" id="1_ohisk"]
 [ext_resource type="Texture2D" uid="uid://6yosvwgfmi2b" path="res://ui/ui_game/assets/images/patience_meter/ui_patience_meter_progress.png" id="2_2f5pf"]
 [ext_resource type="Texture2D" uid="uid://br7umexks43v3" path="res://ui/ui_game/assets/images/ui_star.png" id="3_ohisk"]
 [ext_resource type="Texture2D" uid="uid://cw15x5tkpamj2" path="res://ui/ui_game/assets/images/ui_star_empty.png" id="4_4dwkg"]
+[ext_resource type="FontFile" uid="uid://1m6b47vf0auv" path="res://ui/ui_game/assets/RubikSprayPaint-Regular.ttf" id="6_50wfc"]
 [ext_resource type="Texture2D" uid="uid://8osl8r413uxb" path="res://ui/ui_game/assets/images/ui_money.png" id="6_xp4lc"]
+[ext_resource type="Script" uid="uid://chpooktu32jwu" path="res://scripts/components/label_score.gd" id="7_v8kb1"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_4dwkg"]
-font_size = 36
+font = ExtResource("6_50wfc")
+font_size = 54
+font_color = Color(0.9764706, 0.76862746, 0.08235294, 1)
+outline_size = 1
+outline_color = Color(0, 0, 0, 1)
+shadow_color = Color(0, 0, 0, 1)
 
-[node name="MainMenu" type="Control" unique_id=617451129 node_paths=PackedStringArray("timer", "star_timer", "patience_meter", "score_label")]
+[node name="MainMenu" type="Control" unique_id=617451129 node_paths=PackedStringArray("patience_timer", "star_timer", "patience_meter", "score_label")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -18,9 +25,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_2f5pf")
-timer = NodePath("PatienceMeter/Timer")
+patience_timer = NodePath("PatienceMeter/PatienceTimer")
 star_timer = NodePath("HeartContainer/StarTimer")
-patience_time = 50.0
 patience_meter = NodePath("PatienceMeter")
 score_label = NodePath("ScoreTexture/ScoreLabel")
 
@@ -35,12 +41,14 @@ offset_right = 173.0
 offset_bottom = 106.0
 grow_horizontal = 2
 scale = Vector2(1.25, 1.25)
-value = 100.0
+max_value = 1.0
+step = 0.001
+value = 1.0
 texture_under = ExtResource("1_ohisk")
 texture_progress = ExtResource("2_2f5pf")
 texture_progress_offset = Vector2(13, 11)
 
-[node name="Timer" type="Timer" parent="PatienceMeter" unique_id=2123349285]
+[node name="PatienceTimer" type="Timer" parent="PatienceMeter" unique_id=2123349285]
 one_shot = true
 
 [node name="HeartContainer" type="HBoxContainer" parent="." unique_id=1018261148]
@@ -54,6 +62,7 @@ scale = Vector2(0.05, 0.05)
 [node name="Star1" type="TextureProgressBar" parent="HeartContainer" unique_id=675158201]
 layout_mode = 2
 max_value = 1.0
+step = 0.01
 value = 1.0
 fill_mode = 3
 texture_under = ExtResource("4_4dwkg")
@@ -62,6 +71,7 @@ texture_progress = ExtResource("3_ohisk")
 [node name="Star2" type="TextureProgressBar" parent="HeartContainer" unique_id=1214712571]
 layout_mode = 2
 max_value = 1.0
+step = 0.01
 value = 1.0
 fill_mode = 3
 texture_under = ExtResource("4_4dwkg")
@@ -70,12 +80,14 @@ texture_progress = ExtResource("3_ohisk")
 [node name="Star3" type="TextureProgressBar" parent="HeartContainer" unique_id=1962989456]
 layout_mode = 2
 max_value = 1.0
+step = 0.01
 value = 1.0
 fill_mode = 3
 texture_under = ExtResource("4_4dwkg")
 texture_progress = ExtResource("3_ohisk")
 
-[node name="StarTimer" type="Timer" parent="HeartContainer" unique_id=1662880649]
+[node name="StarTimer" type="Timer" parent="HeartContainer" unique_id=41642104]
+wait_time = 0.5
 one_shot = true
 
 [node name="ScoreTexture" type="TextureRect" parent="." unique_id=1458267983]
@@ -96,20 +108,22 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -94.66504
-offset_top = -45.000004
-offset_right = 6.334961
-offset_bottom = 4.999996
+offset_left = -359.66504
+offset_top = -53.000004
+offset_right = -8.665039
+offset_bottom = 11.999996
 grow_horizontal = 2
 grow_vertical = 2
-text = "1000 "
+text = "0"
 label_settings = SubResource("LabelSettings_4dwkg")
-horizontal_alignment = 1
+horizontal_alignment = 2
 vertical_alignment = 1
+script = ExtResource("7_v8kb1")
+text_speed = 0.01
 
 [node name="UiMoney" type="Sprite2D" parent="." unique_id=1128858143]
 position = Vector2(1856, 61)
 scale = Vector2(0.044921875, 0.044921875)
 texture = ExtResource("6_xp4lc")
 
-[connection signal="timeout" from="PatienceMeter/Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="PatienceMeter/PatienceTimer" to="." method="_on_timer_timeout"]
