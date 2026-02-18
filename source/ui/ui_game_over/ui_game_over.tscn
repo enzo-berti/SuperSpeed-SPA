@@ -125,7 +125,7 @@ label_settings = SubResource("LabelSettings_5cctn")
 horizontal_alignment = 2
 vertical_alignment = 1
 script = ExtResource("9_5cctn")
-text_speed = 0.009
+text_speed = 0.001
 
 [node name="UiMoney" type="TextureRect" parent="BestScoreTexture" unique_id=243054029]
 layout_mode = 1
@@ -182,7 +182,7 @@ label_settings = SubResource("LabelSettings_5cctn")
 horizontal_alignment = 2
 vertical_alignment = 1
 script = ExtResource("9_5cctn")
-text_speed = 0.008
+text_speed = 0.001
 
 [node name="UiMoney" type="TextureRect" parent="YourScoreTexture" unique_id=1567832680]
 layout_mode = 1
