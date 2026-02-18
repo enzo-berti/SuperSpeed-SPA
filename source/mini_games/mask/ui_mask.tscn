@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cnqc8qbojnx3j"]
 
-[ext_resource type="Script" uid="uid://cjqjrjfg7ut7j" path="res://scripts/operators/ui_mask.gd" id="1_h5p0s"]
+[ext_resource type="Script" uid="uid://cjqjrjfg7ut7j" path="res://mini_games/mask/scripts/ui_mask.gd" id="1_h5p0s"]
 [ext_resource type="Texture2D" uid="uid://dqrya6m7x5xff" path="res://mini_games/mask/assets/images/blue_open.PNG" id="2_htmkr"]
 [ext_resource type="Texture2D" uid="uid://fisafk27k3h1" path="res://mini_games/mask/assets/images/green_open.PNG" id="3_eneim"]
 [ext_resource type="Texture2D" uid="uid://5a7xnraiaex8" path="res://mini_games/mask/assets/images/red_open.PNG" id="3_nhca8"]

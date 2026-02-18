@@ -20,9 +20,9 @@ func start_tween(object: Object, property: String, final_val: Variant, duration:
 	tween.tween_property(object, property, final_val, duration)
 
 func btn_hovered(button: Button):
-	button.pivot_offset = button.size / 2.0
+	button.pivot_offset = button.size/2
 	if button.is_hovered():
-		start_tween(button, "scale", Vector2.ONE * tween_intensity, tween_duration)
+		start_tween(button, "scale", Vector2.ONE*tween_intensity, tween_duration)
 	else:
 		start_tween(button, "scale", Vector2.ONE, tween_duration)
 

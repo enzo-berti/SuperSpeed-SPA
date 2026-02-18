@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bjar0nsv8motn"]
 
-[ext_resource type="Script" uid="uid://c62l6piri76xm" path="res://scripts/components/cucumber.gd" id="1_5yc3b"]
+[ext_resource type="Script" uid="uid://c62l6piri76xm" path="res://mini_games/cucumber/scripts/cucumber.gd" id="1_5yc3b"]
 [ext_resource type="Texture2D" uid="uid://lwo4x5glwx8b" path="res://mini_games/cucumber/assets/sprite_cucumber.png" id="1_tkkmq"]
 [ext_resource type="AudioStream" uid="uid://cuqoka6un5vri" path="res://mini_games/cucumber/assets/sfx_cucumber.ogg" id="3_gyq2i"]
 

@@ -45,7 +45,7 @@ func _process(_delta: float) -> void:
 			if !actual_client.is_in_animation():
 				_start_mask_mini_game()
 		states.MASK:
-			if !actual_client.get_node("Mask").has_finished_painting():
+			if !actual_client.get_node("Mask/PaintArea").check_win():
 				return
 			
 			_end_mask_mini_game()
@@ -83,6 +83,7 @@ func _start_mask_mini_game() -> void:
 	main_menu.start_patience()
 
 func _end_mask_mini_game() -> void:
+	actual_client.get_node("Mask/PaintArea").can_paint = false
 	mask_menu_node.visible = false
 
 func _start_cucumber_mini_game() -> void:

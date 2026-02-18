@@ -1,29 +1,15 @@
 [gd_scene format=3 uid="uid://bqhqafb6hohi8"]
 
-[ext_resource type="Script" uid="uid://cutxhyqvroiw" path="res://scripts/operators/client.gd" id="1_1wbty"]
-[ext_resource type="PackedScene" uid="uid://bpeq83vrwjnde" path="res://mini_games/mask/mask_game.tscn" id="3_t73wa"]
-[ext_resource type="Texture2D" uid="uid://bla5jjpa7oa5y" path="res://icon.svg" id="4_yrb5a"]
-[ext_resource type="PackedScene" uid="uid://b88j7okrd8rf7" path="res://mini_games/cucumber/cucumber_game.tscn" id="5_ra25s"]
+[ext_resource type="Script" uid="uid://cutxhyqvroiw" path="res://characters/client/client.gd" id="1_1wbty"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_yrb5a"]
-
-[node name="Client" type="Node2D" unique_id=1378383253 node_paths=PackedStringArray("mask", "cucumber")]
+[node name="Client" type="Node2D" unique_id=1378383253]
 script = ExtResource("1_1wbty")
-mask = NodePath("Mask")
-cucumber = NodePath("CucumberGame")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=847792521]
 position = Vector2(44, 597)
-sprite_frames = SubResource("SpriteFrames_yrb5a")
+animation = &""
 
-[node name="AngryTimer" type="Timer" parent="." unique_id=34356966]
+[node name="Timer" type="Timer" parent="." unique_id=34356966]
 wait_time = 2.0
 
-[node name="Mask" parent="." unique_id=1945729470 instance=ExtResource("3_t73wa")]
-process_mode = 4
-mask_texture = ExtResource("4_yrb5a")
-
-[node name="CucumberGame" parent="." unique_id=845464396 instance=ExtResource("5_ra25s")]
-process_mode = 4
-
-[connection signal="timeout" from="AngryTimer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

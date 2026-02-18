@@ -35,6 +35,7 @@ animations = [{
 }]
 
 [node name="Client" unique_id=1249865823 instance=ExtResource("1_etat5")]
+mask_texture = ExtResource("2_khrbo")
 
 [node name="AnimatedSprite2D" parent="." index="0" unique_id=847792521]
 position = Vector2(34, 563)
@@ -47,6 +48,3 @@ position = Vector2(-120, -60)
 
 [node name="Eye2" parent="." index="2" unique_id=1273197048 instance=ExtResource("3_cqudq")]
 position = Vector2(88, -66)
-
-[node name="Mask" parent="." index="4" unique_id=1945729470]
-mask_texture = ExtResource("2_khrbo")

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b88j7okrd8rf7"]
 
-[ext_resource type="Script" uid="uid://c2rmxo3iqkoto" path="res://scripts/operators/cucumber_game.gd" id="1_lmfcn"]
+[ext_resource type="Script" uid="uid://c2rmxo3iqkoto" path="res://mini_games/cucumber/scripts/cucumber_game.gd" id="1_lmfcn"]
 
 [node name="CucumberGame" type="Node2D" unique_id=845464396]
 script = ExtResource("1_lmfcn")
