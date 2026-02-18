@@ -14,7 +14,7 @@ random_pitch = 1.122462
 streams_count = 1
 stream_0/stream = ExtResource("7_cs5ya")
 
-[node name="MenuPrincipal" type="Control" unique_id=725306042]
+[node name="MenuPrincipal" type="Control" unique_id=725306042 node_paths=PackedStringArray("sfx_button_pressed", "StartButton", "QuitButton")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -24,6 +24,9 @@ grow_vertical = 2
 script = ExtResource("1_0u665")
 tween_intensity = 1.1
 tween_duration = 0.08
+sfx_button_pressed = NodePath("sfx_button_pressed")
+StartButton = NodePath("VBoxContainer/StartButton")
+QuitButton = NodePath("VBoxContainer/QuitButton")
 
 [node name="background" type="TextureRect" parent="." unique_id=463167330]
 layout_mode = 1

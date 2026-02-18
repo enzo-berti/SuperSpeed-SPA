@@ -3,17 +3,17 @@ extends Node2D
 enum states { START, MASK, CUCUMBER, FINISH }
 var state_machine : states
 
-const CLIENTS_RESOURCES : Array[Resource] = [preload("res://characters/cupcake/cupcake_client.tscn"), 
-	preload("res://characters/duck/duck_client.tscn"), 
-	preload("res://characters/flower/flower_client.tscn"), 
-	preload("res://characters/troll/troll_client.tscn"), 
-	preload("res://characters/wrestler/wrestler_client.tscn"),
-	preload("res://characters/racoon/racoon_client.tscn")]
+const CLIENTS_RESOURCES : Array[Resource] = [preload("uid://cxk8ta827oaiv"), 
+	preload("uid://dqn3khjuqij28"), 
+	preload("uid://dbo0pscce31q6"), 
+	preload("uid://dru53ao5tir82"), 
+	preload("uid://cctal0vvttmxc"),
+	preload("uid://8bykminh816k")]
 
-const MUSIC_1 = preload("res://mini_games/shared_assets/bgm/bgm_chill_80bpm.ogg")
-const MUSIC_2 = preload("res://mini_games/shared_assets/bgm/bgm_chill_100bpm.ogg")
-const MUSIC_3 = preload("res://mini_games/shared_assets/bgm/bgm_techno_120bpm.ogg")
-const MUSIC_4 = preload("res://mini_games/shared_assets/bgm/bgm_techno_140bpm.ogg")
+const MUSIC_1 = preload("uid://dewnpj677wctp")
+const MUSIC_2 = preload("uid://cmy75ds3bux8y")
+const MUSIC_3 = preload("uid://c1cvdcmvskhm1")
+const MUSIC_4 = preload("uid://bjteqinkxqmed")
 
 var is_there_client : bool = false
 @onready var spawn_pos : Vector2 = $SpawnPoint.position
@@ -63,7 +63,6 @@ func _process(_delta: float) -> void:
 				is_there_client = false
 
 ###### CUSTOM FUNCTIONS ######
-#Spawn new client
 func spawn_client() -> void:
 	var client = CLIENTS_RESOURCES[rng.randi_range(0, CLIENTS_RESOURCES.size() - 1)]
 	actual_client = client.instantiate()

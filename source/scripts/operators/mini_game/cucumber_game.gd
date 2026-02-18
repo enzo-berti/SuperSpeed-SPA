@@ -4,7 +4,7 @@ extends Node2D
 
 var eye_turn: int = 0
 var finish: bool = false
-var cucumber_prefab: Resource = preload("res://mini_games/cucumber/cucumber.tscn")
+const CUCUMBER_RESOURCE: Resource = preload("uid://bjar0nsv8motn")
 
 func _ready() -> void:
 	eyes.append_array(get_tree().get_nodes_in_group("eyes"))
@@ -12,7 +12,7 @@ func _ready() -> void:
 ###### CUSTOM FUNCTIONS ######
 
 func spawn_cucumber() -> void:
-	var cucumber_instance = cucumber_prefab.instantiate()
+	var cucumber_instance = CUCUMBER_RESOURCE.instantiate()
 	add_child(cucumber_instance)
 	cucumber_instance.position = eyes[eye_turn].position
 	cucumber_instance.find_child("Path2D").cucumber_stopped.connect(_on_cucumber_stopped)
