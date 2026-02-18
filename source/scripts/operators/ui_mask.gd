@@ -39,7 +39,7 @@ func _on_mask_button_pressed(button_mask: TextureButton, color: MaskColorAssets.
 func set_mask_needed(color: MaskColorAssets.mask_color) -> void:
 	reset_buttons()
 	mask_needed_node.texture = MaskColorAssets.get_mask_texture(color)
-	get_node("../Client/Mask/PaintArea").set_mask_needed(MaskColorAssets.get_mask_color(color))
+	get_node("../Client/Mask").set_mask_needed(MaskColorAssets.get_mask_color(color))
 
 func _on_blue_pressed() -> void:
 	_on_mask_button_pressed(blue, MaskColorAssets.mask_color.BLUE)

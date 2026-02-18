@@ -30,6 +30,8 @@ func _process_patience(delta: float) -> void:
 		return
 	
 	patience_meter.value = max(patience_meter.value - delta, patience_timer.time_left / GameManager.patience_time)
+	# make the tint red because the texture is orange (orange - blue = red)
+	patience_meter.tint_progress = Color(1, Ease.OutQuart(patience_meter.value / patience_meter.max_value), 1)
 
 func _process_score() -> void:
 	score_label.text_desired = str(GameManager.score)
