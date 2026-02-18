@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://dhot8eixpw5or"]
+
+[ext_resource type="Texture2D" uid="uid://dqe77eleaiscj" path="res://assets/images/ui/massage/ui_arrow_down.png" id="1_kxolm"]
+[ext_resource type="Texture2D" uid="uid://b2qssv3udxf88" path="res://assets/images/ui/massage/ui_arrow_right.png" id="2_53cxt"]
+[ext_resource type="Texture2D" uid="uid://dm6w5dneylp5u" path="res://assets/images/ui/massage/ui_arrow_left.png" id="3_kqojh"]
+[ext_resource type="Texture2D" uid="uid://ba6qekqmr5xil" path="res://assets/images/ui/massage/ui_arrow_up.png" id="4_14o33"]
+[ext_resource type="Texture2D" uid="uid://boim1sb3y2b2u" path="res://assets/images/ui/massage/ui_massage_meter_under.png" id="5_53cxt"]
+[ext_resource type="Texture2D" uid="uid://ctb30lrncu2l0" path="res://assets/images/ui/massage/ui_massage_meter_progress.png" id="6_kqojh"]
+
+[node name="MassageMenu" type="Control" unique_id=7439312]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1892050352]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -1037.0
+offset_top = -622.0
+offset_right = 1037.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
+
+[node name="ArrowContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=934203218]
+layout_mode = 2
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="Arrow1" type="TextureRect" parent="VBoxContainer/ArrowContainer" unique_id=1179494658]
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("1_kxolm")
+stretch_mode = 5
+
+[node name="Arrow2" type="TextureRect" parent="VBoxContainer/ArrowContainer" unique_id=1147263035]
+layout_mode = 2
+texture = ExtResource("2_53cxt")
+
+[node name="Arrow3" type="TextureRect" parent="VBoxContainer/ArrowContainer" unique_id=1181868305]
+layout_mode = 2
+texture = ExtResource("3_kqojh")
+
+[node name="Arrow4" type="TextureRect" parent="VBoxContainer/ArrowContainer" unique_id=1197573467]
+layout_mode = 2
+texture = ExtResource("4_14o33")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="VBoxContainer" unique_id=246412638]
+layout_mode = 2
+size_flags_horizontal = 4
+value = 100.0
+texture_under = ExtResource("5_53cxt")
+texture_progress = ExtResource("6_kqojh")
+texture_progress_offset = Vector2(25, 37)

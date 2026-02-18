@@ -1,0 +1,66 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://erehnmkk2lmf"]
+
+[ext_resource type="Texture2D" uid="uid://dy8mqrrqri733" path="res://assets/images/animations/game_over/game_over_animation0.png" id="1_hbp7q"]
+[ext_resource type="Texture2D" uid="uid://vyasb5cr8c4r" path="res://assets/images/animations/game_over/game_over_animation1.png" id="2_g0srg"]
+[ext_resource type="Texture2D" uid="uid://hd7krg8fshhb" path="res://assets/images/animations/game_over/game_over_animation2.png" id="3_hbp7q"]
+[ext_resource type="Texture2D" uid="uid://dwmfeon7kwy6p" path="res://assets/images/animations/game_over/game_over_animation3.png" id="4_g0srg"]
+[ext_resource type="Texture2D" uid="uid://ddt75lgh0fe0y" path="res://assets/images/animations/game_over/game_over_animation4.png" id="5_4s42h"]
+[ext_resource type="Texture2D" uid="uid://0xyviuv8tcga" path="res://assets/images/animations/game_over/game_over_animation5.png" id="6_lxrya"]
+[ext_resource type="Texture2D" uid="uid://d6qs2y012f8y" path="res://assets/images/animations/game_over/game_over_animation6.png" id="7_q0xv5"]
+[ext_resource type="Texture2D" uid="uid://h0daswn5riec" path="res://assets/images/animations/game_over/game_over_animation7.png" id="8_cfw4l"]
+[ext_resource type="Texture2D" uid="uid://7u3c8ot1p5m8" path="res://assets/images/animations/game_over/game_over_animation8.png" id="9_qmapm"]
+[ext_resource type="Texture2D" uid="uid://bh4fyn81c4ocb" path="res://assets/images/animations/game_over/game_over_animation9.png" id="10_3txy5"]
+[ext_resource type="Texture2D" uid="uid://b8bfjy7gyh1jd" path="res://assets/images/animations/game_over/game_over_animation10.png" id="11_o73u1"]
+[ext_resource type="Texture2D" uid="uid://dejnhc040671p" path="res://assets/images/animations/game_over/game_over_animation11.png" id="12_5d6ix"]
+[ext_resource type="Texture2D" uid="uid://cmfu5gsujf4dw" path="res://assets/images/animations/game_over/game_over_animation12.png" id="13_8xd2a"]
+[ext_resource type="Texture2D" uid="uid://1h0u4q50wk1a" path="res://assets/images/animations/game_over/game_over_animation13.png" id="14_rrvkf"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_hbp7q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_g0srg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_hbp7q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_g0srg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_4s42h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_lxrya")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_q0xv5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_cfw4l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_qmapm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_3txy5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_o73u1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_5d6ix")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_8xd2a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_rrvkf")
+}],
+"loop": false,
+"name": &"default",
+"speed": 7.0
+}]

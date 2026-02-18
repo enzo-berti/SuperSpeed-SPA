@@ -1,0 +1,208 @@
+[gd_scene format=3 uid="uid://li70u366qhr0"]
+
+[ext_resource type="Script" uid="uid://6gryfj6s7jxc" path="res://scripts/operators/ui/ui_game_over.gd" id="1_ej65t"]
+[ext_resource type="Texture2D" uid="uid://bc0g26n77sv00" path="res://assets/images/bg/bg_spa.png" id="2_8i476"]
+[ext_resource type="Texture2D" uid="uid://c61ghs3vs5hsf" path="res://assets/images/buttons/button_retry.png" id="3_ktv0q"]
+[ext_resource type="Texture2D" uid="uid://0sacfpla3pe1" path="res://assets/images/buttons/button_menu.png" id="4_x8ovf"]
+[ext_resource type="SpriteFrames" uid="uid://erehnmkk2lmf" path="res://assets/images/animations/game_over/game_over_animation.tres" id="5_q3lui"]
+[ext_resource type="AudioStream" uid="uid://c0syjwmtpen8x" path="res://assets/sounds/sfx/sfx_button_pressed.ogg" id="6_cb3on"]
+[ext_resource type="AudioStream" uid="uid://dymx0ls6vbufj" path="res://assets/sounds/bgm/bgm_game_over.ogg" id="7_jslh1"]
+[ext_resource type="FontFile" uid="uid://1m6b47vf0auv" path="res://assets/RubikSprayPaint-Regular.ttf" id="8_n6jbl"]
+[ext_resource type="Script" uid="uid://chpooktu32jwu" path="res://scripts/components/ui/label_score.gd" id="9_rqyhg"]
+[ext_resource type="Texture2D" uid="uid://8osl8r413uxb" path="res://assets/images/ui/game/ui_money.png" id="10_l3hlr"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_5cctn"]
+random_pitch = 1.122462
+streams_count = 1
+stream_0/stream = ExtResource("6_cb3on")
+
+[sub_resource type="LabelSettings" id="LabelSettings_5cctn"]
+font = ExtResource("8_n6jbl")
+font_size = 82
+font_color = Color(0.9764706, 0.76862746, 0.08235294, 1)
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 3
+shadow_color = Color(0, 0, 0, 1)
+
+[node name="GameOverScreen" type="Control" unique_id=1191411812]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ej65t")
+tween_intensity = 1.1
+tween_duration = 0.08
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1258196126]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_8i476")
+flip_h = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=668312383]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -355.0
+offset_top = -474.0
+offset_right = 355.0
+offset_bottom = -22.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 15
+
+[node name="button_retry" type="Button" parent="VBoxContainer" unique_id=999077709]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+icon = ExtResource("3_ktv0q")
+flat = true
+
+[node name="button_mainmenu" type="Button" parent="VBoxContainer" unique_id=7873413]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+icon = ExtResource("4_x8ovf")
+flat = true
+
+[node name="sprite_gameover" type="AnimatedSprite2D" parent="." unique_id=1797501675]
+position = Vector2(970.99994, 322.00003)
+scale = Vector2(0.5761669, 0.5715278)
+sprite_frames = ExtResource("5_q3lui")
+autoplay = "default"
+frame = 13
+frame_progress = 1.0
+
+[node name="sfx_button" type="AudioStreamPlayer2D" parent="." unique_id=1359902934]
+position = Vector2(1, 0)
+stream = SubResource("AudioStreamRandomizer_5cctn")
+volume_db = 10.0
+
+[node name="sfx_gameover" type="AudioStreamPlayer2D" parent="." unique_id=1624706912]
+stream = ExtResource("7_jslh1")
+autoplay = true
+
+[node name="BestScoreTexture" type="TextureRect" parent="." unique_id=1999356584]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -548.0
+offset_top = -200.375
+offset_bottom = -49.625244
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="Text" type="Label" parent="BestScoreTexture" unique_id=1397752938]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -159.99988
+offset_right = 545.0
+offset_bottom = -61.999878
+grow_vertical = 2
+text = "Bestscore:"
+label_settings = SubResource("LabelSettings_5cctn")
+vertical_alignment = 1
+
+[node name="ScoreLabel" type="Label" parent="BestScoreTexture" unique_id=391021064]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -49.0
+offset_right = 392.0
+offset_bottom = 49.0
+grow_vertical = 2
+text = "0"
+label_settings = SubResource("LabelSettings_5cctn")
+horizontal_alignment = 2
+vertical_alignment = 1
+script = ExtResource("9_rqyhg")
+text_speed = 0.001
+
+[node name="UiMoney" type="TextureRect" parent="BestScoreTexture" unique_id=243054029]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -75.0
+offset_bottom = 75.0
+grow_horizontal = 0
+grow_vertical = 2
+texture = ExtResource("10_l3hlr")
+expand_mode = 1
+
+[node name="YourScoreTexture" type="TextureRect" parent="." unique_id=89565508]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -548.0
+offset_top = 49.625
+offset_bottom = 200.375
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="Text" type="Label" parent="YourScoreTexture" unique_id=1002692855]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -159.99988
+offset_right = 545.0
+offset_bottom = -61.999878
+grow_vertical = 2
+text = "Your score:"
+label_settings = SubResource("LabelSettings_5cctn")
+vertical_alignment = 1
+
+[node name="ScoreLabel" type="Label" parent="YourScoreTexture" unique_id=2090626854]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -49.0
+offset_right = 392.0
+offset_bottom = 49.0
+grow_vertical = 2
+text = "0"
+label_settings = SubResource("LabelSettings_5cctn")
+horizontal_alignment = 2
+vertical_alignment = 1
+script = ExtResource("9_rqyhg")
+text_speed = 0.001
+
+[node name="UiMoney" type="TextureRect" parent="YourScoreTexture" unique_id=1567832680]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -75.0
+offset_bottom = 75.0
+grow_horizontal = 0
+grow_vertical = 2
+texture = ExtResource("10_l3hlr")
+expand_mode = 1
+
+[connection signal="pressed" from="VBoxContainer/button_retry" to="." method="_on_button_retry_pressed"]
+[connection signal="pressed" from="VBoxContainer/button_mainmenu" to="." method="_on_button_mainmenu_pressed"]
