@@ -4,14 +4,13 @@ extends Node2D
 @onready var cucumber: Node2D = %CucumberGame
 @onready var move_to: MoveTo = %MoveTo
 
-@onready var spawn_pos: Vector2 = get_node("../SpawnPoint").position
 @onready var game_pos: Vector2 = get_node("../GamePoint").position
 @onready var destroy_pos: Vector2 = get_node("../DestroyPoint").position
 
 var in_animation: bool = true
-@onready var angry_timer: Timer = $AngryTimer
 var is_angry: bool = false
 
+@onready var angry_timer: Timer = $AngryTimer
 @onready var sfx_new_client: AudioStreamPlayer2D = $SFXNewClient
 @onready var sfx_neutral: AudioStreamPlayer2D = $SFXNeutral
 @onready var sfx_happy: AudioStreamPlayer2D = $SFXHappy
@@ -29,9 +28,6 @@ func _on_timer_timeout() -> void:
 	is_angry = false
 	idle()
 
-func is_in_animation() -> bool:
-	return in_animation
-
 #Makes client leave the screen then be deleted
 func destroy() -> void:
 	move_to.start(destroy_pos, MoveTo.Method.IN)
@@ -48,12 +44,14 @@ func idle() -> void:
 	sfx_neutral.play()
 
 func angry() -> void:
-	$AnimatedSprite2D.play("angry")
-	if not is_angry:
-		$"../UIGame".angry_client(2.0)
-	angry_timer.start()
+	if is_angry:
+		return
+	
 	is_angry = true
+	$AnimatedSprite2D.play("angry")
+	angry_timer.start()
 	sfx_angry.play()
+	$"../UIGame".angry_client(2.0)
 
 func happy() -> void:
 	$AnimatedSprite2D.play("happy")
@@ -65,7 +63,6 @@ func _on_move_to_started() -> void:
 func _on_move_to_ended() -> void:
 	in_animation = false
 	
-	print(position.distance_to(destroy_pos))
 	if position.distance_to(destroy_pos) <= 30:
 		queue_free()
 		return

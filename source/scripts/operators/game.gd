@@ -42,7 +42,7 @@ func _process(_delta: float) -> void:
 	
 	match state_machine:
 		states.START:
-			if !actual_client.is_in_animation():
+			if !actual_client.in_animation:
 				_start_mask_mini_game()
 		states.MASK:
 			if !actual_client.get_node("Mask").has_finished_painting():

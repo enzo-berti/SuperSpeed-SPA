@@ -23,6 +23,7 @@ sprite_frames = SubResource("SpriteFrames_yrb5a")
 
 [node name="AngryTimer" type="Timer" parent="." unique_id=34356966]
 wait_time = 2.0
+one_shot = true
 
 [node name="Mask" parent="." unique_id=1945729470 instance=ExtResource("3_t73wa")]
 unique_name_in_owner = true
