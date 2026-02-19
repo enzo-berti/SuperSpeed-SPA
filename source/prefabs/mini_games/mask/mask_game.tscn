@@ -8,14 +8,15 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ul4w3"]
 shader = ExtResource("2_wlxgu")
 
-[node name="MaskGame" type="Node2D" unique_id=1945729470 node_paths=PackedStringArray("paint_area")]
+[node name="MaskGame" type="Node2D" unique_id=1945729470]
 script = ExtResource("1_m5j40")
 pourcentage_needed = 0.75
-paint_area = NodePath("PaintArea")
 
 [node name="PaintArea" type="Sprite2D" parent="." unique_id=1704629239]
+unique_name_in_owner = true
 material = SubResource("ShaderMaterial_ul4w3")
 script = ExtResource("3_uehh4")
+brush_color = Color(0, 0, 0, 0)
 brush_size = 15
 
 [node name="SfxMask" type="AudioStreamPlayer2D" parent="." unique_id=134941850]

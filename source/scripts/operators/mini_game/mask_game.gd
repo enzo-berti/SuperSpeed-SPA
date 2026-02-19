@@ -1,11 +1,12 @@
+class_name MaskGame
 extends Node2D
 
 @export var pourcentage_needed: float
-@export var paint_area: PaintArea
 @export var mask_texture: Texture2D
-@onready var sfx_mask: AudioStreamPlayer2D = $"SfxMask"
+@export var paint_needed : Color
 
-var paint_needed : Color
+@onready var sfx_mask: AudioStreamPlayer2D = $"SfxMask"
+@onready var paint_area: PaintArea = %PaintArea
 
 func set_mask_needed(new_color_needed: Color) -> void:
 	paint_needed = new_color_needed
@@ -30,7 +31,6 @@ func _on_paint_area_press_brush() -> void:
 		sfx_mask.play()
 	
 	sfx_mask.stream_paused = false
-
 
 func _on_paint_area_release_brush() -> void:
 	sfx_mask.stream_paused = true

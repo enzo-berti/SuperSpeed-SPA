@@ -66,8 +66,8 @@ func _process(_delta: float) -> void:
 func spawn_client() -> void:
 	var client = CLIENTS_RESOURCES[rng.randi_range(0, CLIENTS_RESOURCES.size() - 1)]
 	actual_client = client.instantiate()
-	add_child(actual_client)
 	actual_client.position = spawn_pos
+	add_child(actual_client)
 	is_there_client = true
 
 func _despawn_client() -> void:

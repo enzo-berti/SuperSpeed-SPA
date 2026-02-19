@@ -5,18 +5,17 @@
 [ext_resource type="Texture2D" uid="uid://bla5jjpa7oa5y" path="res://icon.svg" id="4_yrb5a"]
 [ext_resource type="PackedScene" uid="uid://b88j7okrd8rf7" path="res://prefabs/mini_games/cucumber/cucumber_game.tscn" id="5_ra25s"]
 [ext_resource type="AudioStream" uid="uid://cy8otes343dcy" path="res://assets/sounds/sfx/sfx_new_client.ogg" id="6_0duou"]
+[ext_resource type="Script" uid="uid://dxcsaxaih1qm3" path="res://scripts/components/move_to.gd" id="6_j1y5b"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yrb5a"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_0duou"]
 random_pitch = 1.3348398
 streams_count = 1
 stream_0/stream = ExtResource("6_0duou")
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_yrb5a"]
-
-[node name="Client" type="Node2D" unique_id=1378383253 node_paths=PackedStringArray("mask", "cucumber")]
+[node name="Client" type="Node2D" unique_id=1378383253]
 script = ExtResource("1_1wbty")
-mask = NodePath("Mask")
-cucumber = NodePath("CucumberGame")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=847792521]
 position = Vector2(44, 597)
@@ -26,11 +25,17 @@ sprite_frames = SubResource("SpriteFrames_yrb5a")
 wait_time = 2.0
 
 [node name="Mask" parent="." unique_id=1945729470 instance=ExtResource("3_t73wa")]
+unique_name_in_owner = true
 process_mode = 4
 mask_texture = ExtResource("4_yrb5a")
 
 [node name="CucumberGame" parent="." unique_id=845464396 instance=ExtResource("5_ra25s")]
+unique_name_in_owner = true
 process_mode = 4
+
+[node name="MoveTo" type="Node2D" parent="." unique_id=151022913]
+unique_name_in_owner = true
+script = ExtResource("6_j1y5b")
 
 [node name="SFXNewClient" type="AudioStreamPlayer2D" parent="." unique_id=1409260790]
 stream = SubResource("AudioStreamRandomizer_0duou")
@@ -42,3 +47,5 @@ stream = SubResource("AudioStreamRandomizer_0duou")
 [node name="SFXAngry" type="AudioStreamPlayer2D" parent="." unique_id=92775139]
 
 [connection signal="timeout" from="AngryTimer" to="." method="_on_timer_timeout"]
+[connection signal="ended" from="MoveTo" to="." method="_on_move_to_ended"]
+[connection signal="started" from="MoveTo" to="." method="_on_move_to_started"]
