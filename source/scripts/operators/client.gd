@@ -1,61 +1,36 @@
 extends Node2D
 
-@export var mask: Node2D
-@export var cucumber: Node2D
+@onready var mask: MaskGame = %Mask
+@onready var cucumber: Node2D = %CucumberGame
+@onready var move_to: MoveTo = %MoveTo
 
-@onready var spawn_pos: Vector2 = get_node("../SpawnPoint").position
 @onready var game_pos: Vector2 = get_node("../GamePoint").position
 @onready var destroy_pos: Vector2 = get_node("../DestroyPoint").position
-var destination: Vector2
-
-@export var speed: float = 10
-var x: float = 0
 
 var in_animation: bool = true
-@onready var angry_timer: Timer = $AngryTimer
 var is_angry: bool = false
 
+@onready var angry_timer: Timer = $AngryTimer
 @onready var sfx_new_client: AudioStreamPlayer2D = $SFXNewClient
 @onready var sfx_neutral: AudioStreamPlayer2D = $SFXNeutral
 @onready var sfx_happy: AudioStreamPlayer2D = $SFXHappy
 @onready var sfx_angry: AudioStreamPlayer2D = $SFXAngry
 
 func _ready() -> void:
-	destination = game_pos
+	move_to.start(game_pos, MoveTo.Method.OUT)
 	sfx_new_client.play()
 
 func _physics_process(delta: float) -> void:
-	# timer for start animation
-	x += clamp(delta / (10 / speed), 0, 1)
-	
-	if destination == game_pos:
-		position = spawn_pos + Ease.OutBounce(x) * (destination - spawn_pos)
-		in_animation = true
-	elif destination == destroy_pos:
-		position = game_pos + Ease.InSine(x) * (destination - game_pos)
-		in_animation = true
-	else:
-		in_animation = false
-		
-	if x >= 1:
-		destination = Vector2.ZERO
-		x = 0
-		
-	if position.distance_to(destroy_pos) <= 10:
-		queue_free()
+	if move_to.state == MoveTo.State.MOVING:
+		position = move_to.process_movement(delta)
 
 func _on_timer_timeout() -> void:
 	is_angry = false
 	idle()
 
-
-func is_in_animation() -> bool:
-	return in_animation
-
 #Makes client leave the screen then be deleted
 func destroy() -> void:
-	destination = destroy_pos
-	x = 0
+	move_to.start(destroy_pos, MoveTo.Method.IN)
 
 func start_mask() -> void:
 	mask.process_mode = PROCESS_MODE_INHERIT
@@ -69,13 +44,27 @@ func idle() -> void:
 	sfx_neutral.play()
 
 func angry() -> void:
-	$AnimatedSprite2D.play("angry")
-	if not is_angry:
-		$"../UIGame".angry_client(2.0)
-	angry_timer.start()
+	if is_angry:
+		return
+	
 	is_angry = true
+	$AnimatedSprite2D.play("angry")
+	angry_timer.start()
 	sfx_angry.play()
+	$"../UIGame".angry_client(2.0)
 
 func happy() -> void:
 	$AnimatedSprite2D.play("happy")
 	sfx_happy.play()
+
+func _on_move_to_started() -> void:
+	in_animation = true
+
+func _on_move_to_ended() -> void:
+	in_animation = false
+	
+	if position.distance_to(destroy_pos) <= 30:
+		queue_free()
+		return
+	
+	idle()

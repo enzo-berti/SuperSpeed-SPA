@@ -3,17 +3,17 @@ extends Node2D
 enum states { START, MASK, CUCUMBER, FINISH }
 var state_machine : states
 
-const CLIENTS_RESOURCES : Array[Resource] = [preload("res://characters/cupcake/cupcake_client.tscn"), 
-	preload("res://characters/duck/duck_client.tscn"), 
-	preload("res://characters/flower/flower_client.tscn"), 
-	preload("res://characters/troll/troll_client.tscn"), 
-	preload("res://characters/wrestler/wrestler_client.tscn"),
-	preload("res://characters/racoon/racoon_client.tscn")]
+const CLIENTS_RESOURCES : Array[Resource] = [preload("uid://cxk8ta827oaiv"), 
+	preload("uid://dqn3khjuqij28"),
+	preload("uid://dbo0pscce31q6"),
+	preload("uid://dru53ao5tir82"),
+	preload("uid://cctal0vvttmxc"),
+	preload("uid://8bykminh816k")]
 
-const MUSIC_1 = preload("res://mini_games/shared_assets/bgm/bgm_chill_80bpm.ogg")
-const MUSIC_2 = preload("res://mini_games/shared_assets/bgm/bgm_chill_100bpm.ogg")
-const MUSIC_3 = preload("res://mini_games/shared_assets/bgm/bgm_techno_120bpm.ogg")
-const MUSIC_4 = preload("res://mini_games/shared_assets/bgm/bgm_techno_140bpm.ogg")
+const MUSIC_1 = preload("uid://dewnpj677wctp")
+const MUSIC_2 = preload("uid://cmy75ds3bux8y")
+const MUSIC_3 = preload("uid://c1cvdcmvskhm1")
+const MUSIC_4 = preload("uid://bjteqinkxqmed")
 
 var is_there_client : bool = false
 @onready var spawn_pos : Vector2 = $SpawnPoint.position
@@ -21,10 +21,9 @@ var rng = RandomNumberGenerator.new()
 
 var actual_client : Node
 
-@export var mask_menu_node : Node
-@export var massage_menu_node : Node
-
-@onready var main_menu : Control = $UIGame
+@onready var ui_mask : Control = $UIMask
+@onready var ui_massage : Control = $UIMassage
+@onready var ui_game : Control = $UIGame
 @onready var music_player : AudioStreamPlayer = $AudioStreamPlayer
 
 var color_names : Array[String] = ["blue", "green", "yellow", "red", "violet", "pink"] 
@@ -42,7 +41,7 @@ func _process(_delta: float) -> void:
 	
 	match state_machine:
 		states.START:
-			if !actual_client.is_in_animation():
+			if !actual_client.in_animation:
 				_start_mask_mini_game()
 		states.MASK:
 			if !actual_client.get_node("Mask").has_finished_painting():
@@ -58,17 +57,16 @@ func _process(_delta: float) -> void:
 			_end_cucumber_mini_game()
 			_on_client_win() # doesn't have any state after cucumber
 		states.FINISH:
-			main_menu.stop_patience()
+			ui_game.stop_patience()
 			if actual_client == null:
 				is_there_client = false
 
 ###### CUSTOM FUNCTIONS ######
-#Spawn new client
 func spawn_client() -> void:
 	var client = CLIENTS_RESOURCES[rng.randi_range(0, CLIENTS_RESOURCES.size() - 1)]
 	actual_client = client.instantiate()
-	add_child(actual_client)
 	actual_client.position = spawn_pos
+	add_child(actual_client)
 	is_there_client = true
 
 func _despawn_client() -> void:
@@ -78,12 +76,12 @@ func _despawn_client() -> void:
 func _start_mask_mini_game() -> void:
 	state_machine = states.MASK
 	actual_client.start_mask()
-	mask_menu_node.set_mask_needed(MaskColorAssets.mask_color.values().pick_random())
-	mask_menu_node.visible = true
-	main_menu.start_patience()
+	ui_mask.set_mask_needed(MaskColorAssets.mask_color.values().pick_random())
+	ui_mask.visible = true
+	ui_game.start_patience()
 
 func _end_mask_mini_game() -> void:
-	mask_menu_node.visible = false
+	ui_mask.visible = false
 
 func _start_cucumber_mini_game() -> void:
 	state_machine = states.CUCUMBER

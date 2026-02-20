@@ -1,0 +1,105 @@
+[gd_scene format=3 uid="uid://drcepl1658dpn"]
+
+[ext_resource type="Script" uid="uid://c1b42wxvx0emo" path="res://scripts/operators/title_screen.gd" id="1_0u665"]
+[ext_resource type="Texture2D" uid="uid://cpx78tmv62lxu" path="res://assets/images/bg/bg_title_screen.png" id="2_xkaxa"]
+[ext_resource type="Texture2D" uid="uid://qfpd4nnc6vqc" path="res://assets/images/buttons/button_start.png" id="3_b3t8g"]
+[ext_resource type="Texture2D" uid="uid://b2ngj7egmejki" path="res://assets/images/buttons/button_quit.png" id="4_7v5jn"]
+[ext_resource type="Texture2D" uid="uid://bh5uk2nnnjygy" path="res://assets/images/ui/ui_logo.png" id="5_3agv4"]
+[ext_resource type="AudioStream" uid="uid://dylji6fhqu6rk" path="res://assets/sounds/bgm/bgm_menu.ogg" id="6_yegqs"]
+[ext_resource type="AudioStream" uid="uid://c0syjwmtpen8x" path="res://assets/sounds/sfx/sfx_button_pressed.ogg" id="7_cs5ya"]
+[ext_resource type="Texture2D" uid="uid://2uh2bsphit4r" path="res://assets/images/ui/ui_title.png" id="8_fmbml"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_mykxm"]
+random_pitch = 1.122462
+streams_count = 1
+stream_0/stream = ExtResource("7_cs5ya")
+
+[node name="MenuPrincipal" type="Control" unique_id=725306042 node_paths=PackedStringArray("sfx_button_pressed", "StartButton", "QuitButton")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0u665")
+tween_intensity = 1.1
+tween_duration = 0.08
+sfx_button_pressed = NodePath("sfx_button_pressed")
+StartButton = NodePath("VBoxContainer/StartButton")
+QuitButton = NodePath("VBoxContainer/QuitButton")
+
+[node name="background" type="TextureRect" parent="." unique_id=463167330]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_xkaxa")
+metadata/_edit_group_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=2065034261]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -248.99994
+offset_top = -585.0
+offset_right = 461.0
+offset_bottom = -171.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.7, 0.7)
+theme_override_constants/separation = 30
+metadata/_edit_group_ = true
+
+[node name="StartButton" type="Button" parent="VBoxContainer" unique_id=104200530]
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_default_cursor_shape = 2
+icon = ExtResource("3_b3t8g")
+flat = true
+
+[node name="QuitButton" type="Button" parent="VBoxContainer" unique_id=861584615]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+icon = ExtResource("4_7v5jn")
+flat = true
+
+[node name="Logo" type="TextureRect" parent="." unique_id=1846252050]
+layout_mode = 1
+offset_left = 9.0
+offset_top = 11.0
+offset_right = 173.01953
+offset_bottom = 162.0
+texture = ExtResource("5_3agv4")
+expand_mode = 1
+
+[node name="bgm_main_menu" type="AudioStreamPlayer2D" parent="." unique_id=2050804421]
+stream = ExtResource("6_yegqs")
+autoplay = true
+
+[node name="sfx_button_pressed" type="AudioStreamPlayer2D" parent="." unique_id=682097371]
+stream = SubResource("AudioStreamRandomizer_mykxm")
+volume_db = 10.0
+
+[node name="Timer" type="Timer" parent="." unique_id=575787160]
+
+[node name="gametitle" type="TextureRect" parent="." unique_id=817959799]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -441.87463
+offset_top = 59.0
+offset_right = 441.87463
+offset_bottom = 441.0
+grow_horizontal = 2
+texture = ExtResource("8_fmbml")
+expand_mode = 1
+metadata/_edit_group_ = true
+
+[connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

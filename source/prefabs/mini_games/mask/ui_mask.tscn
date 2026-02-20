@@ -1,0 +1,119 @@
+[gd_scene format=3 uid="uid://cnqc8qbojnx3j"]
+
+[ext_resource type="Script" uid="uid://cjqjrjfg7ut7j" path="res://scripts/operators/ui/ui_mask.gd" id="1_tfx06"]
+[ext_resource type="Texture2D" uid="uid://dc8y2nu0hs5i8" path="res://assets/images/ui/mask/ui_blue_close.png" id="2_y3kc1"]
+[ext_resource type="Texture2D" uid="uid://dqrya6m7x5xff" path="res://assets/images/ui/mask/ui_blue_open.png" id="3_uy7cs"]
+[ext_resource type="Texture2D" uid="uid://b1iobuoothudq" path="res://assets/images/ui/mask/ui_green_close.png" id="4_gup06"]
+[ext_resource type="Texture2D" uid="uid://fisafk27k3h1" path="res://assets/images/ui/mask/ui_green_open.png" id="5_3qxwu"]
+[ext_resource type="Texture2D" uid="uid://w6xgecd2830n" path="res://assets/images/ui/mask/ui_yellow_close.png" id="6_4gno7"]
+[ext_resource type="Texture2D" uid="uid://crn5iym1av4ja" path="res://assets/images/ui/mask/ui_yellow_open.png" id="7_adhpr"]
+[ext_resource type="Texture2D" uid="uid://du7k10njvih25" path="res://assets/images/ui/mask/ui_red_close.png" id="8_fghbp"]
+[ext_resource type="Texture2D" uid="uid://5a7xnraiaex8" path="res://assets/images/ui/mask/ui_red_open.png" id="9_ynwl3"]
+[ext_resource type="Texture2D" uid="uid://4hi5im64rxru" path="res://assets/images/ui/mask/ui_violet_close.png" id="10_2uqyy"]
+[ext_resource type="Texture2D" uid="uid://bj1ysgddyuf53" path="res://assets/images/ui/mask/ui_violet_open.png" id="11_bv5lc"]
+[ext_resource type="Texture2D" uid="uid://dcls3bh0p68uw" path="res://assets/images/ui/mask/ui_pink_closed.png" id="12_q8861"]
+[ext_resource type="Texture2D" uid="uid://bamf4eulufm36" path="res://assets/images/ui/mask/ui_pink_open.png" id="13_n6jdl"]
+[ext_resource type="Texture2D" uid="uid://qupblu4j4i8x" path="res://assets/images/ui/mask/ui_client_need.png" id="14_3rukg"]
+
+[node name="MaskMenu" type="Control" unique_id=387545059 node_paths=PackedStringArray("mask_needed_node")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_tfx06")
+mask_needed_node = NodePath("TextBubble/MaskNeeded")
+
+[node name="MaskContainer" type="GridContainer" parent="." unique_id=916576450]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -393.0
+offset_top = -260.0
+offset_right = -50.109863
+offset_bottom = 260.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_constants/h_separation = 30
+theme_override_constants/v_separation = 15
+columns = 2
+
+[node name="Blue" type="TextureButton" parent="MaskContainer" unique_id=883821798]
+layout_mode = 2
+toggle_mode = true
+texture_normal = ExtResource("2_y3kc1")
+texture_pressed = ExtResource("3_uy7cs")
+stretch_mode = 5
+
+[node name="Green" type="TextureButton" parent="MaskContainer" unique_id=952121536]
+layout_mode = 2
+toggle_mode = true
+texture_normal = ExtResource("4_gup06")
+texture_pressed = ExtResource("5_3qxwu")
+stretch_mode = 5
+
+[node name="Yellow" type="TextureButton" parent="MaskContainer" unique_id=1255782804]
+layout_mode = 2
+toggle_mode = true
+texture_normal = ExtResource("6_4gno7")
+texture_pressed = ExtResource("7_adhpr")
+stretch_mode = 5
+flip_h = true
+
+[node name="Red" type="TextureButton" parent="MaskContainer" unique_id=1936310964]
+layout_mode = 2
+toggle_mode = true
+texture_normal = ExtResource("8_fghbp")
+texture_pressed = ExtResource("9_ynwl3")
+stretch_mode = 5
+flip_h = true
+
+[node name="Violet" type="TextureButton" parent="MaskContainer" unique_id=191518963]
+layout_mode = 2
+toggle_mode = true
+texture_normal = ExtResource("10_2uqyy")
+texture_pressed = ExtResource("11_bv5lc")
+stretch_mode = 5
+
+[node name="Pink" type="TextureButton" parent="MaskContainer" unique_id=1052717687]
+layout_mode = 2
+toggle_mode = true
+texture_normal = ExtResource("12_q8861")
+texture_pressed = ExtResource("13_n6jdl")
+stretch_mode = 5
+
+[node name="TextBubble" type="TextureRect" parent="." unique_id=1311108570]
+layout_mode = 1
+offset_left = 30.0
+offset_top = 60.0
+offset_right = 605.0
+offset_bottom = 532.0
+texture = ExtResource("14_3rukg")
+flip_h = true
+
+[node name="MaskNeeded" type="TextureRect" parent="TextBubble" unique_id=553682350]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -149.43588
+offset_top = -177.0
+offset_right = 174.0
+offset_bottom = 141.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_4gno7")
+stretch_mode = 5
+
+[connection signal="pressed" from="MaskContainer/Blue" to="." method="_on_blue_pressed"]
+[connection signal="pressed" from="MaskContainer/Green" to="." method="_on_green_pressed"]
+[connection signal="pressed" from="MaskContainer/Yellow" to="." method="_on_yellow_pressed"]
+[connection signal="pressed" from="MaskContainer/Red" to="." method="_on_red_pressed"]
+[connection signal="pressed" from="MaskContainer/Violet" to="." method="_on_violet_pressed"]
+[connection signal="pressed" from="MaskContainer/Pink" to="." method="_on_pink_pressed"]
