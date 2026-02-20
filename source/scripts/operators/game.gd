@@ -4,9 +4,9 @@ enum states { START, MASK, CUCUMBER, FINISH }
 var state_machine : states
 
 const CLIENTS_RESOURCES : Array[Resource] = [preload("uid://cxk8ta827oaiv"), 
-	preload("uid://dqn3khjuqij28"), 
-	preload("uid://dbo0pscce31q6"), 
-	preload("uid://dru53ao5tir82"), 
+	preload("uid://dqn3khjuqij28"),
+	preload("uid://dbo0pscce31q6"),
+	preload("uid://dru53ao5tir82"),
 	preload("uid://cctal0vvttmxc"),
 	preload("uid://8bykminh816k")]
 
@@ -21,10 +21,9 @@ var rng = RandomNumberGenerator.new()
 
 var actual_client : Node
 
-@export var mask_menu_node : Node
-@export var massage_menu_node : Node
-
-@onready var main_menu : Control = $UIGame
+@onready var ui_mask : Control = $UIMask
+@onready var ui_massage : Control = $UIMassage
+@onready var ui_game : Control = $UIGame
 @onready var music_player : AudioStreamPlayer = $AudioStreamPlayer
 
 var color_names : Array[String] = ["blue", "green", "yellow", "red", "violet", "pink"] 
@@ -58,7 +57,7 @@ func _process(_delta: float) -> void:
 			_end_cucumber_mini_game()
 			_on_client_win() # doesn't have any state after cucumber
 		states.FINISH:
-			main_menu.stop_patience()
+			ui_game.stop_patience()
 			if actual_client == null:
 				is_there_client = false
 
@@ -77,12 +76,12 @@ func _despawn_client() -> void:
 func _start_mask_mini_game() -> void:
 	state_machine = states.MASK
 	actual_client.start_mask()
-	mask_menu_node.set_mask_needed(MaskColorAssets.mask_color.values().pick_random())
-	mask_menu_node.visible = true
-	main_menu.start_patience()
+	ui_mask.set_mask_needed(MaskColorAssets.mask_color.values().pick_random())
+	ui_mask.visible = true
+	ui_game.start_patience()
 
 func _end_mask_mini_game() -> void:
-	mask_menu_node.visible = false
+	ui_mask.visible = false
 
 func _start_cucumber_mini_game() -> void:
 	state_machine = states.CUCUMBER

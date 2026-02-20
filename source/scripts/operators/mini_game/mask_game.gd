@@ -3,12 +3,13 @@ extends Node2D
 
 @export var pourcentage_needed: float
 @export var mask_texture: Texture2D
-@export var paint_needed : Color
 
 @onready var sfx_mask: AudioStreamPlayer2D = $"SfxMask"
 @onready var paint_area: PaintArea = %PaintArea
 
-func set_mask_needed(new_color_needed: Color) -> void:
+var paint_needed : Color
+
+func set_paint_needed(new_color_needed: Color) -> void:
 	paint_needed = new_color_needed
 
 func _ready() -> void:
