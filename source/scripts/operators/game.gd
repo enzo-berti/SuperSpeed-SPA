@@ -29,7 +29,6 @@ var actual_client : Node
 var color_names : Array[String] = ["blue", "green", "yellow", "red", "violet", "pink"] 
 
 ###### BUILT-IN FUNCTIONS ######
-
 func _ready() -> void:
 	music_player.stream = MUSIC_1
 	music_player.play()
@@ -44,12 +43,7 @@ func _process(_delta: float) -> void:
 			if !actual_client.in_animation:
 				_start_mask_mini_game()
 		states.MASK:
-			if !actual_client.get_node("Mask").has_finished_painting():
-				return
-			
-			_end_mask_mini_game()
-			GameManager.score += 30
-			_start_cucumber_mini_game()
+			pass
 		states.CUCUMBER:
 			if !actual_client.get_node("CucumberGame").is_finished():
 				return
@@ -67,6 +61,7 @@ func spawn_client() -> void:
 	actual_client = client.instantiate()
 	actual_client.position = spawn_pos
 	add_child(actual_client)
+	actual_client.mask.mask_game_finished.connect(_on_mask_game_finished)
 	is_there_client = true
 
 func _despawn_client() -> void:
@@ -80,15 +75,17 @@ func _start_mask_mini_game() -> void:
 	ui_mask.visible = true
 	ui_game.start_patience()
 
-func _end_mask_mini_game() -> void:
-	ui_mask.visible = false
-
 func _start_cucumber_mini_game() -> void:
 	state_machine = states.CUCUMBER
 	actual_client.start_cucumber()
 
 func _end_cucumber_mini_game() -> void:
 	pass
+
+func _on_mask_game_finished():
+	ui_mask.visible = false
+	GameManager.score += 30
+	_start_cucumber_mini_game()
 
 func _on_client_win() -> void:
 	GameManager.win_clients += 1
@@ -115,6 +112,6 @@ func _on_client_win() -> void:
 			music_player.play()
 
 func _on_main_menu_patience_timeout() -> void:
-	_end_mask_mini_game()
+	ui_mask.visible = false
 	_end_cucumber_mini_game()
 	_despawn_client()

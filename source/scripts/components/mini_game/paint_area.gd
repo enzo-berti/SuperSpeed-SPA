@@ -49,7 +49,7 @@ func calcul_color_pourcentage(color_target: Color) -> float:
 		for x in range(0, texture_size.x):
 			if color_target == _image.get_pixel(x, y):
 				score += 1
-			
+	
 	return score / (texture_size.x * texture_size.y)
 
 func defineTextureMask(maskTexture: Texture2D) -> void:

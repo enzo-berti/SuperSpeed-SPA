@@ -4,16 +4,16 @@ extends Control
 @export var tween_duration: float
 
 @export var sfx_button_pressed: AudioStreamPlayer2D
-@export var StartButton: Button
-@export var QuitButton: Button
+@export var start_button: Button
+@export var quit_button: Button
 
 func _ready() -> void:
 	GameManager.score = 0
 	GameManager.health = 3
 
 func _process(_delta: float) -> void:
-	btn_hovered(StartButton)
-	btn_hovered(QuitButton)
+	btn_hovered(start_button)
+	btn_hovered(quit_button)
 
 func start_tween(object: Object, property: String, final_val: Variant, duration: float):
 	var tween = create_tween()

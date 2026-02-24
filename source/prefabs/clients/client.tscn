@@ -18,7 +18,6 @@ stream_0/stream = ExtResource("6_0duou")
 script = ExtResource("1_1wbty")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=847792521]
-position = Vector2(44, 597)
 sprite_frames = SubResource("SpriteFrames_yrb5a")
 
 [node name="AngryTimer" type="Timer" parent="." unique_id=34356966]

@@ -1,7 +1,7 @@
 extends Node2D
 
 @onready var mask: MaskGame = %Mask
-@onready var cucumber: Node2D = %CucumberGame
+@onready var cucumber: CucumberGame = %CucumberGame
 @onready var move_to: MoveTo = %MoveTo
 
 @onready var game_pos: Vector2 = get_node("../GamePoint").position
