@@ -7,10 +7,10 @@ const CLIENTS_RESOURCES : Array[Resource] = [preload("uid://cxk8ta827oaiv"),
 	preload("uid://cctal0vvttmxc"),
 	preload("uid://8bykminh816k")]
 
-const MUSIC_1 = preload("uid://dewnpj677wctp")
-const MUSIC_2 = preload("uid://cmy75ds3bux8y")
-const MUSIC_3 = preload("uid://c1cvdcmvskhm1")
-const MUSIC_4 = preload("uid://bjteqinkxqmed")
+const MUSIC_1: Resource = preload("uid://dewnpj677wctp")
+const MUSIC_2: Resource = preload("uid://cmy75ds3bux8y")
+const MUSIC_3: Resource = preload("uid://c1cvdcmvskhm1")
+const MUSIC_4: Resource = preload("uid://bjteqinkxqmed")
 
 var is_there_client : bool = false
 @onready var spawn_pos : Vector2 = $SpawnPoint.position
