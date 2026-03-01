@@ -1,7 +1,7 @@
 extends Node2D
 
-@onready var mask: MaskGame = %Mask
-@onready var cucumber: Node2D = %CucumberGame
+@onready var mask: MaskGame = %MaskGame
+@onready var cucumber: CucumberGame = %CucumberGame
 @onready var move_to: MoveTo = %MoveTo
 
 @onready var game_pos: Vector2 = get_node("../GamePoint").position
@@ -16,6 +16,8 @@ var is_angry: bool = false
 @onready var sfx_happy: AudioStreamPlayer2D = $SFXHappy
 @onready var sfx_angry: AudioStreamPlayer2D = $SFXAngry
 
+signal finished_game(game_name: String)
+
 func _ready() -> void:
 	move_to.start(game_pos, MoveTo.Method.OUT)
 	sfx_new_client.play()
@@ -23,6 +25,13 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if move_to.state == MoveTo.State.MOVING:
 		position = move_to.process_movement(delta)
+
+func _on_mask_game_finished() -> void:
+	finished_game.emit("mask")
+	start_cucumber()
+
+func _on_cucumber_game_finished() -> void:
+	finished_game.emit("cucumber")
 
 func _on_timer_timeout() -> void:
 	is_angry = false
@@ -68,3 +77,5 @@ func _on_move_to_ended() -> void:
 		return
 	
 	idle()
+	start_mask()
+	finished_game.emit("spawn")

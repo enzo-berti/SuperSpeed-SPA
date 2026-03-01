@@ -7,7 +7,9 @@ extends Node2D
 @onready var sfx_mask: AudioStreamPlayer2D = $"SfxMask"
 @onready var paint_area: PaintArea = %PaintArea
 
-var paint_needed : Color
+var paint_needed: Color
+
+signal finished()
 
 func set_paint_needed(new_color_needed: Color) -> void:
 	paint_needed = new_color_needed
@@ -15,18 +17,19 @@ func set_paint_needed(new_color_needed: Color) -> void:
 func _ready() -> void:
 	paint_area.defineTextureMask(mask_texture)
 
-func has_finished_painting() -> bool:
+func _has_finished_painting() -> bool:
 	return paint_area.calcul_color_pourcentage(paint_needed) >= pourcentage_needed
 
-func _end_mask_mini_game() -> void:
+func _end_mask_game() -> void:
 	paint_area.can_paint = false
+	finished.emit()
 
 func _on_paint_area_press_brush() -> void:
 	if paint_needed != paint_area.brush_color:
 		$"..".angry()
 
-	if has_finished_painting():
-		_end_mask_mini_game()
+	if _has_finished_painting():
+		_end_mask_game()
 	
 	if !sfx_mask.playing:
 		sfx_mask.play()

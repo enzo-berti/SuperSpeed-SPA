@@ -1,79 +1,75 @@
 extends Node2D
 
-#Nodes
-@onready var eye_pos : Vector2 = position
-@onready var cucumber_pos : Vector2 = $PathFollow2D.position
-@onready var path_follow : PathFollow2D = $PathFollow2D
-@onready var sprite : Sprite2D = $"../Sprite2D"
-@onready var sfx_cucumber: AudioStreamPlayer2D = $"../sfx_cucumber"
+@onready var path_follow_2d: PathFollow2D = %PathFollow2D
+@onready var sprite: Sprite2D = %Sprite2D
+@onready var sfx_cucumber: AudioStreamPlayer2D = %SFX
+@onready var circle_distance_limit: Body2D = %DistanceLimit
+@onready var circle_distance_deadzone: Body2D = %DeadZone
 
-@onready var debug_score_distance_limit : CollisionShape2D = $PathFollow2D/DebugScoreDistanceLimit
-@onready var debug_score_distance_deadzone : CollisionShape2D = $PathFollow2D/DebugScoreDistanceDeadzone
-@onready var debug_state : Label = $"../DebugState"
+@onready var target_pos: Vector2 = global_position
 
-#State machine
-var states : Array[String] = ["move","clicked", "stopped"]
-var state_machine : String = states[0]
+@export var speed: float = 1.0
+@export var score_max: int = 25
 
-#Cucumber movement
-var x : float = 0
-@export var speed : float = 1.0
-var direction_reversed : bool = false
-
-#Score variables
-@onready var score_distance_limit : float = debug_score_distance_limit.shape.radius
-@onready var score_distance_dead_zone : float = debug_score_distance_deadzone.shape.radius
-@export var score_max : int = 25
+enum states
+{
+	MOVE,
+	CLICKED,
+	STOPPED
+}
+var state_machine: states = states.MOVE
+var progress: float = 0
+var direction_reversed: bool = false
 
 signal cucumber_stopped(target_misses : bool)
 
-
 ###### BUILT-IN FUNCTIONS ######
-
-
 func _process(delta: float) -> void:
-	cucumber_pos = $PathFollow2D.position
-	
-	#Cucumber movement
 	match state_machine:
-		"move":
+		states.MOVE:
 			_slide(delta)
 			if Input.is_action_just_pressed("MOUSE_BUTTON_LEFT"):
-				state_machine = states[1]
+				state_machine = states.CLICKED
 				_score()
-		"clicked":
+		states.CLICKED:
 			if Input.is_action_just_released("MOUSE_BUTTON_LEFT"):
-				state_machine = states[2]
-		"stopped":
-			queue_free()
-		
-	debug_state.text = state_machine
-
+				state_machine = states.STOPPED
+		states.STOPPED:
+			pass
 
 ###### CUSTOM FUNCTIONS ######
-
 func _slide(delta: float) -> void:
 	if not direction_reversed:
-		x += delta * speed
+		progress += delta * speed
 	elif direction_reversed:
-		x -= delta * speed
+		progress -= delta * speed
 	
-	if x > 1:
-		x = 1
+	if progress >= 1:
+		progress = 1
 		direction_reversed = true
-	if x < 0:
-		x = 0
+	if progress <= 0:
+		progress = 0
 		direction_reversed = false
 	
-	path_follow.progress_ratio = Ease.InOutSine(x)
-	sprite.position = cucumber_pos
+	path_follow_2d.progress_ratio = Ease.InOutSine(progress)
+	sprite.position = path_follow_2d.position
 
 func _score() -> void:
-	var score : int = int(score_max * (1 - clamp(cucumber_pos.distance_to(eye_pos) - score_distance_dead_zone, 0.0, score_distance_limit) / score_distance_limit))
+	var score_dist_limit: float = circle_distance_limit.shape.radius
+	var score_dist_dead_zone: float = 1.0 - (circle_distance_deadzone.shape.radius / score_dist_limit)
+	
+	var dist: float = sprite.global_position.distance_to(target_pos)
+	var dist_pourcentage: float = 1.0 - (dist / score_dist_limit)
+	
+	dist_pourcentage = max(0.0, dist_pourcentage)
+	if (dist_pourcentage >= score_dist_dead_zone):
+		dist_pourcentage = 1.0
+	
+	var score: int = int(dist_pourcentage * score_max)
 	GameManager.score += score
 	sfx_cucumber.play()
 	
-	if score == 0:
+	if score <= 0:
 		cucumber_stopped.emit(true)
-	if score > 0:
+	elif score > 0:
 		cucumber_stopped.emit(false)

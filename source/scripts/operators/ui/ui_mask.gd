@@ -11,8 +11,11 @@ extends Control
 
 var last_button_pressed: TextureButton = null
 
-func _get_paint_node() -> Node:
-	return get_node("../Client/Mask/PaintArea")
+func _get_mask_game() -> MaskGame:
+	return get_node("../Client/MaskGame/")
+
+func _get_paint_area() -> PaintArea:
+	return _get_mask_game().paint_area
 
 func reset_buttons() -> void:
 	blue.set_pressed(false)
@@ -27,19 +30,19 @@ func _on_mask_button_pressed(button_mask: TextureButton, color: MaskColorAssets.
 	if (!button_mask):
 		return
 	elif (last_button_pressed == button_mask):
-		_get_paint_node().change_mask_color(-1)
+		_get_paint_area().change_mask_color(-1)
 		reset_buttons()
 		last_button_pressed = null
 	elif (last_button_pressed != button_mask):
 		reset_buttons()
-		_get_paint_node().change_mask_color(color)
+		_get_paint_area().change_mask_color(color)
 		last_button_pressed = button_mask
 		button_mask.button_pressed = true
 
 func set_mask_needed(color: MaskColorAssets.mask_color) -> void:
 	reset_buttons()
 	mask_needed_node.texture = MaskColorAssets.get_mask_texture(color)
-	get_node("../Client/Mask").set_paint_needed(MaskColorAssets.get_mask_color(color))
+	_get_mask_game().set_paint_needed(MaskColorAssets.get_mask_color(color))
 
 func _on_blue_pressed() -> void:
 	_on_mask_button_pressed(blue, MaskColorAssets.mask_color.BLUE)

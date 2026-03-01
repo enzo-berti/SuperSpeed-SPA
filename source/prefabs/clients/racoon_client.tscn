@@ -69,11 +69,11 @@ position = Vector2(88, -66)
 [node name="Mask" parent="." index="4" unique_id=1945729470]
 mask_texture = ExtResource("2_khrbo")
 
-[node name="SFXNeutral" parent="." index="7" unique_id=1921924930]
+[node name="SFXNeutral" parent="." index="8" unique_id=1921924930]
 stream = SubResource("AudioStreamRandomizer_khrbo")
 
-[node name="SFXHappy" parent="." index="8" unique_id=2109691644]
+[node name="SFXHappy" parent="." index="9" unique_id=2109691644]
 stream = SubResource("AudioStreamRandomizer_3vfp5")
 
-[node name="SFXAngry" parent="." index="9" unique_id=92775139]
+[node name="SFXAngry" parent="." index="10" unique_id=92775139]
 stream = SubResource("AudioStreamRandomizer_d1vbd")
