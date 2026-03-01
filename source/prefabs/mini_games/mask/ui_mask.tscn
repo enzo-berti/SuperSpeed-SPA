@@ -110,6 +110,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("6_4gno7")
 stretch_mode = 5
+flip_h = true
 
 [connection signal="pressed" from="MaskContainer/Blue" to="." method="_on_blue_pressed"]
 [connection signal="pressed" from="MaskContainer/Green" to="." method="_on_green_pressed"]
