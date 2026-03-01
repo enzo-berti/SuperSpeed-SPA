@@ -9,7 +9,7 @@ extends Node2D
 
 var paint_needed: Color
 
-signal mask_game_finished()
+signal finished()
 
 func set_paint_needed(new_color_needed: Color) -> void:
 	paint_needed = new_color_needed
@@ -22,7 +22,7 @@ func _has_finished_painting() -> bool:
 
 func _end_mask_game() -> void:
 	paint_area.can_paint = false
-	mask_game_finished.emit()
+	finished.emit()
 
 func _on_paint_area_press_brush() -> void:
 	if paint_needed != paint_area.brush_color:

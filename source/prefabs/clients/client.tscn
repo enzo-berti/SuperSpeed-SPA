@@ -24,7 +24,7 @@ sprite_frames = SubResource("SpriteFrames_yrb5a")
 wait_time = 2.0
 one_shot = true
 
-[node name="Mask" parent="." unique_id=1945729470 instance=ExtResource("3_t73wa")]
+[node name="MaskGame" parent="." unique_id=1945729470 instance=ExtResource("3_t73wa")]
 unique_name_in_owner = true
 process_mode = 4
 mask_texture = ExtResource("4_yrb5a")
@@ -47,5 +47,7 @@ stream = SubResource("AudioStreamRandomizer_0duou")
 [node name="SFXAngry" type="AudioStreamPlayer2D" parent="." unique_id=92775139]
 
 [connection signal="timeout" from="AngryTimer" to="." method="_on_timer_timeout"]
+[connection signal="finished" from="MaskGame" to="." method="_on_mask_game_finished"]
+[connection signal="finished" from="CucumberGame" to="." method="_on_cucumber_game_finished"]
 [connection signal="ended" from="MoveTo" to="." method="_on_move_to_ended"]
 [connection signal="started" from="MoveTo" to="." method="_on_move_to_started"]

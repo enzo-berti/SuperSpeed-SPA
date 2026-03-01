@@ -6,7 +6,8 @@ extends Node2D
 const CUCUMBER_RESOURCE: Resource = preload("uid://bjar0nsv8motn")
 
 var eye_turn: int = 0
-var finish: bool = false
+
+signal finished
 
 func _ready() -> void:
 	eyes.append_array(get_tree().get_nodes_in_group("eyes"))
@@ -27,7 +28,4 @@ func _on_cucumber_stopped(target_missed) -> void:
 		eye_turn += 1
 		spawn_cucumber()
 	else:
-		finish = true
-
-func is_finished() -> bool:
-	return finish
+		finished.emit()
