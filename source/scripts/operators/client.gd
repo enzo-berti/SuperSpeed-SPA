@@ -14,7 +14,7 @@ var is_angry: bool = false
 @onready var sfx_new_client: AudioStreamPlayer2D = $SFXNewClient
 @onready var sfx_neutral: AudioStreamPlayer2D = $SFXNeutral
 @onready var sfx_happy: AudioStreamPlayer2D = $SFXHappy
-@onready var sfx_angry: AudioStreamPlayer2D = $SFXAngr
+@onready var sfx_angry: AudioStreamPlayer2D = $SFXAngry
 
 signal finished_game(game_name: String)
 
