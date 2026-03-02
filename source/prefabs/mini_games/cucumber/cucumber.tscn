@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://bjar0nsv8motn"]
+
+[ext_resource type="Script" uid="uid://c62l6piri76xm" path="res://scripts/components/mini_game/cucumber.gd" id="1_5yc3b"]
+[ext_resource type="Texture2D" uid="uid://lwo4x5glwx8b" path="res://assets/images/sprites/sprite_cucumber.png" id="1_tkkmq"]
+[ext_resource type="AudioStream" uid="uid://cuqoka6un5vri" path="res://assets/sounds/sfx/sfx_cucumber.ogg" id="3_gyq2i"]
+[ext_resource type="Script" uid="uid://drwvlf0yscv1c" path="res://scripts/components/shape_2d.gd" id="4_3m4df"]
+
+[sub_resource type="Curve2D" id="Curve2D_8fqau"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, -200, 0, 0, 0, 0, 0, 200)
+}
+point_count = 2
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kfby2"]
+radius = 90.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3m4df"]
+radius = 20.0
+
+[node name="Cucumber" type="Node2D" unique_id=479024315]
+script = ExtResource("1_5yc3b")
+speed = 2.2
+
+[node name="Path2D" type="Path2D" parent="." unique_id=2031570401]
+curve = SubResource("Curve2D_8fqau")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D" unique_id=161715659]
+unique_name_in_owner = true
+position = Vector2(0, -200)
+rotation = 1.5707964
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=909540587]
+unique_name_in_owner = true
+position = Vector2(0, -200)
+rotation = 1.5707964
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_tkkmq")
+
+[node name="DistanceLimit" type="Node2D" parent="Sprite2D" unique_id=1564252792]
+unique_name_in_owner = true
+scale = Vector2(10, 10)
+script = ExtResource("4_3m4df")
+shape = SubResource("CircleShape2D_kfby2")
+debug_color = Color(0.43137255, 0.6117647, 1, 0.627451)
+metadata/_custom_type_script = "uid://drwvlf0yscv1c"
+
+[node name="DeadZone" type="Node2D" parent="Sprite2D" unique_id=200088592]
+unique_name_in_owner = true
+scale = Vector2(10, 10)
+script = ExtResource("4_3m4df")
+shape = SubResource("CircleShape2D_3m4df")
+debug_color = Color(1, 0, 0, 0.33333334)
+
+[node name="SFX" type="AudioStreamPlayer2D" parent="." unique_id=401384641]
+unique_name_in_owner = true
+stream = ExtResource("3_gyq2i")

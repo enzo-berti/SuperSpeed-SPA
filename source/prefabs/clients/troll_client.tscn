@@ -1,0 +1,79 @@
+[gd_scene format=3 uid="uid://cctal0vvttmxc"]
+
+[ext_resource type="PackedScene" uid="uid://bqhqafb6hohi8" path="res://prefabs/clients/client.tscn" id="1_c2dqf"]
+[ext_resource type="Texture2D" uid="uid://bmtrbkxj5b46m" path="res://assets/images/sprites/troll/mask_troll.png" id="2_dbb20"]
+[ext_resource type="Texture2D" uid="uid://u8ohonfdn67n" path="res://assets/images/sprites/troll/sprite_troll_angry.png" id="2_nxibn"]
+[ext_resource type="PackedScene" uid="uid://dmbth1got02m5" path="res://prefabs/mini_games/cucumber/eye.tscn" id="3_2e254"]
+[ext_resource type="Texture2D" uid="uid://ycjstcew0q65" path="res://assets/images/sprites/troll/sprite_troll_content.png" id="3_dbb20"]
+[ext_resource type="Texture2D" uid="uid://c8h2sglns4t6b" path="res://assets/images/sprites/troll/sprite_troll.png" id="4_gtf3o"]
+[ext_resource type="AudioStream" uid="uid://cmlhwxsyojdou" path="res://assets/sounds/vx/troll/vx_troll_neutral.ogg" id="7_gtf3o"]
+[ext_resource type="AudioStream" uid="uid://cpyov435cq545" path="res://assets/sounds/vx/troll/vx_troll_happy.ogg" id="8_2x714"]
+[ext_resource type="AudioStream" uid="uid://dnvkb6kdu4mdb" path="res://assets/sounds/vx/troll/vx_troll_angry.ogg" id="9_r253t"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lo8sx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_nxibn")
+}],
+"loop": true,
+"name": &"angry",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_dbb20")
+}],
+"loop": true,
+"name": &"happy",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_gtf3o")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_dbb20"]
+random_pitch = 1.122462
+streams_count = 1
+stream_0/stream = ExtResource("7_gtf3o")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_gtf3o"]
+random_pitch = 1.122462
+streams_count = 1
+stream_0/stream = ExtResource("8_2x714")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_b4f5l"]
+random_pitch = 1.122462
+streams_count = 1
+stream_0/stream = ExtResource("9_r253t")
+
+[node name="Client" unique_id=1249865823 instance=ExtResource("1_c2dqf")]
+
+[node name="AnimatedSprite2D" parent="." index="0" unique_id=847792521]
+position = Vector2(48, 556)
+sprite_frames = SubResource("SpriteFrames_lo8sx")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="Eye" parent="." index="1" unique_id=1328093528 instance=ExtResource("3_2e254")]
+position = Vector2(-104, -81)
+
+[node name="Eye2" parent="." index="2" unique_id=56331803 instance=ExtResource("3_2e254")]
+position = Vector2(112, -82)
+
+[node name="Mask" parent="." index="4" unique_id=1945729470]
+mask_texture = ExtResource("2_dbb20")
+
+[node name="SFXNeutral" parent="." index="8" unique_id=1921924930]
+stream = SubResource("AudioStreamRandomizer_dbb20")
+
+[node name="SFXHappy" parent="." index="9" unique_id=2109691644]
+stream = SubResource("AudioStreamRandomizer_gtf3o")
+
+[node name="SFXAngry" parent="." index="10" unique_id=92775139]
+stream = SubResource("AudioStreamRandomizer_b4f5l")
